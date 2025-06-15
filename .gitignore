@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+diary_logs/
+*.log
+
+# Cache and temporary files
+alert_cache.json
+.cache/
+*.cache
+
+# Data files
+price_history/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Electron / build related
+dist/
+build/
+
+# NPM debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor swap/backup files
+*.swp
+*~
