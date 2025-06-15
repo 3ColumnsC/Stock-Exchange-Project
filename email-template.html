@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alerta de Acción</title>
+  <style>
+    body {
+      background-color: #f4f4f7;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 40px 0;
+      color: #333;
+    }
+    .container {
+      background-color: #ffffff;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+    }
+    .header {
+      background-color: #383e44;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 1px;
+    }
+    .content {
+      padding: 30px;
+      text-align: center;
+    }
+    .content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .highlight-up {
+      color: #27ae60;
+      font-weight: bold;
+    }
+    .highlight-down {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 25px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #2980b9;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>📈 Alerta de Acción: {{TICKER}}</h1>
+    </div>
+    <div class="content">
+      <p>La acción <strong>{{TICKER}}</strong> <span class="{{CLASE}}">{{DIRECCION}}</span> un <span class="{{CLASE}}">{{PORCENTAJE}}%</span>.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alert System - Control Panel</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #1c1c20;
+      color: #eee;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0.5rem 0 1rem;
+      font-size: 2rem;
+      color: #00d9ff;
+      text-align: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+      height: calc(100% - 2rem);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: #00b894;
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      
+    }
+
+    button:hover {
+      background-color: #019174;
+      transform: scale(1.05);
+    }
+
+    button#stopButton {
+      background-color: #d63031;
+    }
+
+    button#stopButton:hover {
+      background-color: #b52a29;
+    }
+
+    label {
+      font-size: 1rem;
+    }
+
+    select {
+      background-color: #2d2d44;
+      color: #eee;
+      border: 1px solid #444;
+      border-radius: 8px;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    #logs {
+      flex-grow: 1;
+      background: #111;
+      color: #0f0;
+      padding: 1rem;
+      padding-right: 2rem;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      border: 1px solid #333;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(194, 219, 194, 0.15);
+      scrollbar-gutter: stable both-edges;
+    }
+
+    button#exitButton {
+      background-color: hwb(254 27% 65%);
+    }
+
+    button#exitButton:hover {
+      background-color: hwb(257 22% 75%);
+    }
+
+    #logs.inactivo {
+      border-color: #494444;
+      box-shadow: 0 0 12px rgba(194, 219, 194, 0.15);
+    }
+
+    #logs.activo {
+      border-color: #4b724b;
+      box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    }
+
+    #logs::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    #logs::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    #logs::-webkit-scrollbar-thumb {
+      background-color: #444;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      background-clip: content-box;
+    }
+
+    #logs {
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Dev Tools: Crtl + Shift + I -->
+
+  <div class="container">
+    <h1>Control Panel</h1>
+
+    <div class="controls">
+      <button id="startButton">Start System</button>
+      <button id="stopButton">Stop System</button>
+      <button id="exitButton">Close App</button>
+    </div>
+
+  <div class="logs-wrapper"></div>
+    <pre id="logs"></pre>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

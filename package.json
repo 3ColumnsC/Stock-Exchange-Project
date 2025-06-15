@@ -1,0 +1,29 @@
+{
+  "name": "stock-exchange-project",
+  "version": "1.2",
+  "description": "Alerts for stock and crypto price changes using email and Discord",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron": "^36.3.2",
+    "express": "^5.1.0",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^3.3.2",
+    "resend": "^4.5.1",
+    "yahoo-finance2": "^2.4.0"
+  },
+  "keywords": [
+    "stocks",
+    "alert",
+    "email",
+    "resend",
+    "cron"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
