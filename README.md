@@ -1,4 +1,4 @@
-## Stock Exchange Project
+## 📊 Stock Exchange Project
 
 This project is a Node.js-based alert system that monitors price changes and news for a custom list of stocks and cryptocurrencies.
 
