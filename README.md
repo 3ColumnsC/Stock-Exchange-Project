@@ -29,10 +29,10 @@ Current Version: 1.3: Control Panel updated, Email Template updated, assets upda
 3. Create a .env file in the project root (see .env.example)
 4. Start the system with `npm start`
 
-## .env required information
+## 📝 .env required information
 
 - RESEND_API_KEY=your_resend_api_key
 - FROM_EMAIL=your_verified_email@domain.com
 - ALERT_EMAIL=recipient_email@domain.com
-- THRESHOLD=5 (Alert percentage)
+- THRESHOLD=5
 - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/your_webhook_id
