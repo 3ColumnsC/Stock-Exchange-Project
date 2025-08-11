@@ -2,7 +2,6 @@ export const STOCKS = [
   { symbol: "AAPL", name: "Apple", type: "stock" },
   { symbol: "MSFT", name: "Microsoft", type: "stock" },
   { symbol: "GOOGL", name: "Alphabet Class A", type: "stock" },
-  { symbol: "GOOG", name: "Alphabet Class C", type: "stock" },
   { symbol: "AMZN", name: "Amazon", type: "stock" },
   { symbol: "META", name: "Meta Platforms", type: "stock" },
   { symbol: "NVDA", name: "NVIDIA", type: "stock" },
@@ -14,20 +13,16 @@ export const STOCKS = [
   { symbol: "ORCL", name: "Oracle", type: "stock" },
   { symbol: "AMD", name: "Advanced Micro Devices", type: "stock" },
   { symbol: "SNOW", name: "Snowflake", type: "stock" },
-  { symbol: "UBER", name: "Uber Technologies", type: "stock" },
-  { symbol: "ZM", name: "Zoom Video Communications", type: "stock" },
   { symbol: "ROKU", name: "Roku", type: "stock" },
   { symbol: "PLTR", name: "Palantir Technologies", type: "stock" },
   { symbol: "DOCU", name: "DocuSign", type: "stock" },
   { symbol: "NET", name: "Cloudflare", type: "stock" },
-  { symbol: "TWLO", name: "Twilio", type: "stock" },
   { symbol: "DDOG", name: "Datadog", type: "stock" },
   { symbol: "JPM", name: "JP Morgan Chase", type: "stock" },
   { symbol: "WFC", name: "Wells Fargo", type: "stock" },
   { symbol: "V", name: "Visa", type: "stock" },
   { symbol: "MA", name: "Mastercard", type: "stock" },
   { symbol: "WMT", name: "Walmart", type: "stock" },
-  { symbol: "NKE", name: "Nike", type: "stock" },
   { symbol: "MCD", name: "McDonald's", type: "stock" },
   { symbol: "SBUX", name: "Starbucks", type: "stock" },
   { symbol: "COIN", name: "Coinbase Global", type: "stock" },
@@ -36,7 +31,6 @@ export const STOCKS = [
   { symbol: "OKTA", name: "Okta", type: "stock" },
   { symbol: "SNAP", name: "Snap Inc.", type: "stock" },
   { symbol: "DOCS", name: "Doximity", type: "stock" },
-  { symbol: "BABA", name: "Alibaba Group", type: "stock" },
   { symbol: "TCEHY", name: "Tencent Holdings (ADR)", type: "stock" },
   { symbol: "NIO", name: "Nio Inc. (ADR)", type: "stock" },
   { symbol: "SAP", name: "SAP SE (ADR)", type: "stock" },
@@ -46,9 +40,7 @@ export const STOCKS = [
   { symbol: "TSM", name: "Taiwan Semiconductor", type: "stock" },
   { symbol: "PYPL", name: "PayPal", type: "stock" },
   { symbol: "SHOP", name: "Shopify", type: "stock" },
-  { symbol: "PINS", name: "Pinterest", type: "stock" },
   { symbol: "XYZ", name: "Block Inc.", type: "stock" },
-  { symbol: "ROST", name: "Ross Stores", type: "stock" },
   { symbol: "BA", name: "Boeing", type: "stock" },
   { symbol: "CAT", name: "Caterpillar", type: "stock" },
   { symbol: "DE", name: "Deere & Co.", type: "stock" },
@@ -61,7 +53,6 @@ export const STOCKS = [
   { symbol: "GS", name: "Goldman Sachs", type: "stock" },
   { symbol: "EA", name: "Electronic Arts", type: "stock" },
   { symbol: "TTWO", name: "Take-Two Interactive", type: "stock" },
-  { symbol: "SONY", name: "Sony Group Corp", type: "stock" },
   { symbol: "IDR.MC", name: "Indra Sistemas (BME)", type: "stock" },
   { symbol: "LCID", name: "Lucid Group", type: "stock" },
   { symbol: "PEP", name: "PepsiCo", type: "stock" },
@@ -81,6 +72,15 @@ export const STOCKS = [
   { symbol: "VERI", name: "Veritone", type: "stock" },
   { symbol: "COIN", name: "Coinbase", type: "stock" },
   { symbol: "VUAA.MI", name: "Vanguard S&P 500 UCITS ETF (Acc)", type: "stock" },
+
+  // Added V1.3
+  { symbol: "NOW",  name: "ServiceNow", type: "stock" },
+  { symbol: "LRCX", name: "Lam Research", type: "stock" },
+  { symbol: "FIG", name: "Figma, Inc.", type: "stock" },
+  { symbol: "FLY", name: "Firefly Aerospace", type: "stock" },
+  { symbol: "CRWV", name: "CoreWeave", type: "stock" },
+  { symbol: "CRCL", name: "Circle Internet Group", type: "stock" },
+  { symbol: "QUBT", name: "Quantum Computing Inc.", type: "stock" },
 ];
 
 export const CRYPTOS = [
@@ -90,14 +90,13 @@ export const CRYPTOS = [
   { symbol: "XRP-USD", name: "Ripple (XRP)", type: "crypto" },
   { symbol: "XMR-USD", name: "Monero", type: "crypto" },
   { symbol: "LTC-USD", name: "Litecoin", type: "crypto" },
-  { symbol: "DOGE-USD", name: "Dogecoin", type: "crypto" },
-  { symbol: "TRUMP-USD", name: "Trump Coin", type: "crypto" },
-  { symbol: "SHIB-USD", name: "Shiba Inu", type: "crypto" },
-  { symbol: "USDC-USD", name: "USD Coin (USDC)", type: "crypto" },
   { symbol: "XLM-USD", name: "Stellar Lumens", type: "crypto" },
   { symbol: "MINA-USD", name: "Mina Protocol", type: "crypto" },
   { symbol: "ZEC-USD", name: "Zcash", type: "crypto" },
   { symbol: "TEER-USD", name: "Integritee (TEER)", type: "crypto" },
+
+  // Added V1.3
+  { symbol: "ENA-USD",  name: "Ethena", type: "crypto" },
 ];
 
 export const ASSETS = [...STOCKS, ...CRYPTOS];
