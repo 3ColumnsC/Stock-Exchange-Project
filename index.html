@@ -3,33 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <title>Alert System - Control Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
+        * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
       height: 100%;
       width: 100%;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #1c1c20;
-      color: #eee;
+      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+      color: #e6e6e6;
+      line-height: 1.6;
     }
 
     body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
+      min-height: 100vh;
     }
 
     h1 {
-      margin: 0.5rem 0 1rem;
-      font-size: 2rem;
-      color: #00d9ff;
+      margin: 0 0 1.5rem;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #4cc9f0;
       text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      letter-spacing: 0.5px;
     }
 
     .container {
@@ -37,42 +43,83 @@
       max-width: 1400px;
       display: flex;
       flex-direction: column;
-      height: calc(100% - 2rem);
+      height: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
     }
 
     .controls {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1rem;
+      gap: 1.2rem;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     button {
-      background-color: #00b894;
-      color: #fff;
+      background: linear-gradient(145deg, #00b4d8, #0096c7);
+      color: white;
       border: none;
-      padding: 0.7rem 1.2rem;
+      padding: 0.8rem 1.8rem;
       font-size: 1rem;
-      font-weight: bold;
-      border-radius: 12px;
+      font-weight: 500;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-      
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      letter-spacing: 0.5px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #0096c7, #00b4d8);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    button:hover::before {
+      opacity: 1;
     }
 
     button:hover {
-      background-color: #019174;
-      transform: scale(1.05);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     button#stopButton {
-      background-color: #d63031;
+      background: linear-gradient(145deg, #ef476f, #ff5c8a);
     }
 
-    button#stopButton:hover {
-      background-color: #b52a29;
+    button#stopButton::before {
+      background: linear-gradient(145deg, #ff5c8a, #ef476f);
+    }
+
+    button#exitButton {
+      background: linear-gradient(145deg, #7209b7, #560bad);
+    }
+
+    button#exitButton::before {
+      background: linear-gradient(145deg, #560bad, #7209b7);
     }
 
     label {
@@ -149,10 +196,17 @@
     <h1>Control Panel</h1>
 
     <div class="controls">
-      <button id="startButton">Start System</button>
-      <button id="stopButton">Stop System</button>
-      <button id="exitButton">Close App</button>
+      <button id="startButton">
+        <span class="button-icon">▶</span> Start System
+      </button>
+      <button id="stopButton">
+        <span class="button-icon">⏹</span> Stop System
+      </button>
+      <button id="exitButton">
+        <span class="button-icon">⏻</span> Close App
+      </button>
     </div>
+
 
   <div class="logs-wrapper"></div>
     <pre id="logs"></pre>
