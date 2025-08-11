@@ -2,74 +2,117 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Alerta de Acción</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerta de Acción - {{TICKER}}</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+    
     body {
-      background-color: #f4f4f7;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      padding: 40px 0;
-      color: #333;
+      background-color: #f8f9fa;
+      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px 0;
+      color: #2c3e50;
+      line-height: 1.6;
     }
+    
     .container {
       background-color: #ffffff;
       max-width: 600px;
       margin: 0 auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
       overflow: hidden;
-      border: 1px solid #e0e0e0;
+      border: 1px solid #e9ecef;
     }
+    
     .header {
-      background-color: #383e44;
-      padding: 20px;
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      padding: 25px 20px;
       text-align: center;
       color: #ffffff;
     }
+    
     .header h1 {
       margin: 0;
       font-size: 24px;
-      letter-spacing: 1px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
     }
+    
     .content {
-      padding: 30px;
+      padding: 35px 30px;
       text-align: center;
     }
-    .content p {
+    
+    .alert-message {
       font-size: 18px;
-      margin-bottom: 20px;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
     }
+    
+    .ticker {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    
     .highlight-up {
       color: #27ae60;
-      font-weight: bold;
+      font-weight: 600;
+      background-color: rgba(39, 174, 96, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
     }
+    
     .highlight-down {
       color: #e74c3c;
-      font-weight: bold;
-    }
-    .button {
+      font-weight: 600;
+      background-color: rgba(231, 76, 60, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 25px;
-      background-color: #3498db;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
     }
-    .button:hover {
-      background-color: #2980b9;
+    
+    .footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #7f8c8d;
+      border-top: 1px solid #e9ecef;
+      margin-top: 2px;
     }
 
+    @media (max-width: 600px) {
+      .content {
+        padding: 25px 15px;
+      }
+      
+      .alert-message {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <h1>📈 Alerta de Acción: {{TICKER}}</h1>
+      <h1>📊 Alerta de Acción: {{TICKER}}</h1>
     </div>
     <div class="content">
-      <p>La acción <strong>{{TICKER}}</strong> <span class="{{CLASE}}">{{DIRECCION}}</span> un <span class="{{CLASE}}">{{PORCENTAJE}}%</span>.</p>
+      <p class="alert-message">
+        La acción <span class="ticker">{{TICKER}}</span> <span class="{{CLASE}}">{{DIRECCION}}</span> un <span class="{{CLASE}}">{{PORCENTAJE}}%</span>.
+      </p>
+    </div>
+    <div class="footer">
+      <p>© 2025 3ColumnsCreations. All rights reserved.</p>
     </div>
   </div>
 </body>
