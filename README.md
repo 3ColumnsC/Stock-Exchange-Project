@@ -4,7 +4,7 @@ This project is a Node.js-based alert system that monitors price changes and new
 
 Current Version: 1.3: Control Panel updated, Email Template updated, assets updated, additional changes. (11/08/2025)
 
-## Old Versions
+## 🛠️ Old Versions
 
  - 1.2: Control Panel updated, log messages improved, assets updated, 24/7 activity enabled, additional changes. (14/06/2025)
  - 1.1: Control Panel added, bugs fixed, assets fast control added, log messages improved, additional changes.
