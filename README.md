@@ -44,9 +44,7 @@ Join here: https://discord.gg/8RE9Fsuty5
 4. Modify the .env.example file in the project, complete it and save it as .env
 5. Start the system with `npm start`
 
-## 📝 .env required information
-
-# Example of a .env file:
+## 📝 .env required information (Example of a .env file)
 
 - RESEND_API_KEY=re_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 - FROM_EMAIL=domain-email@example.com
