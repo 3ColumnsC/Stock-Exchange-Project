@@ -1,6 +1,4 @@
 ## 📊 Stock Exchange Project
-![Version](https://img.shields.io/badge/version-2.0-blue)
-![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-blue)
 
 This project is a Node.js-based alert system that monitors price changes and news for a custom list of stocks and cryptocurrencies.
 
