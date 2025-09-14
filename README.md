@@ -1,4 +1,6 @@
 ## 📊 Stock Exchange Project
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![License](https://img.shields.io/badge/license-CC%20BY--NC%204.0-blue)
 
 This project is a Node.js-based alert system that monitors price changes and news for a custom list of stocks and cryptocurrencies.
 
@@ -44,13 +46,15 @@ Join here: https://discord.gg/8RE9Fsuty5
 4. Modify the .env.example file in the project, complete it and save it as .env
 5. Start the system with `npm start`
 
-## 📝 .env required information (Example of a .env file)
+## 📝 .env required information
 
-- RESEND_API_KEY=re_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-- FROM_EMAIL=domain-email@example.com
-- ALERT_EMAIL=your-personal-email@example.com
-- THRESHOLD=5
-- DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# Example of a .env file:
+
+RESEND_API_KEY=re_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+FROM_EMAIL=domain-email@example.com
+ALERT_EMAIL=your-personal-email@example.com
+THRESHOLD=5
+DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## ⚖️ License
 
