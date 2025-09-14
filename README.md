@@ -48,11 +48,11 @@ Join here: https://discord.gg/8RE9Fsuty5
 
 # Example of a .env file:
 
-RESEND_API_KEY=re_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-FROM_EMAIL=domain-email@example.com
-ALERT_EMAIL=your-personal-email@example.com
-THRESHOLD=5
-DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+- RESEND_API_KEY=re_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+- FROM_EMAIL=domain-email@example.com
+- ALERT_EMAIL=your-personal-email@example.com
+- THRESHOLD=5
+- DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## ⚖️ License
 
