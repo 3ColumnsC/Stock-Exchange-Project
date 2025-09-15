@@ -31,7 +31,7 @@ You can join to our [Discord server](https://discord.gg/8RE9Fsuty5) to get acces
 
 We will also explain how to configure your own Discord bot, how to complete the .env file, and provide an FAQ.
 
-### Quick FAQ
+### 📝 Quick FAQ
 
 **Q: Do I need programming knowledge?**  
 A: Not for using the app. But if you want to customize it, some knowledge of JavaScript/React will help.
@@ -41,6 +41,9 @@ A: You can find instructions in our [Discord server](https://discord.gg/8RE9Fsut
 
 **Q: Does the app keep running if my computer sleeps?**  
 A: No. Please disable sleep mode while running the app.
+
+**Q: How often are alerts checked?**  
+A: Every 5 minutes.
 
 ## 🚀 Quick Start
 
