@@ -1,19 +1,13 @@
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![License](https://img.shields.io/badge/license-CC--BY--NC%204.0-lightgrey)
+![Node.js](https://img.shields.io/badge/node-%3E%3D22.19.0-green)
+![Status](https://img.shields.io/badge/status-in--development-orange)
+
 ## 📊 Stock Exchange Project
 
 This project is a Node.js-based alert system that monitors price changes and news for a custom list of stocks and cryptocurrencies.
 
-Current Version: 2.0:
-
-## 🛠️ Old Versions
-
- - 1.3: Control Panel updated, Email Template updated, assets updated, additional changes. (11/08/2025)
- - 1.2: Control Panel updated, log messages improved, assets updated, 24/7 activity enabled, additional changes. (14/06/2025)
- - 1.1: Control Panel added, bugs fixed, assets fast control added, log messages improved, additional changes.
- - 1.0: Script Control added, additional changes.
- - 0.9: Discord WeebHook messages added, bugs fixed, additional changes.
- - 0.8: GitHub automated control (old repository).
- - 0.7: Preliminary script version ready, GitHub repository added, additional changes.
- - N/A: Previous Versions Not Available.
+Current Version: 2.0: Major UI Update, added more features, language support.
 
 ## 📢 Join Our Discord
 
@@ -34,7 +28,7 @@ Join here: https://discord.gg/8RE9Fsuty5
 ## 🖥️ Requirements
 - Node.js 22.19.0(LTS) or higher
 - Internet connection.
-- Discord account and server.
+- Discord account and Discord server.
 
 ## ⚙️ How to Use
 
@@ -53,6 +47,17 @@ Join here: https://discord.gg/8RE9Fsuty5
 - ALERT_EMAIL=your-personal-email@example.com
 - THRESHOLD=5
 - DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+## 🛠️ Old Versions
+
+ - 1.3: Control Panel updated, Email Template updated, assets updated, additional changes. (11/08/2025)
+ - 1.2: Control Panel updated, log messages improved, assets updated, 24/7 activity enabled, additional changes. (14/06/2025)
+ - 1.1: Control Panel added, bugs fixed, assets fast control added, log messages improved, additional changes.
+ - 1.0: Script Control added, additional changes.
+ - 0.9: Discord WeebHook messages added, bugs fixed, additional changes.
+ - 0.8: GitHub automated control (old repository).
+ - 0.7: Preliminary script version ready, GitHub repository added, additional changes.
+ - N/A: Previous Versions Not Available.
 
 ## ⚖️ License
 
