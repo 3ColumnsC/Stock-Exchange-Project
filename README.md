@@ -1,8 +1,9 @@
-# 📊 Stock & Crypto Price Alert System
+# 📊 Stock Exchange Project
 
+![Version](https://img.shields.io/badge/version-2.0-blue)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.19.0-brightgreen)](https://nodejs.org/)
-[![Discord](https://img.shields.io/discord/your-discord-server-id?color=7289DA&logo=discord&logoColor=white)](https://discord.gg/8RE9Fsuty5)
+![Status](https://img.shields.io/badge/status-in--development-orange)
 
 A powerful Node.js application that monitors stock and cryptocurrency prices in real-time and sends alerts when significant price changes occur. Stay informed about your favorite assets without constantly checking the markets.
 
@@ -17,20 +18,30 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 - ⏰ **24/7 Operation**: Monitors markets around the clock
 - 🛡 **Duplicate Prevention**: Smart alert caching to avoid notification spam
 
+## 📚 Current Version
+
+- **2.0**: Major UI overhaul, performance improvements
+
+## 📢 Join our Discord Server
+
+You can join to our [Discord server](https://discord.gg/8RE9Fsuty5) to get access to notifications (English only - Not 24/7).
+
+We will also explain how to configure your own Discord bot, how to complete the .env file, and provide an FAQ.
+
 ## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 22.19.0 (LTS) or higher
 - npm (comes with Node.js)
 - Internet connection
-- (Optional) Discord account for Discord notifications
+- Discord account and server for Discord notifications
 
 ### Installation
 
-1. **Clone the repository**
+1. **Clone the repository or download it**
    ```bash
-   git clone https://github.com/yourusername/stock-exchange-alert-system.git
-   cd stock-exchange-alert-system
+   git clone https://github.com/3ColumnsC/Stock-Exchange-Project.git
+   cd Stock-Exchange-Project
    ```
 
 2. **Install dependencies**
@@ -100,7 +111,7 @@ Modify the `THRESHOLD` value in your `.env` file to adjust the price change perc
 ```
 ├── src/                    # Source files
 │   ├── hooks/              # Custom React hooks
-│   ├── i18n/               # Internationalization files
+│   ├── i18n/               # Language files
 │   ├── App.jsx             # Main application component
 │   └── ...
 ├── price_history/          # Historical price data
@@ -110,34 +121,18 @@ Modify the `THRESHOLD` value in your `.env` file to adjust the price change perc
 └── ...
 ```
 
-### Available Scripts
-- `npm start` - Start the application
-- `npm test` - Run tests (coming soon)
-- `npm run build` - Build the application for production
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to contribute to this project.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## 📜 License
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license. See the [LICENSE.md](LICENSE.md) file for details.
 
-## 📞 Support & Community
+## 🛠️ Version History
 
-- Join our [Discord Community](https://discord.gg/8RE9Fsuty5) for support and discussions
-- Report bugs and request features in the [Issues](https://github.com/yourusername/stock-exchange-alert-system/issues) section
-
-## 📱 Version History
-
-- **2.0 (Current)** - Major UI overhaul, performance improvements
-- 1.3 - Control Panel updates, Email Template updates, asset updates (11/08/2025)
-- 1.2 - 24/7 monitoring enabled, log improvements (14/06/2025)
-- 1.1 - Added Control Panel, bug fixes
-- 1.0 - Initial public release
+- **Current Version**: 2.0: Major UI overhaul, performance improvements.
+- 1.3: Control Panel updated, Email Template updated, assets updated, additional changes. (11/08/2025)
+- 1.2: Control Panel updated, log messages improved, assets updated, 24/7 activity enabled, additional changes. (14/06/2025)
+- 1.1: Control Panel added, bugs fixed, assets fast control added, log messages improved, additional changes.
+- 1.0: Script Control added, additional changes.
+- 0.9: Discord WeebHook messages added, bugs fixed, additional changes.
+- 0.8: GitHub automated control (old repository).
+- 0.7: Preliminary script version ready, GitHub repository added, additional changes.
+- N/A: Previous Versions Not Available.
