@@ -28,4 +28,4 @@ The full legal text of this license is available at [Creative Commons](https://c
 
 ---
 
-© 2025 3ColumnsCreations. This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+© 2025 3ColumnsCreations. [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
