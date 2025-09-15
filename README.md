@@ -9,7 +9,7 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 
 ## 🌟 Features
 
-- 📈 **Real-time Monitoring**: Track 100+ stocks and cryptocurrencies
+- 📈 **Real-time Monitoring**: Almost 100 stocks and cryptocurrencies
 - 🔔 **Instant Alerts**: Get notified via email and/or Discord when prices change significantly
 - 🎯 **Customizable Thresholds**: Set your own price change percentage for alerts (default: ±5%)
 - 🌍 **Multi-language Support**: 18+ languages available
