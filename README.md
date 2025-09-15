@@ -14,9 +14,12 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 - 🎯 **Customizable Thresholds**: Set your own price change percentage for alerts (default: ±5%)
 - 🌍 **Multi-language Support**: 18+ languages available
 - 🎨 **Themes**: Automatic dark/light mode based on system preferences
-- 📊 **Comprehensive Logging**: Daily logs with detailed price history
 - ⏰ **24/7 Operation**: Monitors markets around the clock
 - 🛡 **Duplicate Prevention**: Smart alert caching to avoid notification spam
+
+### 📝 Important Note:
+
+- Email and Discord notifications are only supported in English.
 
 ## 📚 Current Version
 
@@ -27,6 +30,17 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 You can join to our [Discord server](https://discord.gg/8RE9Fsuty5) to get access to notifications (English only - Not 24/7).
 
 We will also explain how to configure your own Discord bot, how to complete the .env file, and provide an FAQ.
+
+### Quick FAQ
+
+**Q: Do I need programming knowledge?**  
+A: Not for using the app. But if you want to customize it, some knowledge of JavaScript/React will help.
+
+**Q: How to configure my own Discord bot?**  
+A: You can find instructions in our [Discord server](https://discord.gg/8RE9Fsuty5).
+
+**Q: Does the app keep running if my computer sleeps?**  
+A: No. Please disable sleep mode while running the app.
 
 ## 🚀 Quick Start
 
@@ -124,6 +138,12 @@ Modify the `THRESHOLD` value in your `.env` file to adjust the price change perc
 ## 📜 License
 
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license. See the [LICENSE.md](LICENSE.md) file for details.
+
+## ⚠️ Disclaimer
+
+This is a project in continuous development.  
+Errors or unexpected behavior may occur.  
+We are working to improve the visual interface to reduce the need for direct code modifications.
 
 ## 🛠️ Version History
 
