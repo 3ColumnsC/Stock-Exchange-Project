@@ -23,7 +23,13 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 
 ## 📚 Current Version
 
-- **2.0**: Major UI overhaul, performance improvements
+- **2.0 Major Release**
+
+✨ Complete UI overhaul.
+🌍 Multi-language support.
+📊 Current asset price display.
+🌓 Light/Dark theme support.
+🛠️ Bug fixes & stability improvements.
 
 ## 📢 Join our Discord Server
 
@@ -150,7 +156,7 @@ We are working to improve the visual interface to reduce the need for direct cod
 
 ## 🛠️ Version History
 
-- **Current Version**: 2.0: Major UI overhaul, performance improvements.
+- **Current Version**: 2.0: Complete UI overhaul, multi-language support, current asset price display, light/dark theme support, bug fixes & stability improvements.
 - 1.3: Control Panel updated, Email Template updated, assets updated, additional changes. (11/08/2025)
 - 1.2: Control Panel updated, log messages improved, assets updated, 24/7 activity enabled, additional changes. (14/06/2025)
 - 1.1: Control Panel added, bugs fixed, assets fast control added, log messages improved, additional changes.
