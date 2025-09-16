@@ -23,7 +23,7 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 
 ## 📚 Current Version
 
-**2.0 Major Release**
+   **2.0 Major Release**
 
 - ✨ Complete UI overhaul.
 - 🌍 Multi-language support.
