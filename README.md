@@ -19,7 +19,7 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 
 ### 📝 Important Note:
 
-- Email and Discord notifications are only supported in English.
+- Email and Discord notifications are only supported in english.
 
 ## 📚 Current Version
 
