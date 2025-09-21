@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animations for lists and panels */
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(4px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-out-down {
+  0% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(4px); }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 180ms ease-out both;
+}
+
+.animate-fade-out-down {
+  animation: fade-out-down 160ms ease-in both;
+}
+
+/* Soft opacity */
+.fade-soft {
+  transition: opacity 150ms ease, transform 150ms ease;
+}

@@ -1,0 +1,1403 @@
+{
+  "en": {
+    "sections": {
+      "autoMonitoring": {
+        "title": "Automatic monitoring",
+        "content": "The system automatically monitors assets and notifies you immediately when there are price movements."
+      },
+      "startMonitoring": {
+        "title": "Start monitoring",
+        "steps": [
+          "Click the {{startButton}} button.",
+          "Once activated, the app will check prices at 5-minute intervals.",
+          "If an asset moves beyond the configured threshold (default {{threshold}}), an alert will be generated."
+        ]
+      },
+      "stopMonitoring": {
+        "title": "Stop monitoring",
+        "content": "Click {{stopButton}}. While stopped, no automatic alerts will be sent or recorded."
+      },
+      "viewAlerts": {
+        "title": "Where to see alerts",
+        "steps": [
+          "All alerts are logged in the activity log (up to 50,000 entries).",
+          "If you have active integrations (e.g., email or Discord), you will also receive notifications there."
+        ]
+      },
+      "settings": {
+        "title": "Relevant settings",
+        "steps": [
+          "The list of assets to monitor is defined in the assets.js file.",
+          "Check API credentials if you use external services for prices or notifications (Resend, Discord)."
+        ]
+      },
+      "importantNotes": {
+        "title": "Important notes",
+        "steps": [
+          "You need an internet connection for monitoring to work.",
+          "If you close the application, monitoring will automatically stop."
+        ]
+      },
+      "envFile": {
+        "title": ".env File",
+        "steps": [
+          "This file allows you to control email and Discord notifications.",
+          "(Optional) To set up email notifications, you need a Resend account and your own domain (you can get one for free {{resendLink}}).",
+          "(Required) For Discord notifications, you'll need a Discord bot and a text channel. Join this {{discordLink}} to access notifications and a guide on how to create your own bot (English only - Not 24/7).",
+          "(Required) You can configure the alert threshold (THRESHOLD=) (e.g., THRESHOLD=5 - Sends an email/notification when an asset goes up or down more than 5%)."
+        ]
+      },
+      "license": {
+        "title": "Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)",
+        "steps": [
+          "You are free to use, copy, modify, and share this software for personal, educational, or research purposes.",
+          "You may not sell, resell, or use the software for commercial purposes.",
+          "The software is provided \"as is\" without warranty of any kind.",
+          "For more details about the license: {{licenseLink}}"
+        ],
+        "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+      },
+      "thankYou": {
+        "title": "Thank you for trying the software!",
+        "content": "If you have any suggestions or issues, feel free to contact us on Discord or GitHub."
+      }
+    },
+    "navigation": {
+      "tip": "Tip: Use arrow keys (← →) to navigate. Esc to close.",
+      "previous": "Previous",
+      "next": "Next",
+      "prevTitle": "Previous (←)",
+      "nextTitle": "Next (→)",
+      "step": "Step {{current}} of {{total}}"
+    },
+    "contentPending": "Content pending (step {{step}}/4). Use ← → to switch sections.",
+    "defaultHelpMessage": "Content pending (step {{step}}/4). Use ← → to switch sections.",
+    "discordLink": "Discord server",
+    "resendLink": "here",
+    "licenseLink": "Creative Commons BY-NC 4.0"
+  },
+  "es": {
+    "sections": {
+      "autoMonitoring": {
+        "title": "Monitoreo automático",
+        "content": "El sistema vigila automáticamente los activos y te avisa inmediatamente cuando hay movimientos en sus precios."
+      },
+      "startMonitoring": {
+        "title": "Iniciar monitoreo",
+        "steps": [
+          "Pulsa el botón {{startButton}}.",
+          "Una vez activado, la app consultará precios en intervalos de 5 minutos.",
+          "Si un activo sube o baja más del umbral configurado (por defecto {{threshold}}), se generará una alerta."
+        ]
+      },
+      "stopMonitoring": {
+        "title": "Detener monitoreo",
+        "content": "Pulsa {{stopButton}}. Mientras esté detenido no se enviarán ni registrarán alertas automáticas."
+      },
+      "viewAlerts": {
+        "title": "Dónde ver las alertas",
+        "steps": [
+          "Todas las alertas quedan registradas en el registro de actividad (hasta 50,000 registros).",
+          "Si tienes integraciones activas (por ejemplo: correo o Discord), también recibirás notificaciones allí."
+        ]
+      },
+      "settings": {
+        "title": "Ajustes relevantes",
+        "steps": [
+          "La lista de activos a vigilar se encuentra definida en el archivo assets.js",
+          "Comprueba las credenciales/API si usas servicios externos para obtener precios o enviar notificaciones. (Resend, Discord)"
+        ]
+      },
+      "importantNotes": {
+        "title": "Notas importantes",
+        "steps": [
+          "Necesitas conexión a internet para que el monitoreo funcione.",
+          "Si cierras la aplicación, el monitoreo se detiene automáticamente."
+        ]
+      },
+      "envFile": {
+        "title": "Archivo .env",
+        "steps": [
+          "Este archivo te permite controlar las notificaciones por correo y Discord.",
+          "(Opcional) Para configurar las notificaciones por correo, debes tener una cuenta de Resend y un dominio propio (puedes obtener uno gratis {{resendLink}}).",
+          "(Obligatorio) Para configurar las notificaciones por Discord, debes tener un bot de Discord y un canal de texto. Puedes unirte a este {{discordLink}} para tener acceso a las notificaciones y a la explicación de como crear tu propio bot (Solo inglés - No 24/7).",
+          "(Obligatorio) Puedes configurar el umbral de aviso (THRESHOLD=) (ej. THRESHOLD=5 - Cuando un activo sube o baja más del 5% manda correo o notificación)."
+        ]
+      },
+      "license": {
+        "title": "Licencia Creative Commons Atribución-No Comercial 4.0 Internacional (CC BY-NC 4.0)",
+        "steps": [
+          "Se concede permiso gratuito para usar, copiar, modificar y compartir este software con fines personales, educativos o de investigación.",
+          "No está permitido vender, revender ni utilizar el software con fines comerciales.",
+          "El software se proporciona \"tal cual\" sin garantía de ningún tipo.",
+          "Para más detalles sobre la licencia: {{licenseLink}}"
+        ],
+        "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+      },
+      "thankYou": {
+        "title": "¡Muchas gracias por probar el software!",
+        "content": "Si tienes alguna sugerencia o problema, no dudes en contactarnos en Discord o GitHub."
+      }
+    },
+    "navigation": {
+      "tip": "Consejo: Usa las flechas (← →) para navegar. Esc para cerrar.",
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "prevTitle": "Anterior (←)",
+      "nextTitle": "Siguiente (→)",
+      "step": "Paso {{current}} de {{total}}"
+    },
+    "contentPending": "Contenido pendiente (paso {{step}}/4). Usa ← → para cambiar de sección.",
+    "defaultHelpMessage": "Contenido pendiente (paso {{step}}/4). Usa ← → para cambiar de sección.",
+    "discordLink": "servidor de Discord",
+    "resendLink": "aquí",
+    "licenseLink": "Creative Commons BY-NC 4.0"
+  },
+    "de": {
+  "sections": {
+    "autoMonitoring": {
+      "title": "Automatische Überwachung",
+      "content": "Das System überwacht die Assets automatisch und benachrichtigt dich sofort, wenn es Preisbewegungen gibt."
+    },
+    "startMonitoring": {
+      "title": "Überwachung starten",
+      "steps": [
+        "Drücke die Schaltfläche {{startButton}}.",
+        "Sobald aktiviert, ruft die App alle 5 Minuten die Preise ab.",
+        "Wenn ein Asset den festgelegten Schwellenwert überschreitet (Standard {{threshold}}), wird eine Warnung generiert."
+      ]
+    },
+    "stopMonitoring": {
+      "title": "Überwachung stoppen",
+      "content": "Drücke {{stopButton}}. Solange die Überwachung gestoppt ist, werden keine automatischen Warnungen gesendet oder aufgezeichnet."
+    },
+    "viewAlerts": {
+      "title": "Wo man die Warnungen sieht",
+      "steps": [
+        "Alle Warnungen werden im Aktivitätsprotokoll gespeichert (bis zu 50.000 Einträge).",
+        "Wenn du Integrationen aktiviert hast (z. B. E-Mail oder Discord), erhältst du die Benachrichtigungen auch dort."
+      ]
+    },
+    "settings": {
+      "title": "Relevante Einstellungen",
+      "steps": [
+        "Die Liste der zu überwachenden Assets ist in der Datei assets.js definiert.",
+        "Überprüfe die Zugangsdaten/APIs, wenn du externe Dienste zur Preisabfrage oder Benachrichtigung verwendest. (Resend, Discord)"
+      ]
+    },
+    "importantNotes": {
+      "title": "Wichtige Hinweise",
+      "steps": [
+        "Du benötigst eine Internetverbindung, damit die Überwachung funktioniert.",
+        "Wenn du die Anwendung schließt, wird die Überwachung automatisch gestoppt."
+      ]
+    },
+    "envFile": {
+      "title": "Die .env-Datei",
+      "steps": [
+        "Diese Datei ermöglicht die Steuerung von E-Mail- und Discord-Benachrichtigungen.",
+        "(Optional) Für E-Mail-Benachrichtigungen benötigst du einen Resend-Account und eine eigene Domain (kostenlos erhältlich {{resendLink}}).",
+        "(Erforderlich) Für Discord-Benachrichtigungen benötigst du einen Discord-Bot und einen Textkanal. Tritt diesem {{discordLink}} bei, um auf Benachrichtigungen und eine Anleitung zur Erstellung deines eigenen Bots zuzugreifen (Nur auf Englisch - Nicht 24/7).",
+        "(Erforderlich) Du kannst den Warnschwellenwert konfigurieren (THRESHOLD=) (z.B. THRESHOLD=5 - Sendet eine E-Mail/Benachrichtigung, wenn ein Wert um mehr als 5% steigt oder fällt)."
+      ]
+    },
+    "license": {
+      "title": "Creative Commons Namensnennung-Nicht kommerziell 4.0 International (CC BY-NC 4.0) Lizenz",
+      "steps": [
+        "Es wird die kostenlose Erlaubnis erteilt, diese Software für persönliche, Bildungs- oder Forschungszwecke zu nutzen, zu kopieren, zu ändern und zu teilen.",
+        "Der Verkauf, Weiterverkauf oder die kommerzielle Nutzung der Software ist nicht gestattet.",
+        "Die Software wird „wie sie ist“ bereitgestellt, ohne jegliche Garantie.",
+        "Weitere Details zur Lizenz: {{licenseLink}}"
+      ],
+      "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+    },
+    "thankYou": {
+      "title": "Vielen Dank, dass du die Software ausprobierst!",
+      "content": "Wenn du Vorschläge oder Probleme hast, kontaktiere uns gerne über Discord oder GitHub."
+    }
+  },
+  "navigation": {
+    "tip": "Tipp: Verwende die Pfeile (← →), um zu navigieren. Esc zum Schließen.",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "prevTitle": "Zurück (←)",
+    "nextTitle": "Weiter (→)",
+    "step": "Schritt {{current}} von {{total}}"
+  },
+  "contentPending": "Inhalt ausstehend (Schritt {{step}}/4). Verwende ← →, um die Sektion zu wechseln.",
+  "defaultHelpMessage": "Inhalt ausstehend (Schritt {{step}}/4). Verwende ← →, um die Sektion zu wechseln.",
+  "discordLink": "Discord-Server",
+  "resendLink": "hier",
+  "licenseLink": "Creative Commons BY-NC 4.0"
+},
+    "fr": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Surveillance automatique",
+          "content": "Le système surveille automatiquement les actifs et vous avertit immédiatement en cas de mouvements de prix."
+        },  
+        "startMonitoring": {
+          "title": "Démarrer la surveillance",
+          "steps": [
+            "Appuyez sur le bouton {{startButton}}.",
+            "Une fois activée, l'application interroge les prix toutes les 5 minutes.",
+            "Si un actif dépasse le seuil configuré (par défaut {{threshold}}), une alerte est générée."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Arrêter la surveillance",
+          "content": "Appuyez sur {{stopButton}}. Tant que la surveillance est arrêtée, aucune alerte automatique ne sera envoyée ni enregistrée."
+        },
+        "viewAlerts": {
+          "title": "Où consulter les alertes",
+          "steps": [
+            "Toutes les alertes sont consignées dans le journal d'activité (jusqu'à 50 000 entrées).",
+            "Si vous avez des intégrations activées (par ex. : e-mail ou Discord), vous recevrez aussi les notifications sur ces services."
+          ]
+        },
+        "settings": {
+          "title": "Paramètres pertinents",
+          "steps": [
+            "La liste des actifs surveillés est définie dans le fichier assets.js.",
+            "Vérifiez vos identifiants/APIs si vous utilisez des services externes pour récupérer les prix ou envoyer des notifications. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Notes importantes",
+          "steps": [
+            "Vous avez besoin d'une connexion Internet pour que la surveillance fonctionne.",
+            "Si vous fermez l'application, la surveillance s'arrête automatiquement."
+          ]
+        },
+        "envFile": {
+          "title": "Le fichier .env",
+          "steps": [
+          "Ce fichier vous permet de contrôler les notifications par e-mail et Discord.",
+          "(Optionnel) Pour configurer les notifications par e-mail, vous avez besoin d'un compte Resend et de votre propre domaine (vous pouvez en obtenir un gratuitement {{resendLink}}).",
+          "(Obligatoire) Pour les notifications Discord, vous aurez besoin d'un bot Discord et d'un salon textuel. Rejoignez ce {{discordLink}} pour accéder aux notifications et à un guide sur la création de votre propre bot (Uniquement en anglais - Pas 24/7).",
+          "(Obligatoire) Vous pouvez configurer le seuil d'alerte (THRESHOLD=) (par exemple, THRESHOLD=5 - Envoie un e-mail/une notification lorsqu'un actif monte ou descend de plus de 5%)."
+          ]
+        },
+        "license": {
+          "title": "Licence Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)",
+          "steps": [
+            "La permission gratuite est accordée d'utiliser, copier, modifier et partager ce logiciel à des fins personnelles, éducatives ou de recherche.",
+            "La vente, la revente ou l'utilisation commerciale du logiciel n'est pas autorisée.",
+            "Le logiciel est fourni \"tel quel\" sans aucune garantie.",
+            "Pour plus de détails sur la licence : {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Merci d'avoir essayé le logiciel !",
+          "content": "Si vous avez des suggestions ou un problème, n'hésitez pas à nous contacter via Discord ou GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "Conseil : utilisez les flèches (← →) pour naviguer. Échap pour fermer.",
+        "previous": "Précédent",
+        "next": "Suivant",
+        "prevTitle": "Précédent (←)",
+        "nextTitle": "Suivant (→)",
+        "step": "Étape {{current}} sur {{total}}"
+      },
+      "contentPending": "Contenu en attente (étape {{step}}/4). Utilisez ← → pour changer de section.",
+      "defaultHelpMessage": "Contenu en attente (étape {{step}}/4). Utilisez ← → pour changer de section.",
+      "discordLink": "Serveur Discord",
+      "resendLink": "ici",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "pt": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Monitoramento automático",
+          "content": "O sistema monitora automaticamente os ativos e avisa você imediatamente quando há movimentações de preço."
+        },
+        "startMonitoring": {
+          "title": "Iniciar monitoramento",
+          "steps": [
+            "Pressione o botão {{startButton}}.",
+            "Uma vez ativado, o app consultará os preços em intervalos de 5 minutos.",
+            "Se um ativo ultrapassar o limite configurado (por padrão {{threshold}}), será gerado um alerta."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Parar monitoramento",
+          "content": "Pressione {{stopButton}}. Enquanto o monitoramento estiver parado, não serão enviadas nem registradas alertas automáticas."
+        },
+        "viewAlerts": {
+          "title": "Onde ver os alertas",
+          "steps": [
+            "Todos os alertas ficam registrados no registro de atividades (até 50.000 entradas).",
+            "Se você tiver integrações ativas (por exemplo: e-mail ou Discord), também receberá notificações por lá."
+          ]
+        },
+        "settings": {
+          "title": "Configurações relevantes",
+          "steps": [
+            "A lista de ativos a serem monitorados está definida no arquivo assets.js.",
+            "Verifique as credenciais/APIs se usar serviços externos para obter preços ou enviar notificações. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Notas importantes",
+          "steps": [
+            "Você precisa de conexão à Internet para que o monitoramento funcione.",
+            "Se fechar o aplicativo, o monitoramento será interrompido automaticamente."
+          ]
+        },
+        "envFile": {
+          "title": "O ficheiro .env",
+          "steps": [
+          "Este arquivo permite controlar notificações por e-mail e Discord.",
+          "(Opcional) Para configurar notificações por e-mail, você precisa de uma conta Resend e seu próprio domínio (você pode obter um gratuitamente {{resendLink}}).",
+          "(Obrigatório) Para notificações do Discord, você precisará de um bot do Discord e um canal de texto. Junte-se a este {{discordLink}} para acessar as notificações e um guia sobre como criar seu próprio bot (Apenas em inglês - Não 24/7).",
+          "(Obrigatório) Você pode configurar o limite de alerta (THRESHOLD=) (por exemplo, THRESHOLD=5 - Envia um e-mail/notificação quando um ativo sobe ou desce mais de 5%)."
+          ]
+        },
+        "license": {
+          "title": "Licença Creative Commons Atribuição-NãoComercial 4.0 Internacional (CC BY-NC 4.0)",
+          "steps": [
+            "É concedida permissão gratuita para usar, copiar, modificar e partilhar este software para fins pessoais, educativos ou de pesquisa.",
+            "Não é permitido vender, revender ou usar o software para fins comerciais.",
+            "O software é fornecido \"tal como\" sem qualquer garantia.",
+            "Para mais detalhes sobre a licença: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Obrigado por experimentar o software!",
+          "content": "Se tiveres sugestões ou problemas, contacta-nos pelo Discord ou GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "Dica: usa as setas (← →) para navegar. Esc para fechar.",
+        "previous": "Anterior",
+        "next": "Seguinte",
+        "prevTitle": "Anterior (←)",
+        "nextTitle": "Seguinte (→)",
+        "step": "Passo {{current}} de {{total}}"
+      },
+      "contentPending": "Conteúdo pendente (passo {{step}}/4). Usa ← → para mudar de secção.",
+      "defaultHelpMessage": "Conteúdo pendente (passo {{step}}/4). Usa ← → para mudar de secção.",
+      "discordLink": "Servidor Discord",
+      "resendLink": "aqui",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "it": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Monitoraggio automatico",
+          "content": "Il sistema monitora automaticamente gli asset e ti avvisa immediatamente quando ci sono variazioni di prezzo."
+        },
+        "startMonitoring": {
+          "title": "Avvia monitoraggio",
+          "steps": [
+            "Premi il pulsante {{startButton}}.",
+            "Una volta attivato, l'app interrogherà i prezzi ogni 5 minuti.",
+            "Se un asset supera la soglia configurata (predefinita {{threshold}}), verrà generato un avviso."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Ferma monitoraggio",
+          "content": "Premi {{stopButton}}. Finché il monitoraggio è fermo, non verranno inviate né registrate allerte automatiche."
+        },
+        "viewAlerts": {
+          "title": "Dove vedere gli avvisi",
+          "steps": [
+            "Tutti gli avvisi sono registrati nel registro attività (fino a 50.000 voci).",
+            "Se hai integrazioni attive (es.: email o Discord), riceverai anche le notifiche lì."
+          ]
+        },
+        "settings": {
+          "title": "Impostazioni rilevanti",
+          "steps": [
+            "La lista degli asset da monitorare è definita nel file assets.js.",
+            "Controlla le credenziali/API se utilizzi servizi esterni per ottenere i prezzi o inviare notifiche. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Note importanti",
+          "steps": [
+            "È necessaria una connessione Internet perché il monitoraggio funzioni.",
+            "Se chiudi l'app, il monitoraggio si interrompe automaticamente."
+          ]
+        },
+        "envFile": {
+          "title": "File .env",
+          "steps": [
+          "Questo file ti permette di controllare le notifiche via email e Discord.",
+          "(Opzionale) Per configurare le notifiche email, hai bisogno di un account Resend e del tuo dominio personale (puoi ottenerne uno gratuitamente {{resendLink}}).",
+          "(Obbligatorio) Per le notifiche di Discord, avrai bisogno di un bot Discord e di un canale testuale. Unisciti a questo {{discordLink}} per accedere alle notifiche e a una guida su come creare il tuo bot (Solo in inglese - Non 24/7).",
+          "(Obbligatorio) Puoi configurare la soglia di allerta (THRESHOLD=) (es. THRESHOLD=5 - Invia un'email/notifica quando un asset sale o scende di oltre il 5%)."
+          ]
+        },
+        "license": {
+          "title": "Licenza Creative Commons Attribuzione-Non Commerciale 4.0 Internazionale (CC BY-NC 4.0)",
+          "steps": [
+            "Si concede il permesso gratuito di utilizzare, copiare, modificare e condividere questo software per scopi personali, educativi o di ricerca.",
+            "Non è permessa la vendita, la revente o l'uso commerciale del software.",
+            "Il software è fornito \"così com'è\" senza alcuna garanzia.",
+            "Per maggiori dettagli sulla licenza: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Grazie per aver provato il software!",
+          "content": "Se hai suggerimenti o problemi, contattaci su Discord o GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "Suggerimento: usa le frecce (← →) per navigare. Esc per chiudere.",
+        "previous": "Precedente",
+        "next": "Successivo",
+        "prevTitle": "Precedente (←)",
+        "nextTitle": "Successivo (→)",
+        "step": "Passo {{current}} di {{total}}"
+      },
+      "contentPending": "Contenuto in sospeso (passo {{step}}/4). Usa ← → per cambiare sezione.",
+      "defaultHelpMessage": "Contenuto in sospeso (passo {{step}}/4). Usa ← → per cambiare sezione.",
+      "discordLink": "Server Discord",
+      "resendLink": "qui",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "sv": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Automatisk övervakning",
+          "content": "Systemet övervakar tillgångarna automatiskt och meddelar dig direkt när det sker prisrörelser."
+        },
+        "startMonitoring": {
+          "title": "Starta övervakning",
+          "steps": [
+            "Tryck på knappen {{startButton}}.",
+            "När aktivert, hämtar appen priser var 5:e minut.",
+            "Om en tillgång rör sig över den konfigurerade tröskeln (standard {{threshold}}), genereras en varning."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Stoppa övervakning",
+          "content": "Tryck på {{stopButton}}. Så lenge övervakningen är stoppad, skickas eller loggas inga automatiska varningar."
+        },
+        "viewAlerts": {
+          "title": "Var du ser varningar",
+          "steps": [
+            "Alla varningar loggas i aktivitetsloggen (upp till 50 000 poster).",
+            "Om du har aktiva integrationer (t.ex.: e-post eller Discord), får du även notiser där."
+          ]
+        },
+        "settings": {
+          "title": "Relevanta inställningar",
+          "steps": [
+            "Listan över tillgångar som bevakas är definierad i filen assets.js.",
+            "Kontrollera dina inloggningsuppgifter/API:er om du använder externa tjänster för prisdata eller notifieringar. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Viktiga anmärkningar",
+          "steps": [
+            "Du behöver internetuppkoppling för att övervakningen ska fungera.",
+            "Om du stänger applikationen stoppas övervakningen automatiskt."
+          ]
+        },
+        "envFile": {
+          "title": ".env-filen",
+          "steps": [
+          "Denna fil låter dig kontrollera e-post- och Discord-meddelanden.",
+          "(Valfritt) För att konfigurera e-postmeddelanden behöver du ett Resend-konto och din egen domän (du kan skaffa en gratis {{resendLink}}).",
+          "(Obligatoriskt) För Discord-meddelanden behöver du en Discord-bot och en textkanal. Gå med i denna {{discordLink}} för att komma åt meddelanden och en guide om hur du skapar din egen bot (Endast på engelska - Inte 24/7).",
+          "(Obligatoriskt) Du kan konfigurera tröskelvärdesvarningen (THRESHOLD=) (t.ex. THRESHOLD=5 - Skickar ett e-postmeddelande/meddelande när en tillgång stiger eller sjunker med mer än 5%)."
+          ]
+        },
+        "license": {
+          "title": "Creative Commons Erkännande- Icke kommersiell 4.0 Internationell (CC BY-NC 4.0)",
+          "steps": [
+            "Fri tillåtelse ges att använda, kopiera, ändra och dela denna programvara för personliga, utbildnings- eller forskningsändamål.",
+            "Försäljning, videresalg eller kommersiell användning av programvaran är inte tillåten.",
+            "Programvaran levereras \"i befintligt skick\" utan någon garanti.",
+            "För mer information om licensen: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Tack för att du provar programvaran!",
+          "content": "Om du har förslag eller problem, kontakta oss gärna via Discord eller GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "Tips: använd pilarna (← →) för att navigera. Esc för att stänga.",
+        "previous": "Föregående",
+        "next": "Nästa",
+        "prevTitle": "Föregående (←)",
+        "nextTitle": "Nästa (→)",
+        "step": "Steg {{current}} av {{total}}"
+      },
+      "contentPending": "Innehåll saknas (steg {{step}}/4). Använd ← → för att byta avsnitt.",
+      "defaultHelpMessage": "Innehåll saknas (steg {{step}}/4). Använd ← → för att byta avsnitt.",
+      "discordLink": "Discord-server",
+      "resendLink": "här",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "nl": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Automatisch monitoren",
+          "content": "Het systeem bewaakt automatisch de assets en waarschuwt je direct bij prijsbewegingen."
+        },
+        "startMonitoring": {
+          "title": "Start monitoren",
+          "steps": [
+            "Druk op de knop {{startButton}}.",
+            "Zodra ingeschakeld, controleert de app de prijzen elke 5 minuten.",
+            "Als een asset de ingestelde drempel overschrijdt (standaard {{threshold}}), wordt een waarschuwing gegenereerd."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Stop monitoren",
+          "content": "Druk op {{stopButton}}. Zolang het monitoren is gestopt worden er geen automatische waarschuwingen verzonden of geregistreerd."
+        },
+        "viewAlerts": {
+          "title": "Waar je de waarschuwingen ziet",
+          "steps": [
+            "Alle waarschuwingen worden vastgelegd in het activiteitenlogboek (tot 50.000 items).",
+            "Als je integraties actief hebt (bijv.: e-mail of Discord), ontvang je ook daar meldingen."
+          ]
+        },
+        "settings": {
+          "title": "Relevante instellingen",
+          "steps": [
+            "De lijst met te monitoren assets is gedefinieerd in het bestand assets.js.",
+            "Controleer je credentials/API's als je externe diensten gebruikt voor prijsopvraging of meldingen. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Belangrijke opmerkingen",
+          "steps": [
+            "Je hebt internetverbinding nodig zodat het monitoren werkt.",
+            "Als je de applicatie sluit, stopt het monitoren automatisch."
+          ]
+        },
+        "envFile": {
+          "title": "Het .env-bestand",
+          "steps": [
+          "Dit bestand maakt het mogelijk om e-mail- en Discord-meldingen te beheren.",
+          "(Optioneel) Voor e-mailmeldingen heb je een Resend-account en een eigen domein nodig (je kunt er een gratis krijgen via {{resendLink}}).",
+          "(Verplicht) Voor Discord-meldingen heb je een Discord-bot en een tekstkanaal nodig. Word lid van deze {{discordLink}} om toegang te krijgen tot meldingen en een handleiding voor het aanmaken van je eigen bot (Alleen in het Engels - Niet 24/7).",
+          "(Verplicht) Je kunt de drempelwaarde voor meldingen instellen (THRESHOLD=) (bijv. THRESHOLD=5 - Verstuurt een e-mail/melding wanneer een activum met meer dan 5% stijgt of daalt)."
+          ]
+        },
+        "license": {
+          "title": "Creative Commons Naamsvermelding-NietCommercieel 4.0 Internationaal (CC BY-NC 4.0)",
+          "steps": [
+            "Gratis toestemming wordt verleend om deze software te gebruiken, kopiëren, wijzigen en delen voor persoonlijke, educatieve of onderzoeksdoeleinden.",
+            "Verkoop, doorverkoop of commercieel gebruik van de software is niet toegestaan.",
+            "De software wordt geleverd \"zoals het is\" zonder enige garantie.",
+            "Voor meer details over de licentie: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Bedankt dat je de software uitprobeert!",
+          "content": "Als je suggesties of problemen hebt, neem gerust contact met ons op via Discord of GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "Tip: gebruik de pijlen (← →) om te navigeren. Esc om te sluiten.",
+        "previous": "Vorige",
+        "next": "Volgende",
+        "prevTitle": "Vorige (←)",
+        "nextTitle": "Volgende (→)",
+        "step": "Stap {{current}} van {{total}}"
+      },
+      "contentPending": "Inhoud in behandeling (stap {{step}}/4). Gebruik ← → om sectie te wisselen.",
+      "defaultHelpMessage": "Inhoud in behandeling (stap {{step}}/4). Gebruik ← → om sectie te wisselen.",
+      "discordLink": "Discord-server",
+      "resendLink": "hier",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "no": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Automatisk overvåking",
+          "content": "Systemet overvåker eiendelene automatisk og varsler deg umiddelbart ved prisbevegelser."
+        },
+        "startMonitoring": {
+          "title": "Start overvåking",
+          "steps": [
+            "Trykk på knappen {{startButton}}.",
+            "Når aktivert, henter appen priser hvert 5. minutt.",
+            "Hvis en eiendel overskrider den konfigurerte terskelen (standard {{threshold}}), genereres et varsel."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Stopp overvåking",
+          "content": "Trykk på {{stopButton}}. Så lenge overvåkingen er stoppet, vil ingen automatiske varsler bli sendt eller logget."
+        },
+        "viewAlerts": {
+          "title": "Hvor du ser varslene",
+          "steps": [
+            "Alle varsler logges i aktivitetsloggen (opptil 50 000 oppføringer).",
+            "Hvis du har aktive integrasjoner (f.eks.: e-post eller Discord), vil du også motta varsler der."
+          ]
+        },
+        "settings": {
+          "title": "Relevante innstillinger",
+          "steps": [
+            "Listen over eiendeler som overvåkes er definert i filen assets.js.",
+            "Sjekk legitimasjonene/API-ene dine hvis du bruker eksterne tjenester for prisinnhenting eller varsling. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Viktige merknader",
+          "steps": [
+            "Du trenger internettforbindelse for at overvåkingen skal fungere.",
+            "Hvis du lukker applikasjonen, stoppes overvåkingen automatisk."
+          ]
+        },
+        "envFile": {
+          "title": ".env-filen",
+          "steps": [
+          "Denne filen lar deg kontrollere varsler via e-post og Discord.",
+          "(Valgfritt) For å konfigurere e-postvarsler trenger du en Resend-konto og et eget domene (du kan få ett gratis {{resendLink}}).",
+          "(Påkrevd) For Discord-varsler trenger du en Discord-bot og en tekstkanal. Bli med i denne {{discordLink}} for å få tilgang til varsler og en veiledning for å opprette din egen bot (Bare på engelsk - Ikke 24/7).",
+          "(Påkrevd) Du kan konfigurere terskelen for varsling (THRESHOLD=) (f.eks. THRESHOLD=5 - Sender en e-post/varsel når en eiendel stiger eller synker med mer enn 5%)."
+          ]
+        },
+        "license": {
+          "title": "Creative Commons Navngivelse-Ikkekommersiell 4.0 Internasjonal (CC BY-NC 4.0)",
+          "steps": [
+            "Gratis tillatelse gis til å bruke, kopiere, endre og dele denne programvaren for personlige, utdannings- eller forskningsformål.",
+            "Salg, videresalg eller kommersiell bruk av programvaren er ikke tillatt.",
+            "Programvaren leveres \"som den er\" uten noen garantier.",
+            "For flere detaljer om lisensen: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Takk for at du tester programvaren!",
+          "content": "Hvis du har noen forslag eller problemer, kontakt oss gjerne via Discord eller GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "Tips: bruk pilene (← →) for å navigere. Esc for å lukke.",
+        "previous": "Forrige",
+        "next": "Neste",
+        "prevTitle": "Forrige (←)",
+        "nextTitle": "Neste (→)",
+        "step": "Trinn {{current}} av {{total}}"
+      },
+      "contentPending": "Innhold venter (trinn {{step}}/4). Bruk ← → for å bytte seksjon.",
+      "defaultHelpMessage": "Innhold venter (trinn {{step}}/4). Bruk ← → for å bytte seksjon.",
+      "discordLink": "Discord-server",
+      "resendLink": "her",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "fi": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Automaattinen valvonta",
+          "content": "Järjestelmä valvoo omaisuuksia automaattisesti ja ilmoittaa sinulle välittömästi, kun hinnassa tapahtuu muutoksia."
+        },
+        "startMonitoring": {
+          "title": "Aloita seuranta",
+          "steps": [
+            "Paina painiketta {{startButton}}.",
+            "Kun aktivoitu, sovellus tarkistaa hinnat 5 minuutin välein.",
+            "Jos omaisuus ylittää määritetyn kynnyksen (oletus {{threshold}}), hälytys luodaan."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Lopeta seuranta",
+          "content": "Paina {{stopButton}}. Kun seuranta on pysäytetty, automaattisia hälytyksiä ei lähetetä eikä tallenneta."
+        },
+        "viewAlerts": {
+          "title": "Missä nähdä hälytykset",
+          "steps": [
+            "Kaikki hälytykset tallennetaan toimintalokiin (enintään 50 000 merkintää).",
+            "Jos sinulla on integroidut palvelut käytössä (esim.: sähköposti tai Discord), saat myös ilmoitukset sinne."
+          ]
+        },
+        "settings": {
+          "title": "Merkittävät asetukset",
+          "steps": [
+            "Seurattavien omaisuuksien lista on määritelty assets.js-tiedostossa.",
+            "Tarkista tunnistetietosi/API:t, jos käytät ulkoisia palveluja hintatietojen hakemiseen tai ilmoitusten lähettämiseen. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Tärkeitä huomioita",
+          "steps": [
+            "Tarvitset internet-yhteyden, jotta seuranta toimii.",
+            "Jos suljet sovelluksen, seuranta pysähtyy automaattisesti."
+          ]
+        },
+        "envFile": {
+          "title": ".env-tiedosto",
+          "steps": [
+          "Tämän tiedoston avulla voit hallita sähköposti- ja Discord-ilmoituksia.",
+          "(Valinnainen) Sähköposti-ilmoitusten määrittämiseen tarvitset Resend-tilin ja oman verkkotunnuksen (voit saada ilmaisen {{resendLink}}).",
+          "(Pakollinen) Discord-ilmoituksia varten tarvitset Discord-botin ja tekstikanavan. Liity tähän {{discordLink}} saadaksesi ilmoitukset ja ohjeet oman botin luomiseen (Vain englanniksi - Ei 24/7).",
+          "(Pakollinen) Voit määrittää hälytysraja-arvon (THRESHOLD=) (esim. THRESHOLD=5 - Lähettää sähköpostin/ilmoituksen, kun omaisuuserän arvo nousee tai laskee yli 5%)."
+          ]
+        },
+        "license": {
+          "title": "Creative Commons Nimeä–Ei kaupalliseen käyttöön 4.0 Kansainvälinen (CC BY-NC 4.0)",
+          "steps": [
+            "Lupa käyttää, kopioida, muokata ja jakaa tätä ohjelmistoa henkilökohtaisiin, koulutuksellisiin tai tutkimustarkoituksiin myönnetään ilmaiseksi.",
+            "Ohjelmiston myynti, jälleenmyynti tai kaupallinen käyttö ei ole sallittua.",
+            "Ohjelmisto toimitetaan \"sellaisena kuin se on\" ilman takuita.",
+            "Lisätietoja lisenssistä: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Kiitos, että kokeilit ohjelmistoa!",
+          "content": "Jos sinulla on ehdotuksia tai ongelmia, ota yhteyttä meihin Discordissa tai GitHubissa."
+        }
+      },
+      "navigation": {
+        "tip": "Vinkki: käytä nuolia (← →) navigointiin. Esc sulkee.",
+        "previous": "Edellinen",
+        "next": "Seuraava",
+        "prevTitle": "Edellinen (←)",
+        "nextTitle": "Seuraava (→)",
+        "step": "Vaihe {{current}} / {{total}}"
+      },
+      "contentPending": "Sisältö odottaa (vaihe {{step}}/4). Käytä ← → vaihtaaksesi osioita.",
+      "defaultHelpMessage": "Sisältö odottaa (vaihe {{step}}/4). Käytä ← → vaihtaaksesi osioita.",
+      "discordLink": "Discord-palvelin",
+      "resendLink": "tästä",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "pl": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Automatyczne monitorowanie",
+          "content": "System automatycznie monitoruje aktywa i natychmiast powiadamia o ruchach cen."
+        },
+        "startMonitoring": {
+          "title": "Rozpocznij monitorowanie",
+          "steps": [
+            "Naciśnij przycisk {{startButton}}.",
+            "Po aktywacji aplikacja sprawdza ceny w odstępach 5 minut.",
+            "Jeśli aktywo przekroczy ustawiony próg (domyślnie {{threshold}}), zostanie wygenerowane powiadomienie."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Zatrzymaj monitorowanie",
+          "content": "Naciśnij {{stopButton}}. Dopóki monitorowanie jest zatrzymane, żadne automatyczne powiadomienia nie będą wysyłane ani rejestrowane."
+        },
+        "viewAlerts": {
+          "title": "Gdzie przeglądać alerty",
+          "steps": [
+            "Wszystkie alerty są zapisywane w dzienniku aktywności (do 50 000 wpisów).",
+            "Jeśli masz aktywne integracje (np.: e-mail lub Discord), otrzymasz też powiadomienia tam."
+          ]
+        },
+        "settings": {
+          "title": "Istotne ustawienia",
+          "steps": [
+            "Lista aktywów do monitorowania jest zdefiniowana w pliku assets.js.",
+            "Sprawdź dane uwierzytelniające/API, jeśli używasz usług zewnętrznych do pobierania cen lub wysyłania powiadomień. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Ważne uwagi",
+          "steps": [
+            "Potrzebne jest połączenie z internetem, aby monitorowanie działało.",
+            "Jeśli zamkniesz aplikację, monitorowanie zostanie automatycznie zatrzymane."
+          ]
+        },
+        "envFile": {
+          "title": "Plik .env",
+          "steps": [
+          "Ten plik umożliwia kontrolowanie powiadomień e-mail i Discord.",
+          "(Opcjonalne) Aby skonfigurować powiadomienia e-mail, potrzebujesz konta Resend i własnej domeny (możesz otrzymać darmową {{resendLink}}).",
+          "(Wymagane) W przypadku powiadomień Discord potrzebujesz bota Discord i kanału tekstowego. Dołącz do tego {{discordLink}}, aby uzyskać dostęp do powiadomień i przewodnika po tworzeniu własnego bota (Tylko w języku angielskim - Nie 24/7).",
+          "(Wymagane) Możesz skonfigurować próg powiadomienia (THRESHOLD=) (np. THRESHOLD=5 - Wysyła e-mail/powiadomienie, gdy zasób wzrośnie lub spadnie o więcej niż 5%)."
+          ]
+        },
+        "license": {
+          "title": "Licencja Creative Commons Uznanie-UżycieNiekomercyjne 4.0 Międzynarodowa (CC BY-NC 4.0)",
+          "steps": [
+            "Bezpłatne pozwolenie na używanie, kopiowanie, modyfikowanie i udostępnianie tego oprogramowania do celów osobistych, edukacyjnych lub badawczych.",
+            "Sprzedaż, odsprzedaż lub komercyjne wykorzystanie oprogramowania są niedozwolone.",
+            "Oprogramowanie jest dostarczane \"tak jak jest\" bez żadnych gwarancji.",
+            "Szczegóły licencji: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Dziękujemy za wypróbowanie oprogramowania!",
+          "content": "Jeśli masz sugestie lub problemy, skontaktuj się z nami na Discordzie lub GitHubie."
+        }
+      },
+      "navigation": {
+        "tip": "Wskazówka: użyj strzałek (← →) aby nawigować. Esc aby zamknąć.",
+        "previous": "Poprzedni",
+        "next": "Następny",
+        "prevTitle": "Poprzedni (←)",
+        "nextTitle": "Następny (→)",
+        "step": "Krok {{current}} z {{total}}"
+      },
+      "contentPending": "Zawartość oczekująca (krok {{step}}/4). Użyj ← → aby zmienić sekcję.",
+      "defaultHelpMessage": "Zawartość oczekująca (krok {{step}}/4). Użyj ← → aby zmienić sekcję.",
+      "discordLink": "Serwer Discord",
+      "resendLink": "tutaj",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "tr": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Otomatik İzleme",
+          "content": "Sistem varlıkları otomatik olarak izler ve fiyat hareketleri olduğunda size hemen bildirim gönderir."
+        },
+        "startMonitoring": {
+          "title": "İzlemeyi Başlat",
+          "steps": [
+            "{{startButton}} düğmesine basın.",
+            "Etkinleştirildiğinde uygulama fiyatları 5 dakikalık aralıklarla sorgulayacaktır.",
+            "Bir varlık yapılandırılmış eşiği aşarsa (varsayılan {{threshold}}), bir uyarı oluşturulur."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "İzlemeyi Durdur",
+          "content": "{{stopButton}} öğesine basın. İzleme durdurulduğu sürece otomatik uyarılar gönderilmez veya kaydedilmez."
+        },
+        "viewAlerts": {
+          "title": "Uyarıları nerede görebilirsiniz",
+          "steps": [
+            "Tüm uyarılar etkinlik kaydında saklanır (50.000 kayda kadar).",
+            "Eğer aktif entegrasyonlarınız varsa (ör. e-posta veya Discord), bildirimleri oradan da alırsınız."
+          ]
+        },
+        "settings": {
+          "title": "İlgili Ayarlar",
+          "steps": [
+            "İzlenecek varlıkların listesi assets.js dosyasında tanımlıdır.",
+            "Fiyat almak veya bildirim göndermek için harici hizmetler kullanıyorsanız kimlik bilgilerinizi/API'lerinizi kontrol edin. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Önemli Notlar",
+          "steps": [
+            "İzlemenin çalışması için internet bağlantısına ihtiyacınız var.",
+            "Uygulamayı kapatırsanız izleme otomatik olarak durur."
+          ]
+        },
+        "envFile": {
+          "title": ".env Dosyası",
+          "steps": [
+            "Bu dosya, e-posta ve Discord bildirimlerini kontrol etmenizi sağlar.",
+            "(İsteğe bağlı) E-posta bildirimlerini ayarlamak için bir Resend hesabına ve kendi alan adınıza ihtiyacınız vardır (ücretsiz bir tane alabilirsiniz {{resendLink}}).",
+            "(Zorunlu) Discord bildirimleri için bir Discord botuna ve bir metin kanalına ihtiyacınız olacaktır. Bildirimlere ve kendi botunuzu oluşturma rehberine erişmek için şu {{discordLink}} adresine katılın (Sadece İngilizce - 7/24 değil).",
+            "(Zorunlu) Bildirim eşiğini yapılandırabilirsiniz (THRESHOLD=) (örn. THRESHOLD=5 - Bir varlık %5'ten fazla yükseldiğinde veya düştüğünde bir e-posta/bildirim gönderir)."
+          ]
+        },
+        "license": {
+          "title": "Creative Commons Atıf-Ticari Olmayan 4.0 Uluslararası (CC BY-NC 4.0) Lisansı",
+          "steps": [
+            "Bu yazılımın kişisel, eğitimsel veya araştırma amaçlı kullanım, kopyalama, değiştirme ve paylaşımı için ücretsiz izin verilir.",
+            "Yazılımın satılması, yeniden satılması veya ticari amaçlı kullanılması yasaktır.",
+            "Yazılım herhangi bir garanti olmadan \"olduğu gibi\" sağlanır.",
+            "Lisans hakkında daha fazla ayrıntı: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Yazılımı denediğiniz için teşekkürler!",
+          "content": "Herhangi bir öneriniz veya sorununuz varsa, Discord veya GitHub üzerinden bize ulaşmaktan çekinmeyin."
+        }
+      },
+      "navigation": {
+        "tip": "İpucu: gezinmek için ok tuşlarını (← →) kullanın. Kapatmak için Esc.",
+        "previous": "Önceki",
+        "next": "Sonraki",
+        "prevTitle": "Önceki (←)",
+        "nextTitle": "Sonraki (→)",
+        "step": "Adım {{current}} / {{total}}"
+      },
+      "contentPending": "İçerik bekleniyor (adım {{step}}/4). Bölüm değiştirmek için ← → kullanın.",
+      "defaultHelpMessage": "İçerik bekleniyor (adım {{step}}/4). Bölüm değiştirmek için ← → kullanın.",
+      "discordLink": "Discord sunucusu",
+      "resendLink": "buradan",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "ru": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "Автоматический мониторинг",
+          "content": "Система автоматически отслеживает активы и немедленно уведомляет вас при движениях цен."
+        },
+        "startMonitoring": {
+          "title": "Запустить мониторинг",
+          "steps": [
+            "Нажмите кнопку {{startButton}}.",
+            "После активации приложение будет запрашивать цены каждые 5 минут.",
+            "Если актив превысит настроенный порог (по умолчанию {{threshold}}), будет сгенерировано уведомление."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "Остановить мониторинг",
+          "content": "Нажмите {{stopButton}}. Пока мониторинг остановлен, автоматические уведомления не будут отправляться или записываться."
+        },
+        "viewAlerts": {
+          "title": "Где просматривать уведомления",
+          "steps": [
+            "Все уведомления сохраняются в журнале активности (до 50 000 записей).",
+            "Если у вас включены интеграции (например: e-mail или Discord), вы также будете получать уведомления там."
+          ]
+        },
+        "settings": {
+          "title": "Важные настройки",
+          "steps": [
+            "Список отслеживаемых активов определён в файле assets.js.",
+            "Проверьте учётные данные/API, если вы используете внешние сервисы для получения цен или отправки уведомлений. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "Важные замечания",
+          "steps": [
+            "Для работы мониторинга требуется подключение к интернету.",
+            "Если вы закроете приложение, мониторинг автоматически остановится."
+          ]
+        },
+        "envFile": {
+          "title": "Файл .env",
+          "steps": [
+            "Этот файл позволяет управлять уведомлениями по электронной почте и в Discord.",
+            "(Опционально) Для настройки уведомлений по электронной почте вам понадобится аккаунт Resend и собственный домен (можно получить бесплатно {{resendLink}}).",
+            "(Обязательно) Для уведомлений в Discord вам понадобится бот Discord и текстовый канал. Присоединяйтесь к этому {{discordLink}}, чтобы получить доступ к уведомлениям и руководству по созданию собственного бота (Только на английском - Не круглосуточно).",
+            "(Обязательно) Вы можете настроить порог уведомлений (THRESHOLD=) (например, THRESHOLD=5 - Отправляет email/уведомление, когда актив растет или падает более чем на 5%)."
+          ]
+        },
+        "license": {
+          "title": "Лицензия Creative Commons «Атрибуция — Некоммерческое использование» 4.0 Международная (CC BY-NC 4.0)",
+          "steps": [
+            "Предоставляется бесплатное разрешение на использование, копирование, изменение и распространение этого ПО в личных, образовательных или исследовательских целях.",
+            "Запрещено продавать, перепродавать или использовать ПО в коммерческих целях.",
+            "ПО предоставляется \"как есть\" без каких-либо гарантий.",
+            "Подробнее о лицензии: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "Спасибо, что попробовали программу!",
+          "content": "Если у вас есть предложения или проблемы, свяжитесь с нами через Discord или GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "Подсказка: используйте стрелки (← →) для навигации. Esc — закрыть.",
+        "previous": "Предыдущий",
+        "next": "Следующий",
+        "prevTitle": "Предыдущий (←)",
+        "nextTitle": "Следующий (→)",
+        "step": "Шаг {{current}} из {{total}}"
+      },
+      "contentPending": "Содержимое ожидает (шаг {{step}}/4). Используйте ← → чтобы сменить секцию.",
+      "defaultHelpMessage": "Содержимое ожидает (шаг {{step}}/4). Используйте ← → чтобы сменить секцию.",
+      "discordLink": "Сервер Discord",
+      "resendLink": "здесь",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "ja": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "自動監視",
+          "content": "システムは資産を自動で監視し、価格に変動があれば即座に通知します。"
+        },
+        "startMonitoring": {
+          "title": "監視を開始",
+          "steps": [
+            "{{startButton}} ボタンを押してください。",
+            "有効化されると、アプリは5分ごとに価格を取得します。",
+            "資産が設定された閾値を超えた場合（デフォルト {{threshold}}）、アラートが生成されます。"
+          ]
+        },
+        "stopMonitoring": {
+          "title": "監視を停止",
+          "content": "{{stopButton}} を押してください。監視が停止している間は、自動アラートは送信・記録されません。"
+        },
+        "viewAlerts": {
+          "title": "アラートの確認場所",
+          "steps": [
+            "すべてのアラートはアクティビティログに記録されます（最大50,000件）。",
+            "統合（例：メールやDiscord）を有効にしている場合は、そちらでも通知を受け取れます。"
+          ]
+        },
+        "settings": {
+          "title": "関連設定",
+          "steps": [
+            "監視対象の資産リストは assets.js ファイルで定義されています。",
+            "価格を取得するために外部サービスを使用する場合は、認証情報/API を確認してください。 (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "重要な注意事項",
+          "steps": [
+            "監視を動作させるにはインターネット接続が必要です。",
+            "アプリを閉じると、監視は自動的に停止します。"
+          ]
+        },
+        "envFile": {
+          "title": ".env ファイル",
+          "steps": [
+            "このファイルでは、メールとDiscordの通知を制御できます。",
+            "(オプション) メール通知を設定するには、Resendアカウントと独自ドメインが必要です（無料で取得できます {{resendLink}}）。",
+            "(必須) Discord通知には、Discordボットとテキストチャンネルが必要です。通知と独自ボットの作成ガイドにアクセスするには、この{{discordLink}}に参加してください（英語のみ - 24時間対応ではありません）。",
+            "(必須) 通知の閾値を設定できます（THRESHOLD=）（例：THRESHOLD=5 - 資産が5％以上変動した場合にメール/通知を送信します）。"
+          ]
+        },
+        "license": {
+          "title": "Creative Commons 表示-非営利 4.0 国際 (CC BY-NC 4.0) ライセンス",
+          "steps": [
+            "個人、教育、研究目的でこのソフトウェアを使用、複製、改変、共有することが無償で許可されます。",
+            "ソフトウェアの販売、再販、商用利用は禁止されています。",
+            "ソフトウェアは一切の保証なしに「現状のまま」提供されます。",
+            "ライセンス詳細: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "ソフトをお試しいただきありがとうございます！",
+          "content": "ご提案や問題がございましたら、Discord または GitHub でお気軽にお問い合わせください。"
+        }
+      },
+      "navigation": {
+        "tip": "ヒント：矢印 (← →) で移動します。Esc で閉じます。",
+        "previous": "前へ",
+        "next": "次へ",
+        "prevTitle": "前へ (←)",
+        "nextTitle": "次へ (→)",
+        "step": "ステップ {{current}} / {{total}}"
+      },
+      "contentPending": "コンテンツ保留中 (ステップ {{step}}/4)。 ← → でセクションを切り替えてください。",
+      "defaultHelpMessage": "コンテンツ保留中 (ステップ {{step}}/4)。 ← → でセクションを切り替えてください。",
+      "discordLink": "Discord サーバー",
+      "resendLink": "こちら",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "zh-CN": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "自动监控",
+          "content": "系统会自动监控资产，当价格出现波动时会立即通知你。"
+        },
+        "startMonitoring": {
+          "title": "开始监控",
+          "steps": [
+            "点击按钮 {{startButton}}。",
+            "启用后，应用将每 5 分钟查询一次价格。",
+            "如果资产超过配置的阈值（默认 {{threshold}}），将生成警报。"
+          ]
+        },
+        "stopMonitoring": {
+          "title": "停止监控",
+          "content": "点击 {{stopButton}}。在监控停止期间，不会发送或记录自动警报。"
+        },
+        "viewAlerts": {
+          "title": "在哪里查看警报",
+          "steps": [
+            "所有警报都会记录在活动日志中（最多 50,000 条）。",
+            "如果你启用了集成（例如：邮件或 Discord），你也会在那些平台收到通知。"
+          ]
+        },
+        "settings": {
+          "title": "相关设置",
+          "steps": [
+            "要监控的资产列表在 assets.js 文件中定义。",
+            "如果使用外部服务获取价格或发送通知，请检查你的凭据/API。 (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "重要说明",
+          "steps": [
+            "监控功能需要网络连接才能工作。",
+            "如果你关闭应用，监控会自动停止。"
+          ]
+        },
+        "envFile": {
+          "title": ".env 文件",
+          "steps": [
+            "此文件可让您控制电子邮件和 Discord 通知。",
+            "(可选) 要设置电子邮件通知，您需要 Resend 账户和您自己的域名（可以免费获取 {{resendLink}}）。",
+            "(必需) Discord 通知需要 Discord 机器人和文本频道。加入此 {{discordLink}} 以接收通知和创建自己的机器人指南（仅限英文 - 非 24/7 全天候）。",
+            "(必需) 您可以配置警报阈值 (THRESHOLD=)（例如，THRESHOLD=5 - 当资产上涨或下跌超过 5% 时发送电子邮件/通知）。"
+          ]
+        },
+        "license": {
+          "title": "知识共享署名-非商业性使用 4.0 国际 (CC BY-NC 4.0) 许可",
+          "steps": [
+            "允许免费使用、复制、修改和分享此软件用于个人、教育或研究目的。",
+            "不允许出售、转售或将软件用于商业目的。",
+            "软件按“原样”提供，不作任何保证。",
+            "有关许可的更多详细信息：{{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "感谢你尝试本软件！",
+          "content": "如果您有任何建议或问题，请随时在 Discord 或 GitHub 上与我们联系。"
+        }
+      },
+      "navigation": {
+        "tip": "提示：使用箭头 (← →) 导航。按 Esc 关闭。",
+        "previous": "上一步",
+        "next": "下一步",
+        "prevTitle": "上一步 (←)",
+        "nextTitle": "下一步 (→)",
+        "step": "步骤 {{current}} / {{total}}"
+      },
+      "contentPending": "内容待定 (步骤 {{step}}/4)。使用 ← → 切换章节。",
+      "defaultHelpMessage": "内容待定 (步骤 {{step}}/4)。使用 ← → 切换章节。",
+      "discordLink": "Discord 服务器",
+      "resendLink": "此处",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "zh-TW": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "自動監控",
+          "content": "系統會自動監控資產，當價格有變動時會立即通知你。"
+        },
+        "startMonitoring": {
+          "title": "開始監控",
+          "steps": [
+            "點擊按鈕 {{startButton}}。",
+            "啟用後，應用程式將每 5 分鐘查詢一次價格。",
+            "如果資產超出設定的閾值（預設 {{threshold}}），將會產生警示。"
+          ]
+        },
+        "stopMonitoring": {
+          "title": "停止監控",
+          "content": "點擊 {{stopButton}}。在監控停止期間，不會發送或記錄自動警示。"
+        },
+        "viewAlerts": {
+          "title": "在哪裡查看警示",
+          "steps": [
+            "所有警示都會記錄在活動日誌中（最多 50,000 筆）。",
+            "如果你啟用了整合（例如：郵件或 Discord），你也會在那些平台收到通知。"
+          ]
+        },
+        "settings": {
+          "title": "相關設定",
+          "steps": [
+            "要監控的資產清單在 assets.js 檔案中定義。",
+            "如果使用外部服務來取得價格或發送通知，請檢查你的憑證/API。 (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "重要說明",
+          "steps": [
+            "監控功能需要網路連線才能運作。",
+            "如果你關閉應用程式，監控會自動停止。"
+          ]
+        },
+        "envFile": {
+          "title": ".env 檔案",
+          "steps": [
+            "此檔案可讓您控制電子郵件和 Discord 通知。",
+            "（選填）要設定電子郵件通知，您需要 Resend 帳戶和您自己的網域（可以免費取得 {{resendLink}}）。",
+            "（必填）Discord 通知需要 Discord 機器人和文字頻道。加入此 {{discordLink}} 以接收通知和建立自己的機器人指南（僅限英文 - 非 24/7 全天候）。",
+            "（必填）您可以設定警報閾值 (THRESHOLD=)（例如，THRESHOLD=5 - 當資產上漲或下跌超過 5% 時傳送電子郵件/通知）。"
+          ]
+        },
+        "license": {
+          "title": "創用 CC 授權-姓名標示-非商業性 4.0 國際 (CC BY-NC 4.0)",
+          "steps": [
+            "允許免費使用、複製、修改與分享此軟體以供個人、教育或研究用途。",
+            "禁止將軟體銷售、轉售或用於商業目的。",
+            "軟體以「現況」提供，不作任何保證。",
+            "有關授權的更多詳情：{{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "感謝你試用本軟體！",
+          "content": "若如果你有任何建議或問題，請隨時在 Discord 或 GitHub 上與我們聯繫。"
+        }
+      },
+      "navigation": {
+        "tip": "提示：使用箭頭 (← →) 來導覽。按 Esc 關閉。",
+        "previous": "上一步",
+        "next": "下一步",
+        "prevTitle": "上一步 (←)",
+        "nextTitle": "下一步 (→)",
+        "step": "步驟 {{current}} / {{total}}"
+      },
+      "contentPending": "內容待定 (步驟 {{step}}/4)。使用 ← → 切換章節。",
+      "defaultHelpMessage": "內容待定 (步驟 {{step}}/4)。使用 ← → 切換章節。",
+      "discordLink": "Discord 伺服器",
+      "resendLink": "此處",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "ko": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "자동 모니터링",
+          "content": "시스템이 자산을 자동으로 감시하며 가격 변동이 있으면 즉시 알림을 보냅니다."
+        },
+        "startMonitoring": {
+          "title": "모니터링 시작",
+          "steps": [
+            "{{startButton}} 버튼을 누르세요.",
+            "활성화되면 앱이 5분 간격으로 가격을 조회합니다.",
+            "자산이 설정된 임계값을 초과하면(기본값 {{threshold}}) 경고가 생성됩니다."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "모니터링 중지",
+          "content": "{{stopButton}}을 누르세요. 모니터링이 중지되어 있는 동안 자동 경고는 전송되거나 기록되지 않습니다."
+        },
+        "viewAlerts": {
+          "title": "경고를 확인하는 곳",
+          "steps": [
+            "모든 경고는 활동 로그에 기록됩니다 (최대 50,000건).",
+            "통합(예: 이메일 또는 Discord)을 활성화한 경우 해당 서비스에서도 알림을 받습니다."
+          ]
+        },
+        "settings": {
+          "title": "관련 설정",
+          "steps": [
+            "모니터링할 자산 목록은 assets.js 파일에 정의되어 있습니다.",
+            "가격을 조회하거나 알림을 보내기 위해 외부 서비스를 사용하는 경우 자격 증명/API를 확인하세요. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "중요 참고사항",
+          "steps": [
+            "모니터링이 작동하려면 인터넷 연결이 필요합니다.",
+            "앱을 닫으면 모니터링이 자동으로 중지됩니다."
+          ]
+        },
+        "envFile": {
+          "title": ".env 파일",
+          "steps": [
+            "이 파일은 이메일 및 Discord 알림을 제어할 수 있게 해줍니다.",
+            "(선택사항) 이메일 알림을 설정하려면 Resend 계정과 고유한 도메인이 필요합니다 (무료로 얻을 수 있습니다 {{resendLink}}).",
+            "(필수) Discord 알림을 받으려면 Discord 봇과 텍스트 채널이 필요합니다. 알림과 자신만의 봇을 만드는 가이드를 보려면 {{discordLink}}에 가입하세요 (영어만 지원 - 24/7 지원 안 됨).",
+            "(필수) 알림 임계값을 설정할 수 있습니다 (THRESHOLD=) (예: THRESHOLD=5 - 자산이 5% 이상 상승하거나 하락할 때 이메일/알림을 보냅니다)."
+          ]
+        },
+        "license": {
+          "title": "Creative Commons 저작자표시-비영리 4.0 국제 (CC BY-NC 4.0) 라이선스",
+          "steps": [
+            "개인, 교육 또는 연구 목적으로 이 소프트웨어를 사용, 복사, 수정 및 공유할 수 있는 무료 허가가 부여됩니다.",
+            "소프트웨어의 판매, 재판매 또는 상업적 사용은 허용되지 않습니다.",
+            "소프트웨어는 어떠한 보증 없이 \"있는 그대로\" 제공됩니다.",
+            "라이선스에 대한 자세한 내용: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "소프트웨어를 사용해 주셔서 감사합니다!",
+          "content": "제안 사항이나 문제가 있으시면 Discord 또는 GitHub로 언제든지 연락주세요."
+        }
+      },
+      "navigation": {
+        "tip": "팁: 화살표 (← →) 로 탐색하세요. 닫으려면 Esc.",
+        "previous": "이전",
+        "next": "다음",
+        "prevTitle": "이전 (←)",
+        "nextTitle": "다음 (→)",
+        "step": "단계 {{current}} / {{total}}"
+      },
+      "contentPending": "콘텐츠 보류 중 (단계 {{step}}/4). 섹션을 변경하려면 ← → 를 사용하세요.",
+      "defaultHelpMessage": "콘텐츠 보류 중 (단계 {{step}}/4). 섹션을 변경하려면 ← → 를 사용하세요.",
+      "discordLink": "Discord 서버",
+      "resendLink": "여기",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    },
+  
+    "ar": {
+      "sections": {
+        "autoMonitoring": {
+          "title": "المراقبة التلقائية",
+          "content": "النظام يراقب الأصول تلقائيًا ويبلغك فورًا عند حدوث حركات في الأسعار."
+        },
+        "startMonitoring": {
+          "title": "بدء المراقبة",
+          "steps": [
+            "اضغط على الزر {{startButton}}.",
+            "بمجرد التفعيل، ستقوم التطبيق بالاستعلام عن الأسعار كل 5 دقائق.",
+            "إذا تجاوز الأصل الحد المحدد (افتراضيًا {{threshold}})، سيتم إنشاء تنبيه."
+          ]
+        },
+        "stopMonitoring": {
+          "title": "إيقاف المراقبة",
+          "content": "اضغط على {{stopButton}}. طالما المراقبة متوقفة، لن يتم إرسال أو تسجيل أي تنبيهات تلقائية."
+        },
+        "viewAlerts": {
+          "title": "أين ترى التنبيهات",
+          "steps": [
+            "يتم تسجيل جميع التنبيهات في سجل النشاط (حتى 50,000 سجل).",
+            "إذا كانت لديك تكاملات مفعلة (مثل: البريد الإلكتروني أو Discord)، فستستقبل الإشعارات هناك أيضًا."
+          ]
+        },
+        "settings": {
+          "title": "الإعدادات المهمة",
+          "steps": [
+            "قائمة الأصول المراد مراقبتها معرّفة في ملف assets.js.",
+            "تحقق من بيانات الاعتماد / واجهات برمجة التطبيقات إذا كنت تستخدم خدمات خارجية للحصول على الأسعار أو إرسال التنبيهات. (Resend, Discord)"
+          ]
+        },
+        "importantNotes": {
+          "title": "ملاحظات مهمة",
+          "steps": [
+            "تحتاج إلى اتصال بالإنترنت لكي تعمل المراقبة.",
+            "إذا أغلقت التطبيق، فستتوقف المراقبة تلقائيًا."
+          ]
+        },
+        "envFile": {
+          "title": "ملف .env",
+          "steps": [
+            "يتيح لك هذا الملف التحكم في إشعارات البريد الإلكتروني و Discord.",
+            "(اختياري) لإعداد إشعارات البريد الإلكتروني، ستحتاج إلى حساب Resend ونطاقك الخاص (يمكنك الحصول على واحد مجانًا {{resendLink}}).",
+            "(مطلوب) لإشعارات Discord، ستحتاج إلى بوت Discord وقناة نصية. انضم إلى {{discordLink}} للوصول إلى الإشعارات ودليل إنشاء البوت الخاص بك (باللغة الإنجليزية فقط - وليس على مدار الساعة).",
+            "(مطلوب) يمكنك ضبط عتبة التنبيه (THRESHOLD=) (مثلاً، THRESHOLD=5 - يرسل بريدًا إلكترونيًا / إشعارًا عندما يرتفع أو ينخفض الأصل بنسبة تزيد عن 5%)."
+          ]
+        },
+        "license": {
+          "title": "رخصة المشاع الإبداعي نسب-غير تجاري 4.0 الدولية (CC BY-NC 4.0)",
+          "steps": [
+            "يتم منح إذن مجاني لاستخدام ونسخ وتعديل ومشاركة هذا البرنامج لأغراض شخصية أو تعليمية أو بحثية.",
+            "لا يسمح ببيع أو إعادة بيع أو استخدام البرنامج لأغراض تجارية.",
+            "يتم توفير البرنامج \"كما هو\" دون أي ضمان.",
+            "لمزيد من التفاصيل حول الترخيص: {{licenseLink}}"
+          ],
+          "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
+        },
+        "thankYou": {
+          "title": "شكرًا لتجربة البرنامج!",
+          "content": "إذا كان لديك أي اقتراحات أو مشاكل، لا تتردد في الاتصال بنا على Discord أو GitHub."
+        }
+      },
+      "navigation": {
+        "tip": "نصيحة: استخدم الأسهم (← →) للتنقل. اضغط Esc للإغلاق.",
+        "previous": "السابق",
+        "next": "التالي",
+        "prevTitle": "السابق (←)",
+        "nextTitle": "التالي (→)",
+        "step": "الخطوة {{current}} من {{total}}"
+      },
+      "contentPending": "المحتوى قيد الانتظار (الخطوة {{step}}/4). استخدم ← → لتغيير القسم.",
+      "defaultHelpMessage": "المحتوى قيد الانتظار (الخطوة {{step}}/4). استخدم ← → لتغيير القسم.",
+      "discordLink": "خادم Discord",
+      "resendLink": "هنا",
+      "licenseLink": "Creative Commons BY-NC 4.0"
+    }
+  }
+

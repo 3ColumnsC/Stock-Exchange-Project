@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asset Alert - {{TICKER}}</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px 0;
+      color: #2c3e50;
+      line-height: 1.6;
+    }
+
+    .container {
+      background-color: #ffffff;
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      border: 1px solid #e9ecef;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      padding: 25px 20px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .content {
+      padding: 35px 30px;
+      text-align: center;
+    }
+
+    .alert-message {
+      font-size: 18px;
+      margin: 0;
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #547ca3;
+    }
+
+    .ticker {
+      color: #2c3e50;
+      font-weight: 600;
+    }
+
+    .highlight-up {
+      color: #27ae60;
+      font-weight: 600;
+      background-color: rgba(39, 174, 96, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .highlight-down {
+      color: #e74c3c;
+      font-weight: 600;
+      background-color: rgba(231, 76, 60, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+    
+    .copyright {
+      font-size: 13px;
+      color: #a19ca1;
+      font-weight: 500;
+    }
+
+    .please-dont {
+      color: #8a8787;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+
+    @media (max-width: 600px) {
+      .content {
+        padding: 25px 15px;
+      }
+
+      .alert-message {
+        font-size: 16px;
+      }
+    }
+
+    .alert-message2 {
+      font-size: 18px;
+      margin: 0;
+      padding: 14px;
+      margin-top: -40px;
+      background-color: #f8f9fa;
+      border-radius: 8px;
+      border-left: 4px solid #49aef1;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 16px 18px;
+      font-size: 14px;
+      color: #7f8c8d;
+      border-top: 1px solid #e9ecef;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      background: transparent;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+
+    .current-price {
+      font-weight: 600;
+    }
+
+    .license {
+      color: #8a8787;
+      font-weight: 600;
+      font-size: 12px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .license:hover {
+      color: #49aef1;
+    }
+  </style>
+</head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>📊 {{NAME}} ({{TICKER}})</h1>
+      </div>
+      <div class="content">
+        <p class="alert-message">
+          <span class="ticker">{{NAME}} ({{TICKER}})</span>
+          <span class="{{CLASE}}">{{DIRECCION}}</span>
+          <span class="{{CLASE}}">{{PORCENTAJE}}%</span>.
+        </p>
+      </div>
+
+      <div class="content">
+        <p class="alert-message2">
+          Actual price: <span class="current-price">${{CURRENT_PRICE}}</span>
+        </p>
+      </div>
+      <div class="footer">
+
+        
+        <p>This is an automated email from the <br>Stock Exchange Project (SEP) alert system. 
+        <br><span class="please-dont">Please do not reply to this email.</span></p>
+        <div>
+          <p class="copyright">© 2025 3ColumnsCreations - <a class="license" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC 4.0 License</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
