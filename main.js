@@ -1,40 +1,40 @@
 // Keep the console clean by filtering out yahoo-finance2 debug noise
-const originalYF2ConsoleLog = console.log;
-const originalYF2ConsoleError = console.error;
-const originalYF2ConsoleWarn = console.warn;
-const originalYF2ConsoleDebug = console.debug;
+// const originalYF2ConsoleLog = console.log;
+// const originalYF2ConsoleError = console.error;
+// const originalYF2ConsoleWarn = console.warn;
+// const originalYF2ConsoleDebug = console.debug;
 
-console.log = function(...args) {
-  const message = args[0];
-  if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-    return;
-  }
-  originalYF2ConsoleLog.apply(console, args);
-};
+// console.log = function(...args) {
+//   const message = args[0];
+//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
+//     return;
+//   }
+//   originalYF2ConsoleLog.apply(console, args);
+// };
 
-console.error = function(...args) {
-  const message = args[0];
-  if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-    return;
-  }
-  originalYF2ConsoleError.apply(console, args);
-};
+// console.error = function(...args) {
+//   const message = args[0];
+//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
+//     return;
+//   }
+//   originalYF2ConsoleError.apply(console, args);
+// };
 
-console.warn = function(...args) {
-  const message = args[0];
-  if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-    return;
-  }
-  originalYF2ConsoleWarn.apply(console, args);
-};
+// console.warn = function(...args) {
+//   const message = args[0];
+//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
+//     return;
+//   }
+//   originalYF2ConsoleWarn.apply(console, args);
+// };
 
-console.debug = function(...args) {
-  const message = args[0];
-  if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-    return;
-  }
-  originalYF2ConsoleDebug.apply(console, args);
-};
+// console.debug = function(...args) {
+//   const message = args[0];
+//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
+//     return;
+//   }
+//   originalYF2ConsoleDebug.apply(console, args);
+// };
 
 import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
@@ -43,28 +43,31 @@ import { fileURLToPath } from "url";
 import { spawn } from "child_process";
 import yahooFinance from 'yahoo-finance2';
 
-// Disable yahoo-finance2 debug logging
+// Configuración de yahoo-finance2
+// Deshabilitar logs de depuración
 process.env.DEBUG = '';
 process.env.DEBUG_LEVEL = 'NONE';
 
-yahooFinance.setGlobalConfig({
-  logger: {
-    info: () => {},
-    warn: () => {},
-    error: () => {},
-    debug: () => {}
-  },
-  queue: {
-    concurrency: 1,
-    timeout: 60000
-  },
-  validation: {
-    logErrors: false,
-    logOptionsErrors: false
+// Configuración global de yahoo-finance2
+try {
+  yahooFinance.setGlobalConfig({
+    queue: {
+      concurrency: 1,
+      timeout: 60000
+    },
+    validation: {
+      logErrors: false,
+      logOptionsErrors: false
+    }
+  });
+  
+  // Suprimir notificaciones no deseadas
+  if (typeof yahooFinance.suppressNotices === 'function') {
+    yahooFinance.suppressNotices(['yahooSurvey']);
   }
-});
-
-yahooFinance.suppressNotices(['yahooSurvey']);
+} catch (error) {
+  console.warn('Could not configure yahoo-finance2:', error.message);
+}
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
