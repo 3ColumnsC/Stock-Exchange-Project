@@ -1,6 +1,6 @@
 # 📊 Stock Exchange Project
 
-![Version](https://img.shields.io/badge/version-2.0.1-blue)
+![Version](https://img.shields.io/badge/version-2.1-blue)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.19.0-brightgreen)](https://nodejs.org/)
 ![Status](https://img.shields.io/badge/status-in--development-orange)
@@ -21,21 +21,23 @@ A powerful Node.js application that monitors stock and cryptocurrency prices in 
 
 - Email and Discord notifications are only supported in English.
 
+## 🖥️ Supported Platforms
+
+- Windows 10/11
+
 ## 📚 Current Version
 
-### **2.0 Major Release**
+### **2.1 Quality Release**
 
-- ✨ Complete UI overhaul.
-- 🌍 Multi-language support.
-- 📊 Current asset price display.
-- 🌓 Light/Dark theme support.
-- 🛠️ Bug fixes & stability improvements.
+- ⚙️ Settings button added.
+- 📊 Add/Remove assets button (Add Symbol) added.
+- 📝 Error fixed.
 
 ## 📢 Join our Discord Server
 
 You can join to our [Discord server](https://discord.gg/8RE9Fsuty5) to get access to notifications (English only - Not 24/7).
 
-We will also explain how to configure your own Discord bot, how to complete the .env file, and provide an FAQ.
+We will also explain how to configure your own Discord bot, how to complete the (⚙️) configuration, and provide an FAQ.
 
 ### 📝 Quick FAQ
 
@@ -49,7 +51,10 @@ A: You can find instructions in our [Discord server](https://discord.gg/8RE9Fsut
 A: No. Please disable sleep mode while running the app.
 
 **Q: How often are alerts checked?**  
-A: Every 5 minutes.
+A: Every 5 minutes by default, but you can change it in the (⚙️) configuration.
+
+**Q: Can I add or remove assets?**  
+A: Yes, you can add or remove assets opening the "Add Symbol" configuration.
 
 ## 🚀 Quick Start
 
@@ -72,63 +77,36 @@ A: Every 5 minutes.
    npm install
    ```
 
-3. **Configure environment variables**
-   - Copy `.env.example` to `.env`
-   - Update the variables in `.env` with your configuration
-
-4. **Start the application**
+3. **Start the application**
    ```bash
    npm start
    ```
 
-## ⚙️ Configuration
+4. **Wait till the app loads**
+
+   - No open the http://localhost:3000
+
+## ⚙️ Configuration (⚙️ Icon in the top right corner)
 
 ### Required Environment Variables
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `DISCORD_WEBHOOK_URL` | Your Discord webhook URL for receiving alerts | `https://discord.com/api/webhooks/...` |
-| `THRESHOLD` | Price change percentage that triggers an alert (default: 5) | `5` |
+| `Discord webhook URL` | Your Discord webhook URL for receiving alerts | `https://discord.com/api/webhooks/...` |
+| `Threshold` | Price change percentage that triggers an alert (default: 5%) | `5` |
+| `Check interval` | How often to check for assets (default: 5 minutes) | `5` |
+| `Cooldown between alerts` | Wait time after an alert before another alert for the same asset is sent (default: 360 minutes) | `360` |
 
 ### Optional Email Configuration
 Email alerts are optional. If you want email notifications, configure these:
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `RESEND_API_KEY` | API key for Resend email service | `re_xxxxxxxxxxxxxxxxxxxxxxxx` |
-| `FROM_EMAIL` | Sender email address (must be verified in Resend) | `alerts@yourdomain.com` |
-| `ALERT_EMAIL` | Recipient email for alerts | `your-email@example.com` |
+| `Resend API Key` | API key for Resend email service | `re_xxxxxxxxxxxxxxxxxxxxxxxx` |
+| `From email` | Sender email address (must be verified in Resend) | `notification@yourdomain.com` |
+| `Alert email` | Recipient email for alerts | `your@email.com` |
 
-### Example `.env` File
-```env
-# Required
-DISCORD_WEBHOOK_URL=https://discord.com/api/webhooks/...
-THRESHOLD=5
-
-# Optional - Email Configuration
-# RESEND_API_KEY=re_xxxxxxxxxxxxxxxxxxxxxxxx
-# FROM_EMAIL=alerts@yourdomain.com
-# ALERT_EMAIL=your-email@example.com
-```
-
-## 🛠 Customization
-
-### Adding/Removing Assets
-Edit the `assets.js` file to customize which stocks and cryptocurrencies to monitor:
-
-```javascript
-// assets.js
-module.exports = [
-  { name: 'Apple Inc.', symbol: 'AAPL', type: 'stock' },
-  { name: 'Bitcoin', symbol: 'BTC-USD', type: 'crypto' },
-  // Add or remove assets as needed
-];
-```
-
-### Changing Alert Threshold
-Modify the `THRESHOLD` value in your `.env` file to adjust the price change percentage that triggers alerts.
-
-## 📚 Documentation
+##  Documentation
 
 ### Project Structure
 ```
@@ -141,6 +119,7 @@ Modify the `THRESHOLD` value in your `.env` file to adjust the price change perc
 ├── diary_logs/             # Application logs
 ├── index.js                # Main application entry point
 ├── assets.js               # Asset configuration
+├── .env.example            # Example environment variables (You can configure this file or use the (⚙️) button. If you configure this file, rename it to .env)
 └── ...
 ```
 
@@ -150,13 +129,14 @@ This project is licensed under the **Creative Commons Attribution-NonCommercial 
 
 ## ⚠️ Disclaimer
 
-This is a project in continuous development.  
-Errors or unexpected behavior may occur.  
-We are working to improve the visual interface to reduce the need for direct code modifications.
+- This is a project in continuous development.
+- Errors or unexpected behavior may occur.
 
 ## 🛠️ Version History
 
-- **Current Version**: 2.0: Complete UI overhaul, multi-language support, current asset price display, light/dark theme support, bug fixes & stability improvements.
+- **Current Version**: 2.1: Settings button added, Add/Remove assets button (Add Symbol) added, error fixed.
+- 2.0.1: Error fixed.
+- 2.0: Complete UI overhaul, multi-language support, current asset price display, light/dark theme support, bug fixes & stability improvements.
 - 1.3: Control Panel updated, Email Template updated, assets updated, additional changes. (11/08/2025)
 - 1.2: Control Panel updated, log messages improved, assets updated, 24/7 activity enabled, additional changes. (14/06/2025)
 - 1.1: Control Panel added, bugs fixed, assets fast control added, log messages improved, additional changes.

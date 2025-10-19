@@ -6,7 +6,6 @@ export const STOCKS = [
   { symbol: "META", name: "Meta Platforms", type: "stock" },
   { symbol: "NVDA", name: "NVIDIA", type: "stock" },
   { symbol: "TSLA", name: "Tesla", type: "stock" },
-  { symbol: "ADBE", name: "Adobe", type: "stock" },
   { symbol: "CRM", name: "Salesforce", type: "stock" },
   { symbol: "INTC", name: "Intel", type: "stock" },
   { symbol: "CSCO", name: "Cisco Systems", type: "stock" },
@@ -25,7 +24,6 @@ export const STOCKS = [
   { symbol: "WMT", name: "Walmart", type: "stock" },
   { symbol: "MCD", name: "McDonald's", type: "stock" },
   { symbol: "SBUX", name: "Starbucks", type: "stock" },
-  { symbol: "COIN", name: "Coinbase Global", type: "stock" },
   { symbol: "CRWD", name: "CrowdStrike", type: "stock" },
   { symbol: "ZS", name: "Zscaler", type: "stock" },
   { symbol: "OKTA", name: "Okta", type: "stock" },
@@ -70,55 +68,32 @@ export const STOCKS = [
   { symbol: "AI", name: "C3.ai", type: "stock" },
   { symbol: "MDB", name: "MongoDB", type: "stock" },
   { symbol: "VERI", name: "Veritone", type: "stock" },
-  { symbol: "COIN", name: "Coinbase", type: "stock" },
   { symbol: "VUAA.MI", name: "Vanguard S&P 500 UCITS ETF (Acc)", type: "stock" },
-
-  // Added V1.3
-  { symbol: "NOW",  name: "ServiceNow", type: "stock" },
+  { symbol: "NOW", name: "ServiceNow", type: "stock" },
   { symbol: "LRCX", name: "Lam Research", type: "stock" },
   { symbol: "FIG", name: "Figma, Inc.", type: "stock" },
   { symbol: "FLY", name: "Firefly Aerospace", type: "stock" },
   { symbol: "CRWV", name: "CoreWeave", type: "stock" },
   { symbol: "CRCL", name: "Circle Internet Group", type: "stock" },
   { symbol: "QUBT", name: "Quantum Computing Inc.", type: "stock" },
-
-  // Added V2.0
   { symbol: "BABA", name: "Alibaba", type: "stock" },
   { symbol: "BIDU", name: "Baidu", type: "stock" },
   { symbol: "VRSN", name: "VeriSign", type: "stock" },
-  // { symbol: "", name: "", type: "stock" },
-
-  // Add new stocks or ETFs freely
-  // Use type: "stock" for both stocks and ETFs
-
-  // { symbol: "AAPL", name: "Apple", type: "stock" },
-  // { symbol: "VUAA.MI", name: "Vanguard S&P 500 UCITS ETF (Acc)", type: "stock" },
-  // { symbol: "XXX", name: "Stock name example", type: "stock" },
-
+  { symbol: "ADBE", name: "Adobe", type: "stock" },
 ];
 
 export const CRYPTOS = [
-  { symbol: "BTC-USD", name: "Bitcoin", type: "crypto" },
   { symbol: "ETH-USD", name: "Ethereum", type: "crypto" },
   { symbol: "SOL-USD", name: "Solana", type: "crypto" },
-  { symbol: "XRP-USD", name: "Ripple (XRP)", type: "crypto" },
+  { symbol: "XRP-USD", name: "Ripple XRP", type: "crypto" },
   { symbol: "XMR-USD", name: "Monero", type: "crypto" },
   { symbol: "LTC-USD", name: "Litecoin", type: "crypto" },
   { symbol: "XLM-USD", name: "Stellar Lumens", type: "crypto" },
   { symbol: "MINA-USD", name: "Mina Protocol", type: "crypto" },
   { symbol: "ZEC-USD", name: "Zcash", type: "crypto" },
-  { symbol: "TEER-USD", name: "Integritee (TEER)", type: "crypto" },
-
-  // Added V1.3
-  { symbol: "ENA-USD",  name: "Ethena", type: "crypto" },
-  // { symbol: "", name: "", type: "crypto" },
-
-  // Add new cryptocurrencies freely
-  // Use type: "crypto" for all cryptos
-
-  // { symbol: "BTC-USD", name: "Bitcoin", type: "crypto" },
-  // { symbol: "XXX-USD", name: "Crypto name example", type: "crypto" },
-
+  { symbol: "TEER-USD", name: "Integritee", type: "crypto" },
+  { symbol: "ENA-USD", name: "Ethena", type: "crypto" },
+  { symbol: "BTC-USD", name: "Bitcoin", type: "stock" },
 ];
 
 export const ASSETS = [...STOCKS, ...CRYPTOS];

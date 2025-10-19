@@ -6,6 +6,10 @@ console.log("▶ preload.js loaded");
 let isAppQuitting = false;
 
 contextBridge.exposeInMainWorld('electronAPI', {
+  // Configuración del entorno
+  readEnvFile: () => ipcRenderer.invoke('read-env-file'),
+  writeEnvFile: (config) => ipcRenderer.invoke('write-env-file', config),
+  
   startAlerts: () => ipcRenderer.invoke('start-alerts'),
   stopAlerts: () => ipcRenderer.invoke('stop-alerts'),
   onAlertLog: (callback) => {
@@ -28,7 +32,13 @@ contextBridge.exposeInMainWorld('electronAPI', {
   getPrice: (symbol) => ipcRenderer.invoke('get-price', symbol),
 
   validateSymbol: (symbol) => ipcRenderer.invoke('validate-symbol', symbol),
+  // User assets management
+  getUserAssets: () => ipcRenderer.invoke('get-user-assets'),
   addAsset: (asset) => ipcRenderer.invoke('add-asset', asset),
+  removeAsset: (symbol) => ipcRenderer.invoke('remove-asset', symbol),
+  saveAssets: (assets) => ipcRenderer.invoke('save-assets', assets),
+  // Light reload of renderer to refresh UI after asset changes
+  reloadApp: () => ipcRenderer.invoke('reload-app'),
   
   // Safe app shutdown
   onAppWillQuit: (callback) => {

@@ -3,13 +3,17 @@ import { useState, useEffect, useMemo } from 'react';
 import uiTranslations from '../i18n/translations.json';
 import logTranslations from '../i18n/logs.json';
 import helpTranslations from '../i18n/help.json';
+import settingsControlTranslations from '../i18n/settingsControl.json';
+import symbolTranslations from '../i18n/symbol.json';
 
 // Combine all translations with namespaces dynamically for all locales present
 const allLocales = Array.from(
   new Set([
     ...Object.keys(uiTranslations || {}),
     ...Object.keys(logTranslations || {}),
-    ...Object.keys(helpTranslations || {})
+    ...Object.keys(helpTranslations || {}),
+    ...Object.keys(settingsControlTranslations || {}),
+    ...Object.keys(symbolTranslations || {})
   ])
 );
 
@@ -17,7 +21,9 @@ const resources = allLocales.reduce((acc, lang) => {
   acc[lang] = {
     translation: (uiTranslations && uiTranslations[lang]) || {},
     logs: (logTranslations && (logTranslations[lang] || logTranslations['en'])) || {},
-    help: (helpTranslations && (helpTranslations[lang] || helpTranslations['en'])) || {}
+    help: (helpTranslations && (helpTranslations[lang] || helpTranslations['en'])) || {},
+    settingsControl: (settingsControlTranslations && (settingsControlTranslations[lang] || settingsControlTranslations['en'])) || {},
+    symbol: (symbolTranslations && (symbolTranslations[lang] || symbolTranslations['en'])) || {}
   };
   return acc;
 }, {});
@@ -27,7 +33,9 @@ if (!resources['en']) {
   resources['en'] = {
     translation: uiTranslations['en'] || {},
     logs: logTranslations['en'] || {},
-    help: helpTranslations['en'] || {}
+    help: helpTranslations['en'] || {},
+    settingsControl: settingsControlTranslations['en'] || {},
+    symbol: symbolTranslations['en'] || {}
   };
 }
 

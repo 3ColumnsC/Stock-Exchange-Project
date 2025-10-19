@@ -1,54 +1,15 @@
-// Keep the console clean by filtering out yahoo-finance2 debug noise
-// const originalYF2ConsoleLog = console.log;
-// const originalYF2ConsoleError = console.error;
-// const originalYF2ConsoleWarn = console.warn;
-// const originalYF2ConsoleDebug = console.debug;
-
-// console.log = function(...args) {
-//   const message = args[0];
-//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-//     return;
-//   }
-//   originalYF2ConsoleLog.apply(console, args);
-// };
-
-// console.error = function(...args) {
-//   const message = args[0];
-//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-//     return;
-//   }
-//   originalYF2ConsoleError.apply(console, args);
-// };
-
-// console.warn = function(...args) {
-//   const message = args[0];
-//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-//     return;
-//   }
-//   originalYF2ConsoleWarn.apply(console, args);
-// };
-
-// console.debug = function(...args) {
-//   const message = args[0];
-//   if (typeof message === 'string' && message.includes('yahoo-finance2')) {
-//     return;
-//   }
-//   originalYF2ConsoleDebug.apply(console, args);
-// };
-
 import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
-import fs from 'fs/promises';
 import { fileURLToPath } from "url";
 import { spawn } from "child_process";
 import yahooFinance from 'yahoo-finance2';
+import fs from 'fs';
+import dotenv from 'dotenv';
 
-// Configuración de yahoo-finance2
-// Deshabilitar logs de depuración
 process.env.DEBUG = '';
 process.env.DEBUG_LEVEL = 'NONE';
 
-// Configuración global de yahoo-finance2
+// Global yahoo-finance config
 try {
   yahooFinance.setGlobalConfig({
     queue: {
@@ -60,8 +21,38 @@ try {
       logOptionsErrors: false
     }
   });
+
+// Legacy stubs (to avoid errors if any renderer still calls them)
+ipcMain.handle('get-user-assets', async () => {
+  try {
+    const { ASSETS } = await readAssetsModule();
+    return ASSETS;
+  } catch {
+    return [];
+  }
+});
+
+ipcMain.handle('save-assets', async () => {
+  return { success: true };
+});
+
+// Reload renderer window on demand (light restart to refresh assets/UI)
+ipcMain.handle('reload-app', async () => {
+  try {
+    const win = BrowserWindow.getAllWindows()?.[0];
+    if (win && win.webContents) {
+      if (typeof win.webContents.reloadIgnoringCache === 'function') {
+        win.webContents.reloadIgnoringCache();
+      } else {
+        win.reload();
+      }
+    }
+    return { success: true };
+  } catch (e) {
+    return { success: false, error: e.message };
+  }
+});
   
-  // Suprimir notificaciones no deseadas
   if (typeof yahooFinance.suppressNotices === 'function') {
     yahooFinance.suppressNotices(['yahooSurvey']);
   }
@@ -69,11 +60,168 @@ try {
   console.warn('Could not configure yahoo-finance2:', error.message);
 }
 
+// Function to read the .env file
+const readEnvFile = () => {
+  try {
+    const envPath = path.join(__dirname, '.env');
+    const exampleEnvPath = path.join(__dirname, '.env.example');
+    
+    // If .env doesn't exist but .env.example does, create .env from .env.example
+    if (!fs.existsSync(envPath) && fs.existsSync(exampleEnvPath)) {
+      fs.copyFileSync(exampleEnvPath, envPath);
+    }
+    
+    if (fs.existsSync(envPath)) {
+      const envContent = fs.readFileSync(envPath, 'utf8');
+      return dotenv.parse(envContent);
+    }
+    return {};
+  } catch (error) {
+    console.error('Error reading .env file:', error);
+    return {};
+  }
+};
+
+// Function to write to the .env file
+const writeEnvFile = (config) => {
+  try {
+    const envPath = path.join(__dirname, '.env');
+    let envContent = '';
+    
+    // Build the .env file content
+    for (const [key, value] of Object.entries(config)) {
+      // Escape quotes and newlines in values
+      const escapedValue = String(value).replace(/[\n"]/g, (match) => 
+        match === '\n' ? '\\n' : '\\"'
+      );
+      envContent += `${key}="${escapedValue}"\n`;
+    }
+    
+    // Write the .env file
+    fs.writeFileSync(envPath, envContent, 'utf8');
+    
+    // Reload environment variables
+    dotenv.config({ path: envPath, override: true });
+    
+    return { success: true };
+  } catch (error) {
+    console.error('Error writing to .env file:', error);
+    throw error;
+  }
+};
+
+// IPC handlers for configuration
+ipcMain.handle('read-env-file', async () => {
+  return readEnvFile();
+});
+
+ipcMain.handle('write-env-file', async (_, config) => {
+  return writeEnvFile(config);
+});
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 let mainWindow;
 let alertProcess = null;
+
+// ───────────────────────────────────────────────────────────────────────
+// assets.js read/write utilities
+// ───────────────────────────────────────────────────────────────────────
+const ASSETS_JS_PATH = path.join(__dirname, 'assets.js');
+
+async function readAssetsModule() {
+  const modPath = path.join(__dirname, 'assets.js').replace(/\\/g, '/');
+  const url = `file://${modPath}?t=${Date.now()}`;
+  const mod = await import(url);
+  const STOCKS = Array.isArray(mod.STOCKS) ? mod.STOCKS : [];
+  const CRYPTOS = Array.isArray(mod.CRYPTOS) ? mod.CRYPTOS : [];
+  const ASSETS = Array.isArray(mod.ASSETS) ? mod.ASSETS : [...STOCKS, ...CRYPTOS];
+  return { STOCKS, CRYPTOS, ASSETS };
+}
+
+function formatArray(name, arr) {
+  const lines = (arr || [])
+    .map(a => `  { symbol: "${a.symbol}", name: "${a.name}", type: "${a.type}" },`)
+    .join('\n');
+  return `export const ${name} = [\n${lines}\n];\n`;
+}
+
+function writeAssetsFile(stocks, cryptos) {
+  const stocksArr = Array.isArray(stocks) ? stocks : [];
+  const cryptosArr = Array.isArray(cryptos) ? cryptos : [];
+  const header = '';
+  const stocksBlock = formatArray('STOCKS', stocksArr);
+  const cryptosBlock = `\n${formatArray('CRYPTOS', cryptosArr)}\n`;
+  const tail = 'export const ASSETS = [...STOCKS, ...CRYPTOS];\n';
+  const content = `${header}${stocksBlock}${cryptosBlock}${tail}`;
+  fs.writeFileSync(ASSETS_JS_PATH, content, 'utf8');
+}
+
+// IPC: get-assets/add-asset/remove-asset
+ipcMain.handle('get-assets', async () => {
+  try {
+    const { STOCKS, CRYPTOS, ASSETS } = await readAssetsModule();
+    return { success: true, stocks: STOCKS, cryptos: CRYPTOS, assets: ASSETS };
+  } catch (e) {
+    return { success: false, error: e.message };
+  }
+});
+
+ipcMain.handle('add-asset', async (_event, asset) => {
+  try {
+    const { symbol, name, type } = asset || {};
+    if (!symbol || !name || !type) {
+      return { success: false, error: 'Missing fields' };
+    }
+    const sym = String(symbol).trim();
+    const nm = String(name).trim();
+    const tp = String(type).trim();
+    if (!sym || !nm || !tp) return { success: false, error: 'Invalid fields' };
+
+    // Validate via Yahoo Finance
+    try {
+      const q = await yahooFinance.quote(sym);
+      if (typeof q?.regularMarketPrice !== 'number') {
+        return { success: false, error: 'Symbol not found on Yahoo Finance' };
+      }
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+
+    const { STOCKS, CRYPTOS } = await readAssetsModule();
+    const exists = [...STOCKS, ...CRYPTOS].some(a => String(a.symbol).toUpperCase() === sym.toUpperCase());
+    if (exists) return { success: false, error: 'Symbol already exists' };
+
+    if (tp === 'crypto') {
+      const nextCryptos = [...CRYPTOS, { symbol: sym, name: nm, type: 'crypto' }];
+      writeAssetsFile(STOCKS, nextCryptos);
+    } else {
+      const nextStocks = [...STOCKS, { symbol: sym, name: nm, type: 'stock' }];
+      writeAssetsFile(nextStocks, CRYPTOS);
+    }
+    return { success: true, asset: { symbol: sym, name: nm, type: tp } };
+  } catch (e) {
+    return { success: false, error: e.message };
+  }
+});
+
+ipcMain.handle('remove-asset', async (_event, symbol) => {
+  try {
+    if (!symbol) return { success: false, error: 'Invalid symbol' };
+    const { STOCKS, CRYPTOS } = await readAssetsModule();
+    const upper = String(symbol).toUpperCase();
+    const nextStocks = STOCKS.filter(a => String(a.symbol).toUpperCase() !== upper);
+    const nextCryptos = CRYPTOS.filter(a => String(a.symbol).toUpperCase() !== upper);
+    if (nextStocks.length === STOCKS.length && nextCryptos.length === CRYPTOS.length) {
+      return { success: false, error: 'Symbol not found' };
+    }
+    writeAssetsFile(nextStocks, nextCryptos);
+    return { success: true };
+  } catch (e) {
+    return { success: false, error: e.message };
+  }
+});
 
 // Check if we're running in development mode
 const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
@@ -99,24 +247,22 @@ function createWindow() {
     },
   });
 
-// Check if a stock symbol exists on Yahoo Finance
-ipcMain.handle('validate-symbol', async (_event, symbol) => {
-  try {
-    if (!symbol || typeof symbol !== 'string') {
-      return { success: false, error: 'Símbolo inválido' };
+  // Check if a stock symbol exists on Yahoo Finance
+  ipcMain.handle('validate-symbol', async (_event, symbol) => {
+    try {
+      if (!symbol || typeof symbol !== 'string') {
+        return { success: false, error: 'Símbolo inválido' };
+      }
+      const quote = await yahooFinance.quote(symbol);
+      const price = quote?.regularMarketPrice;
+      if (typeof price === 'number') {
+        return { success: true };
+      }
+      return { success: false, error: 'Símbolo no encontrado en Yahoo Finance' };
+    } catch (err) {
+      return { success: false, error: err.message };
     }
-    const quote = await yahooFinance.quote(symbol);
-    const price = quote?.regularMarketPrice;
-    if (typeof price === 'number') {
-      return { success: true };
-    }
-    return { success: false, error: 'Símbolo no encontrado en Yahoo Finance' };
-  } catch (err) {
-    return { success: false, error: err.message };
-  }
-});
-
-
+  });
 
   // Load the application in the appropriate mode
   if (isDev) {
@@ -387,18 +533,61 @@ ipcMain.on('window-close', () => {
   if (mainWindow) mainWindow.close();
 });
 
-/** Obteain price (in USD) */
+/**
+ * Get current price using direct fetch to Yahoo Finance API
+ * Returns: { success: boolean, symbol: string, price: number | null, error?: string }
+ */
 ipcMain.handle('get-price', async (_event, symbol) => {
+  if (!symbol || typeof symbol !== 'string') {
+    return { success: false, symbol, price: null, error: 'Invalid symbol' };
+  }
+  
   try {
-    if (!symbol || typeof symbol !== 'string') {
-      return { success: false, error: 'Invalid symbol' };
+    // Use the v8/finance/chart endpoint for real-time data
+    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1d`;
+    const response = await fetch(url, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0',
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const quote = await yahooFinance.quote(symbol);
-    const price = quote?.regularMarketPrice ?? null;
-    return { success: true, symbol, price };
+    
+    const data = await response.json();
+    const result = data.chart.result?.[0];
+    
+    if (!result || !result.meta) {
+      throw new Error('Invalid response format from Yahoo Finance');
+    }
+    
+    const price = result.meta.regularMarketPrice;
+    
+    if (price == null) {
+      return { 
+        success: false, 
+        symbol, 
+        price: null, 
+        error: 'No price data available' 
+      };
+    }
+    
+    return { 
+      success: true, 
+      symbol, 
+      price 
+    };
+    
   } catch (err) {
-    console.error('Error fetching price for', symbol, err);
-    return { success: false, error: err.message };
+    console.error(`Error fetching price for ${symbol}:`, err.message);
+    return { 
+      success: false, 
+      symbol, 
+      price: null, 
+      error: `Failed to fetch price: ${err.message}` 
+    };
   }
 });
 

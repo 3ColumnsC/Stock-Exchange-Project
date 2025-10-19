@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ASSETS } from '../assets.js';
 import { useTranslation } from './hooks/useTranslations.js';
+import SettingsModal from './settings';
+import SymbolModal from './symbol';
 
 function App() {
   const [isRunning, setIsRunning] = useState(false);
@@ -18,6 +19,10 @@ function App() {
   const [assetQuery, setAssetQuery] = useState('');
   const [showHelp, setShowHelp] = useState(false);
   const [helpStep, setHelpStep] = useState(0);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+  const [isSymbolOpen, setIsSymbolOpen] = useState(false);
+  const [assetsList, setAssetsList] = useState([]);
+
   // Not using
   const [helpInitialized, setHelpInitialized] = useState(false);
 
@@ -47,7 +52,7 @@ function App() {
   // Maximum number of logs to display
 
   // Activity log
-  // The button ("exportLog": "Export latest available logs") exports all available logs to a .txt file (2000 by default)
+  // The button ("exportLog": "Export latest available logs") exports all available logs to a .txt file (1000 by default)
 
   const MAX_LOGS = 1000; // Change this valor to increase the number of logs displayed in the "Activity Log" panel (Increase this valor can generate lag in the long term)
 
@@ -146,10 +151,46 @@ function App() {
         <div className="space-y-4 text-sm leading-relaxed">
           <div>
             <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
-              {tHelp('sections.envFile.title')}
+              {tHelp('sections.Config.title')}
             </h3>
-            {renderHelpSteps(tHelp('sections.envFile.steps', { returnObjects: true }))}
+            {renderHelpSteps(tHelp('sections.Config.steps', { returnObjects: true }))}
           </div>
+          
+          <div>
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
+              {tHelp('sections.revisionInterval.title')}
+            </h3>
+            {renderHelpSteps(tHelp('sections.revisionInterval.steps', { returnObjects: true }))}
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
+              {tHelp('sections.waitingTime.title')}
+            </h3>
+            {renderHelpSteps(tHelp('sections.waitingTime.steps', { returnObjects: true }))}
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
+              {tHelp('sections.alertThreshold.title')}
+            </h3>
+            {renderHelpSteps(tHelp('sections.alertThreshold.steps', { returnObjects: true }))}
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
+              {tHelp('sections.emailNotifications.title')}
+            </h3>
+            {renderHelpSteps(tHelp('sections.emailNotifications.steps', { returnObjects: true }))}
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">
+              {tHelp('sections.discordIntegration.title')}
+            </h3>
+            {renderHelpSteps(tHelp('sections.discordIntegration.steps', { returnObjects: true }))}
+          </div>
+
         </div>
       );
     }
@@ -186,8 +227,50 @@ function App() {
     );
   };
 
+  // Load assets from assets.js via IPC with fallback to direct import
+  const refreshAssets = async () => {
+    try {
+      const api = typeof window !== 'undefined' ? window.electronAPI : undefined;
+      if (api?.getAssets) {
+        const res = await api.getAssets();
+        if (res?.success && Array.isArray(res.assets)) {
+          setAssetsList(res.assets);
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn('IPC getAssets failed in App.jsx:', e.message);
+    }
+    // Fallback: dynamically import assets.js
+    try {
+      const mod = await import('../assets.js');
+      const list = Array.isArray(mod.ASSETS) ? mod.ASSETS : [];
+      setAssetsList(list);
+    } catch (e) {
+      console.warn('Fallback import of assets.js failed:', e.message);
+      setAssetsList([]);
+    }
+  };
+
+  useEffect(() => {
+    refreshAssets();
+  }, []);
+
+  // Ensure a valid selection once assets are loaded/refreshed
+  useEffect(() => {
+    if (!Array.isArray(assetsList) || assetsList.length === 0) return;
+    const hasSelected = assetsList.some(a => a.symbol === selectedSymbol);
+    if (!hasSelected) {
+      setSelectedSymbol(assetsList[0].symbol);
+    }
+  }, [assetsList]);
+
   // List of available assets (API symbol and user-visible label)
-  const assets = Array.from(new Map(ASSETS.map(a => [a.symbol, a])).values())
+  const assets = Array.from(
+      new Map(
+        (assetsList || []).map(a => [String(a.symbol).toUpperCase(), a])
+      ).values()
+    )
     .map(a => ({ symbol: a.symbol, label: `${a.name} (${a.symbol})` }))
     .sort((a, b) => a.label.localeCompare(b.label));
 
@@ -524,27 +607,27 @@ function App() {
             <button 
               onClick={handleStart} 
               disabled={isRunning}
-              title={t('startMonitoring')}
-              className={`will-change-transform px-6 py-2 rounded-md font-medium flex items-center ${isRunning ? 'bg-gray-600 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}>
+              className={`will-change-transform px-6 py-2 rounded-md font-medium flex items-center ${isRunning ? 'bg-gray-600 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 transition ease-in-out duration-300'}`}>
               <span className="mr-2">▶</span> {t('startMonitoring')}
             </button>
             <button 
               onClick={handleStop} 
               disabled={!isRunning}
-              title={t('stopMonitoring')}
-              className={`will-change-transform px-6 py-2 rounded-md font-medium flex items-center ${!isRunning ? 'bg-gray-600 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700'}`}>
+              className={`will-change-transform px-6 py-2 rounded-md font-medium flex items-center ${!isRunning ? 'bg-gray-600 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700 transition ease-in-out duration-300'}`}>
               <span className="mr-2">⏹</span> {t('stopMonitoring')}
             </button>
             <button 
-              onClick={() => {}}
-              title={t('comingSoon')}
-              className="will-change-transform px-6 py-2 rounded-md font-medium flex items-center bg-gray-800 cursor-not-allowed hover:bg-gray-800/40">
-              <span className="mr-2">⚙️</span> {t('comingSoon')}
+              onClick={() => { try { setAssetQuery(''); if (typeof document !== 'undefined') { document.activeElement?.blur?.(); } } finally { setIsSymbolOpen(true); } }}
+              className="will-change-transform px-6 py-2 rounded-md font-medium flex items-center bg-gray-700 hover:bg-gray-800 transition ease-in-out duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <circle cx="12" cy="12" r="9" strokeWidth="2" />
+                <path d="M12 8v8M8 12h8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              {t('addSymbol')}
             </button>
             <button 
               onClick={handleCloseApp} 
-              title={t('closeApp')}
-              className="will-change-transform px-6 py-2 rounded-md font-medium flex items-center bg-purple-600 hover:bg-purple-700">
+              className="will-change-transform px-6 py-2 rounded-md font-medium flex items-center bg-purple-600 hover:bg-purple-700 transition ease-in-out duration-300">
               <span className="mr-2">⏻</span> {t('closeApp')}
             </button>
           </div>
@@ -582,19 +665,24 @@ function App() {
                       type="button"
                       onClick={() => setAssetQuery('')}
                       className="will-change-transform absolute right-2 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-800 dark:hover:text-white bg-transparent rounded p-1"
-                      title={t('clearSearch')}
                       aria-label={t('clearSearch')}
                     >
                       ✕
                     </button>
                   )}
+
+        {/* Add Symbol Modal */}
+        <SymbolModal
+          isOpen={isSymbolOpen}
+          onClose={() => setIsSymbolOpen(false)}
+          onSaved={() => refreshAssets()}
+        />
                 </div>
               </div>
               <div className="md:col-span-4 flex gap-2 items-end">
                 <button
                   onClick={handleFetchPrice}
                   className={`will-change-transform w-full relative overflow-hidden group rounded-md text-sm font-semibold py-2 text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg transition-transform duration-300 hover:-translate-y-[1px]`}
-                  title={t('query')}
                 >
                   <span className="will-change-transform relative pt-0.5 z-10 flex items-center justify-center gap-2">
                     <span className="inline-block">🔎</span>
@@ -622,18 +710,48 @@ function App() {
           <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg fade-soft animate-fade-in-up">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-300">{t('quickSettings')}</h2>
-              <button
-                type="button"
-                title={t('help')}
-                aria-label={t('help')}
-                className="will-change-transform w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white shadow transition duration-300 hover:opacity-80 hover:scale-105"
-                onClick={() => {
-                  setHelpStep(0);
-                  setShowHelp(true);
-                }}
-              >
-                ?
-              </button>
+              <div className="flex space-x-2">
+                <button
+                  type="button"
+                  title={t('settings')}
+                  aria-label={t('settings')}
+                  className="will-change-transform w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white shadow transition duration-300 hover:opacity-80"
+                  onClick={() => setIsSettingsOpen(true)}
+                >
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    className="h-5 w-5" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    stroke="currentColor"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" 
+                    />
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" 
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  title={t('help')}
+                  aria-label={t('help')}
+                  className="will-change-transform w-9 h-9 flex items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white shadow transition duration-300 hover:opacity-80"
+                  onClick={() => {
+                    setHelpStep(0);
+                    setShowHelp(true);
+                  }}
+                >
+                  ?
+                </button>
+              </div>
             </div>
             <div className="space-y-4">
               <div className="fade-soft">
@@ -653,6 +771,7 @@ function App() {
                   <option value="tr">Türkçe (TR)</option>
                   <option value="ru">Русский (RU)</option>
                   <option value="ja">日本語 (JA)</option>
+                  <option value="ja-romaji">日本語 (JA-romaji)</option> {/* Why not right? 😉✌️ */}
                   <option value="zh-CN">中文 (zh-CN)</option>
                   <option value="zh-TW">中文 (zh-TW)</option>
                   <option value="ko">한국어 (KO)</option>
@@ -669,7 +788,7 @@ function App() {
                 </select>
               </div>
               <div className="pt-2">
-                <button onClick={handleSaveConfig} title={t('saveSettings')} className="will-change-transform w-full relative overflow-hidden group rounded-md text-sm font-semibold py-2 px-4 text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg transition-transform duration-300s hover:-translate-y-[1px]">
+                <button onClick={handleSaveConfig} className="will-change-transform w-full relative overflow-hidden group rounded-md text-sm font-semibold py-2 px-4 text-white bg-gradient-to-r from-blue-600 to-indigo-600 shadow-lg transition-transform duration-300s hover:-translate-y-[1px]">
                   <span className="will-change-transform pt-0.5 relative z-10 flex items-center justify-center gap-2">
                     <span className="inline-block">✔</span>
                     {t('saveSettings')}
@@ -706,7 +825,7 @@ function App() {
               <div className="flex items-center justify-between mb-4">
                 <button
                   onClick={() => setHelpStep((s) => (s + 3) % 4)}
-                  className="will-change-transform px-3 py-1.5 rounded-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-900/30 text-gray-800 dark:text-white text-sm transition hover:scale-105 duration-500"
+                  className="will-change-transform px-3 py-1.5 rounded-md bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-white text-sm transition hover:scale-105 duration-500"
                   title={helpNav?.prevTitle}
                 >
                   ◀ {helpNav?.previous}
@@ -716,7 +835,7 @@ function App() {
                 </div>
                 <button
                   onClick={() => setHelpStep((s) => (s + 1) % 4)}
-                  className="will-change-transform px-3 py-1.5 rounded-md bg-blue-600 hover:bg-blue-700/30  text-white text-sm transition hover:scale-105 duration-500"
+                  className="will-change-transform px-3 py-1.5 rounded-md bg-blue-600 hover:bg-blue-700 text-white text-sm transition hover:scale-105 duration-500"
                   title={helpNav?.nextTitle}
                 >
                   {helpNav?.next} ▶
@@ -768,7 +887,6 @@ function App() {
                 }}
                 disabled={logs.length === 0}
                 className={`will-change-transform text-sm ${logs.length === 0 ? 'text-gray-400 cursor-not-allowed' : 'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'}`}
-                title={t('exportLog')}
               >
                 {t('exportLog')}
               </button>
@@ -797,6 +915,15 @@ function App() {
           </div>
         </div>
       </div>
+      
+      {/* Config Modal */}
+      <SettingsModal 
+        isOpen={isSettingsOpen}
+        onClose={() => setIsSettingsOpen(false)}
+        onSave={(config) => {
+          console.log('Save Config:', config);
+        }}
+      />
     </div>
   );
 }
