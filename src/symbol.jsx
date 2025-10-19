@@ -110,7 +110,21 @@ export default function SymbolModal({ isOpen, onClose, onSaved }) {
       setIsBusy(true);
       const val = await api.validateSymbol(sym);
       if (!val?.success) {
-        setError(val?.error || tSymbol('symbolNotFound'));
+        // Handle different error types with translations
+        switch(val?.error) {
+          case 'INVALID_SYMBOL':
+            setError(tSymbol('invalidSymbol'));
+            break;
+          case 'SYMBOL_NOT_FOUND':
+            setError(tSymbol('symbolNotFound'));
+            break;
+          case 'VALIDATION_ERROR':
+            setError(tSymbol('apiUnavailable'));
+            console.error('Validation error:', val.details);
+            break;
+          default:
+            setError(tSymbol('symbolNotFound'));
+        }
         return;
       }
       // Stage add (do not persist yet)

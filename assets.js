@@ -1,5 +1,4 @@
 export const STOCKS = [
-  { symbol: "AAPL", name: "Apple", type: "stock" },
   { symbol: "MSFT", name: "Microsoft", type: "stock" },
   { symbol: "GOOGL", name: "Alphabet Class A", type: "stock" },
   { symbol: "AMZN", name: "Amazon", type: "stock" },
@@ -80,6 +79,7 @@ export const STOCKS = [
   { symbol: "BIDU", name: "Baidu", type: "stock" },
   { symbol: "VRSN", name: "VeriSign", type: "stock" },
   { symbol: "ADBE", name: "Adobe", type: "stock" },
+  { symbol: "AAPL", name: "Apple", type: "stock" },
 ];
 
 export const CRYPTOS = [

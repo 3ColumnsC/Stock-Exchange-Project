@@ -1,5 +1,4 @@
 import dotenv from "dotenv";
-import yahooFinance from "yahoo-finance2";
 import fs from "fs/promises";
 import path from "path";
 import { Resend } from "resend";
@@ -84,14 +83,6 @@ logCode('CHECK_INTERVAL_CONFIG', { minutes: parsedCheckInterval, cron: CRON_EXPR
 // Prevent multiple instances from running simultaneously
  let isRunning = false;
 
-// Guard: some versions of yahoo-finance2 do not expose suppressNotices
-try {
-  if (typeof yahooFinance.suppressNotices === 'function') {
-    yahooFinance.suppressNotices(["ripHistorical"]);
-  }
-} catch (e) {
-  console.warn('yahooFinance.suppressNotices unavailable:', e.message);
-}
 
 // ───────────────────────────────────────────────────────────────────────
 // Core utilities and helpers
@@ -320,35 +311,68 @@ async function sendDiscordAlert(name, symbol, changePct) {
 async function fetchHistoricalWithBackoff(symbol, initialDays = 7, maxDays = 60) {
   const hasta = new Date();
   let daysBack = initialDays;
+  
   while (daysBack <= maxDays) {
     const desde = new Date(hasta);
     desde.setDate(hasta.getDate() - daysBack);
-    let rows = [];
+    
     try {
-      // Use JSON Chart API to avoid CSV download cookie/crumb requirements
-      const res = await yahooFinance.chart(symbol, {
-        period1: desde,
-        period2: hasta,
-        interval: '1d',
+      // Convert dates to Unix timestamps in seconds
+      const period1 = Math.floor(desde.getTime() / 1000);
+      const period2 = Math.floor(hasta.getTime() / 1000);
+      
+      // Build the URL for the Yahoo Finance chart API
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?period1=${period1}&period2=${period2}&interval=1d`;
+      
+      // Make the request to Yahoo Finance
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Accept': 'application/json'
+        }
       });
-      const ts = res?.timestamp || res?.timestamps || res?.meta?.regularMarketTime ? res.timestamp : [];
-      const quote = res?.indicators?.quote?.[0];
-      const closes = quote?.close || [];
-      if (Array.isArray(ts) && Array.isArray(closes) && ts.length === closes.length) {
-        rows = ts.map((t, i) => ({ date: new Date(t * 1000), close: closes[i] }))
-                 .filter((r) => Number.isFinite(r.close));
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
+      
+      const data = await response.json();
+      
+      // Extract timestamps and close prices from the response
+      const result = data.chart?.result?.[0];
+      if (!result) {
+        throw new Error('No chart data found in response');
+      }
+      
+      const timestamps = result.timestamp || [];
+      const closes = result.indicators?.quote?.[0]?.close || [];
+      
+      // Process the data into rows with date and close price
+      const rows = [];
+      for (let i = 0; i < Math.min(timestamps.length, closes.length); i++) {
+        if (closes[i] !== null && typeof closes[i] === 'number') {
+          rows.push({
+            date: new Date(timestamps[i] * 1000),
+            close: closes[i]
+          });
+        }
+      }
+      
+      // If we have at least 2 data points, return them sorted by date
+      if (rows.length >= 2) {
+        rows.sort((a, b) => a.date - b.date);
+        return rows;
+      }
+      
     } catch (err) {
       console.error(`Error histórico ${symbol} con ${daysBack}d retroceso:`, err.message);
     }
-    if (rows && rows.length >= 2) {
-      // Ensure chronological order
-      rows.sort((a, b) => new Date(a.date) - new Date(b.date));
-      return rows;
-    }
+    
+    // If we get here, the request failed or didn't return enough data
     // Double the lookback period, but don't exceed maxDays
     daysBack = Math.min(daysBack * 2, maxDays + 1);
   }
+  
   // If we couldn't get at least 2 data points, return empty array
   return [];
 }

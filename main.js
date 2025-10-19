@@ -2,25 +2,21 @@ import { app, BrowserWindow, ipcMain, shell } from "electron";
 import path from "path";
 import { fileURLToPath } from "url";
 import { spawn } from "child_process";
-import yahooFinance from 'yahoo-finance2';
 import fs from 'fs';
 import dotenv from 'dotenv';
 
 process.env.DEBUG = '';
 process.env.DEBUG_LEVEL = 'NONE';
 
-// Global yahoo-finance config
-try {
-  yahooFinance.setGlobalConfig({
-    queue: {
-      concurrency: 1,
-      timeout: 60000
-    },
-    validation: {
-      logErrors: false,
-      logOptionsErrors: false
-    }
-  });
+const DEFAULT_FETCH_OPTIONS = {
+  headers: {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'Accept': 'application/json',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Origin': 'https://finance.yahoo.com',
+    'Referer': 'https://finance.yahoo.com/'
+  }
+};
 
 // Legacy stubs (to avoid errors if any renderer still calls them)
 ipcMain.handle('get-user-assets', async () => {
@@ -37,28 +33,16 @@ ipcMain.handle('save-assets', async () => {
 });
 
 // Reload renderer window on demand (light restart to refresh assets/UI)
-ipcMain.handle('reload-app', async () => {
-  try {
-    const win = BrowserWindow.getAllWindows()?.[0];
-    if (win && win.webContents) {
-      if (typeof win.webContents.reloadIgnoringCache === 'function') {
-        win.webContents.reloadIgnoringCache();
-      } else {
-        win.reload();
-      }
-    }
+let mainWindow = null; // Will be set in createWindow function
+let alertProcess = null;
+
+ipcMain.handle('reload-app', () => {
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    mainWindow.reload();
     return { success: true };
-  } catch (e) {
-    return { success: false, error: e.message };
   }
+  return { success: false, error: 'Main window not available or destroyed' };
 });
-  
-  if (typeof yahooFinance.suppressNotices === 'function') {
-    yahooFinance.suppressNotices(['yahooSurvey']);
-  }
-} catch (error) {
-  console.warn('Could not configure yahoo-finance2:', error.message);
-}
 
 // Function to read the .env file
 const readEnvFile = () => {
@@ -122,9 +106,6 @@ ipcMain.handle('write-env-file', async (_, config) => {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-let mainWindow;
-let alertProcess = null;
-
 // ───────────────────────────────────────────────────────────────────────
 // assets.js read/write utilities
 // ───────────────────────────────────────────────────────────────────────
@@ -179,19 +160,54 @@ ipcMain.handle('add-asset', async (_event, asset) => {
     const tp = String(type).trim();
     if (!sym || !nm || !tp) return { success: false, error: 'Invalid fields' };
 
-    // Validate via Yahoo Finance
+    // Validate via Yahoo Finance API
     try {
-      const q = await yahooFinance.quote(sym);
-      if (typeof q?.regularMarketPrice !== 'number') {
-        return { success: false, error: 'Symbol not found on Yahoo Finance' };
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=1d&range=1d`;
+      const response = await fetch(url, DEFAULT_FETCH_OPTIONS);
+      
+      if (!response.ok) {
+        if (response.status === 404) {
+          return { success: false, error: `Symbol "${sym}" not found on Yahoo Finance` };
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    } catch (e) {
-      return { success: false, error: e.message };
-    }
+      
+      const data = await response.json();
+      const result = data.chart?.result?.[0];
+      
+      if (!result || !result.meta) {
+        return { success: false, error: 'Invalid response format from Yahoo Finance' };
+      }
+      
+      if (result.meta.regularMarketPrice == null) {
+        return { success: false, error: 'No price data available for this symbol' };
+      }
+      
+      // Continue with adding the asset after successful validation
+      const { STOCKS, CRYPTOS } = await readAssetsModule();
+      const exists = [...STOCKS, ...CRYPTOS].some(a => String(a.symbol).toUpperCase() === sym.toUpperCase());
+      if (exists) return { success: false, error: 'Symbol already exists' };
 
-    const { STOCKS, CRYPTOS } = await readAssetsModule();
-    const exists = [...STOCKS, ...CRYPTOS].some(a => String(a.symbol).toUpperCase() === sym.toUpperCase());
-    if (exists) return { success: false, error: 'Symbol already exists' };
+      if (tp === 'crypto') {
+        const nextCryptos = [...CRYPTOS, { symbol: sym, name: nm, type: 'crypto' }];
+        writeAssetsFile(STOCKS, nextCryptos);
+      } else {
+        const nextStocks = [...STOCKS, { symbol: sym, name: nm, type: 'stock' }];
+        writeAssetsFile(nextStocks, CRYPTOS);
+      }
+      
+      return { 
+        success: true, 
+        asset: { 
+          symbol: sym, 
+          name: nm, 
+          type: tp 
+        } 
+      };
+    } catch (err) {
+      console.error('Error validating symbol:', err);
+      return { success: false, error: `Failed to validate symbol: ${err.message}` };
+    }
 
     if (tp === 'crypto') {
       const nextCryptos = [...CRYPTOS, { symbol: sym, name: nm, type: 'crypto' }];
@@ -228,6 +244,10 @@ const isDev = process.env.NODE_ENV === 'development' || !app.isPackaged;
 
 // Set up the main application window with all its settings
 function createWindow() {
+  // Close existing window if it exists
+  if (mainWindow) {
+    mainWindow.close();
+  }
   mainWindow = new BrowserWindow({
     fullscreen: true,
     // These dimensions are used if the user exits fullscreen mode
@@ -251,16 +271,56 @@ function createWindow() {
   ipcMain.handle('validate-symbol', async (_event, symbol) => {
     try {
       if (!symbol || typeof symbol !== 'string') {
-        return { success: false, error: 'Símbolo inválido' };
+        return { success: false, error: 'INVALID_SYMBOL' };
       }
-      const quote = await yahooFinance.quote(symbol);
-      const price = quote?.regularMarketPrice;
-      if (typeof price === 'number') {
-        return { success: true };
+
+      // Use the v8/finance/chart endpoint to validate the symbol
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1d`;
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Accept': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        // If the symbol doesn't exist, Yahoo returns 404
+        if (response.status === 404) {
+          return { 
+            success: false, 
+            error: 'SYMBOL_NOT_FOUND',
+            symbol: symbol
+          };
+        }
+        throw new Error(`HTTP error: ${response.status}`);
       }
-      return { success: false, error: 'Símbolo no encontrado en Yahoo Finance' };
-    } catch (err) {
-      return { success: false, error: err.message };
+
+      const data = await response.json();
+      
+      // Verificamos que la respuesta contenga datos válidos
+      if (!data.chart?.result?.[0]?.meta) {
+        return { 
+          success: false, 
+          error: 'SYMBOL_NOT_FOUND',
+          symbol: symbol
+        };
+      }
+
+      // If we get here, the symbol is valid
+      return { 
+        success: true,
+        symbol: data.chart.result[0].meta.symbol,
+        name: data.chart.result[0].meta.symbol,
+        type: 'stock'
+      };
+
+    } catch (error) {
+      console.error('Error validating symbol:', error);
+      return { 
+        success: false, 
+        error: 'VALIDATION_ERROR',
+        details: error.message
+      };
     }
   });
 
@@ -545,12 +605,7 @@ ipcMain.handle('get-price', async (_event, symbol) => {
   try {
     // Use the v8/finance/chart endpoint for real-time data
     const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=1d`;
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0',
-        'Accept': 'application/json'
-      }
-    });
+    const response = await fetch(url, DEFAULT_FETCH_OPTIONS);
     
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -577,11 +632,39 @@ ipcMain.handle('get-price', async (_event, symbol) => {
     return { 
       success: true, 
       symbol, 
-      price 
+      price,
+      currency: result.meta.currency,
+      exchangeName: result.meta.exchangeName,
+      fullName: result.meta.symbol
     };
     
   } catch (err) {
     console.error(`Error fetching price for ${symbol}:`, err.message);
+    
+    // Try alternative endpoint
+    try {
+      const altUrl = `https://query2.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(symbol)}`;
+      const altResponse = await fetch(altUrl, DEFAULT_FETCH_OPTIONS);
+      
+      if (altResponse.ok) {
+        const altData = await altResponse.json();
+        const quote = altData.quoteResponse?.result?.[0];
+        
+        if (quote?.regularMarketPrice != null) {
+          return {
+            success: true,
+            symbol: quote.symbol,
+            price: quote.regularMarketPrice,
+            currency: quote.currency,
+            exchangeName: quote.fullExchangeName,
+            fullName: quote.longName || quote.shortName || quote.symbol
+          };
+        }
+      }
+    } catch (altErr) {
+      console.error('Alternative endpoint also failed:', altErr.message);
+    }
+    
     return { 
       success: false, 
       symbol, 
