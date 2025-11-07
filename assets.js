@@ -78,8 +78,8 @@ export const STOCKS = [
   { symbol: "BABA", name: "Alibaba", type: "stock" },
   { symbol: "BIDU", name: "Baidu", type: "stock" },
   { symbol: "VRSN", name: "VeriSign", type: "stock" },
-  { symbol: "ADBE", name: "Adobe", type: "stock" },
   { symbol: "AAPL", name: "Apple", type: "stock" },
+  { symbol: "ADBE", name: "Adobe", type: "stock" },
 ];
 
 export const CRYPTOS = [

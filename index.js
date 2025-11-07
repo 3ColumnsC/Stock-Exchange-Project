@@ -98,6 +98,18 @@ function obtenerActivosFiltrados() {
 }
 
 function logCode(code, params = {}) {
+  // Skip specific debug messages
+  const silentCodes = [
+    'FETCHING_CHART_DATA',
+    'CHART_DATA_SUCCESS',
+    'TRYING_QUOTE_API',
+    'QUOTE_API_SUCCESS'
+  ];
+  
+  if (silentCodes.includes(code)) {
+    return; // Skip logging these messages
+  }
+  
   try {
     console.log(JSON.stringify({ code, params }));
   } catch {
@@ -383,43 +395,76 @@ async function fetchHistoricalWithBackoff(symbol, initialDays = 7, maxDays = 60)
 
 // Helper function to fetch price data from Yahoo Finance API
 async function fetchYahooPrice(symbol) {
+  // First, try the chart API which is more reliable
   try {
-    // First try the v8/finance/chart endpoint
-    const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?interval=1d&range=7d`;
-    const response = await fetch(url, {
-      headers: {
-        'User-Agent': 'Mozilla/5.0',
-        'Accept': 'application/json'
+    logCode('FETCHING_CHART_DATA', { symbol });
+    const rows = await fetchHistoricalWithBackoff(symbol, 2, 7); // Only need 2 days of data
+    if (rows.length >= 2) {
+      const prev = rows[rows.length - 2].close;
+      const last = rows[rows.length - 1].close;
+      const timestamp = rows[rows.length - 1].date || new Date();
+      logCode('CHART_DATA_SUCCESS', { 
+        symbol, 
+        lastPrice: last,
+        prevClose: prev,
+        dataPoints: rows.length 
+      });
+      return { last, prev, timestamp };
+    }
+    throw new Error('Not enough data points from chart API');
+  } catch (chartError) {
+    console.warn(`[WARN] Primary chart API failed for ${symbol}: ${chartError.message}. Trying fallback...`);
+    
+    // Fallback to the quote API if chart API fails
+    try {
+      logCode('TRYING_QUOTE_API', { symbol });
+      const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${encodeURIComponent(symbol)}`;
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+          'Accept': '*/*',
+          'Accept-Language': 'en-US,en;q=0.9',
+          'Origin': 'https://finance.yahoo.com',
+          'Referer': 'https://finance.yahoo.com/'
+        },
+        timeout: 10000
+      });
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
-    });
-    
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      
+      const data = await response.json();
+      const quote = data.quoteResponse?.result?.[0];
+      
+      if (!quote) {
+        throw new Error('No quote data available');
+      }
+      
+      const currentPrice = quote.regularMarketPrice;
+      const previousClose = quote.regularMarketPreviousClose;
+      const timestamp = quote.regularMarketTime ? new Date(quote.regularMarketTime * 1000) : new Date();
+      
+      if (currentPrice === undefined || previousClose === undefined || 
+          currentPrice === null || previousClose === null) {
+        throw new Error('INSUFFICIENT_QUOTE_FIELDS');
+      }
+      
+      logCode('QUOTE_API_SUCCESS', { 
+        symbol, 
+        lastPrice: currentPrice,
+        prevClose: previousClose 
+      });
+      
+      return {
+        last: currentPrice,
+        prev: previousClose,
+        timestamp
+      };
+    } catch (quoteError) {
+      console.error(`[ERROR] All price fetch methods failed for ${symbol}:`, quoteError.message);
+      throw new Error(`Could not fetch price data for ${symbol}: ${quoteError.message}`);
     }
-    
-    const data = await response.json();
-    const result = data.chart.result?.[0];
-    
-    if (!result || !result.meta || !result.timestamp) {
-      throw new Error('Invalid response format from Yahoo Finance');
-    }
-    
-    // Get the last two data points
-    const timestamps = result.timestamp || [];
-    const closes = result.indicators.quote?.[0]?.close || [];
-    
-    if (closes.length < 2) {
-      throw new Error('Not enough data points');
-    }
-    
-    return {
-      last: closes[closes.length - 1],
-      prev: closes[closes.length - 2],
-      timestamp: new Date(timestamps[timestamps.length - 1] * 1000)
-    };
-  } catch (error) {
-    console.error(`Error fetching data for ${symbol}:`, error.message);
-    throw error;
   }
 }
 
