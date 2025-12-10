@@ -48,7 +48,6 @@ export const STOCKS = [
   { symbol: "AZN", name: "AstraZeneca", type: "stock" },
   { symbol: "BLK", name: "BlackRock", type: "stock" },
   { symbol: "GS", name: "Goldman Sachs", type: "stock" },
-  { symbol: "EA", name: "Electronic Arts", type: "stock" },
   { symbol: "TTWO", name: "Take-Two Interactive", type: "stock" },
   { symbol: "IDR.MC", name: "Indra Sistemas (BME)", type: "stock" },
   { symbol: "LCID", name: "Lucid Group", type: "stock" },
@@ -78,8 +77,8 @@ export const STOCKS = [
   { symbol: "BABA", name: "Alibaba", type: "stock" },
   { symbol: "BIDU", name: "Baidu", type: "stock" },
   { symbol: "VRSN", name: "VeriSign", type: "stock" },
-  { symbol: "AAPL", name: "Apple", type: "stock" },
   { symbol: "ADBE", name: "Adobe", type: "stock" },
+  { symbol: "AAPL", name: "Apple", type: "stock" },
 ];
 
 export const CRYPTOS = [
@@ -87,7 +86,6 @@ export const CRYPTOS = [
   { symbol: "SOL-USD", name: "Solana", type: "crypto" },
   { symbol: "XRP-USD", name: "Ripple XRP", type: "crypto" },
   { symbol: "XMR-USD", name: "Monero", type: "crypto" },
-  { symbol: "LTC-USD", name: "Litecoin", type: "crypto" },
   { symbol: "XLM-USD", name: "Stellar Lumens", type: "crypto" },
   { symbol: "MINA-USD", name: "Mina Protocol", type: "crypto" },
   { symbol: "ZEC-USD", name: "Zcash", type: "crypto" },
