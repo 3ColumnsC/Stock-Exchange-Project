@@ -771,7 +771,6 @@ function App() {
                   <option value="tr">Türkçe (TR)</option>
                   <option value="ru">Русский (RU)</option>
                   <option value="ja">日本語 (JA)</option>
-                  <option value="ja-romaji">日本語 (JA-romaji)</option> {/* Why not right? 😉✌️ */}
                   <option value="zh-CN">中文 (zh-CN)</option>
                   <option value="zh-TW">中文 (zh-TW)</option>
                   <option value="ko">한국어 (KO)</option>

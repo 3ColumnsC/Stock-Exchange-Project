@@ -1,7 +1,7 @@
 {
   "name": "stock-exchange-project",
-  "version": "2.1.2",
-  "description": "A powerful Node.js application that monitors stock and cryptocurrency prices in real-time and sends alerts when significant price changes occur.",
+  "version": "2.2",
+  "description": "A powerful Node.js application that monitors stock and cryptocurrency prices in real-time and sends alerts when significant price changes occur. Stable maintenance only version.",
   "main": "main.js",
   "type": "module",
   "scripts": {

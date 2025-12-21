@@ -9,8 +9,8 @@
         "title": "Start monitoring",
         "steps": [
           "Press the {{startButton}} button.",
-          "Once active, the app will check prices at regular intervals, according to the value configured in Settings → Check interval.",
-          "If an asset goes up or down more than the set threshold (by default, ±5%), an automatic alert is generated."
+          "Once active, the app will check prices at regular intervals, according to the value configured in Settings \u2192 Check interval.",
+          "If an asset goes up or down more than the set threshold (by default, \u00b15%), an automatic alert is generated."
         ]
       },
       "stopMonitoring": {
@@ -22,7 +22,7 @@
         "steps": [
           "All alerts are stored in the /diary_logs folder, separated by day in .txt files.",
           "If you have active integrations (e.g., Resend email or Discord), you will also receive notifications there.",
-          "Tip: We recommend creating a Discord server and connecting your bot through the app. You can follow our full guide from our own server: [{{discordLink}}]."
+          "Tip: We recommend creating a Discord server and connecting your bot through the app."
         ]
       },
       "settings": {
@@ -52,21 +52,21 @@
       "revisionInterval": {
         "title": "Check interval (required)",
         "steps": [
-          "Define the time in minutes (5–60) between each price check. ",
+          "Define the time in minutes (5\u201360) between each price check. ",
           "Example: If the value is 5, the system will check prices for all assets every 5 minutes."
         ]
       },
       "waitingTime": {
         "title": "Cooldown between alerts (required)",
         "steps": [
-          "Define the minimum interval, in minutes (1–10080), before a new alert for the same asset can be sent. ",
+          "Define the minimum interval, in minutes (1\u201310080), before a new alert for the same asset can be sent. ",
           "Example: If you set it to 360 minutes (6 hours) and Apple triggers an alert, another one will not be sent until those 6 hours have passed, even if the price crosses the threshold again."
         ]
       },
       "alertThreshold": {
         "title": "Alert threshold (required)",
         "steps": [
-          "Indicate the percentage change (0–100%) required to generate an alert. ",
+          "Indicate the percentage change (0\u2013100%) required to generate an alert. ",
           "Example: If you set 5%, an alert will be sent when an asset goes up or down more than 5%."
         ]
       },
@@ -98,7 +98,7 @@
       },
       "thankYou": {
         "title": "Thank you for trying the software!",
-        "content": "If you have any suggestions or issues, feel free to contact us on Discord or GitHub."
+        "content": "We really appreciate it."
       }
     },
     "navigation": {
@@ -111,7 +111,6 @@
     },
     "contentPending": "Content pending (step {{step}}/4). Use ← → to switch sections.",
     "defaultHelpMessage": "Content pending (step {{step}}/4). Use ← → to switch sections.",
-    "discordLink": "Discord server",
     "resendLink": "here",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -125,8 +124,8 @@
         "title": "Iniciar monitoreo",
         "steps": [
           "Pulsa el botón {{startButton}}.",
-          "Una vez activo, la app comprobará los precios a intervalos regulares, según el valor configurado en Ajustes → Intervalo de revisión.",
-          "Si un activo sube o baja más del umbral establecido (por defecto, ±5%), se genera una alerta automática."
+          "Una vez activo, la app comprobará los precios a intervalos regulares, según el valor configurado en Ajustes \u2192 Intervalo de revisión.",
+          "Si un activo sube o baja más del umbral establecido (por defecto, \u00b15%), se genera una alerta automática."
         ]
       },
       "stopMonitoring": {
@@ -138,7 +137,7 @@
         "steps": [
           "Todas las alertas se almacenan en la carpeta /diary_logs, separadas por día en archivos .txt.",
           "Si tienes integraciones activas (p. ej., correo con Resend o Discord), también recibirás notificaciones allí.",
-          "Consejo: Recomendamos crear un servidor de Discord y conectar tu bot desde la app. Puedes seguir nuestra guía completa en nuestro propio servidor: [{{discordLink}}]."
+          "Consejo: Recomendamos crear un servidor de Discord y conectar tu bot desde la app."
         ]
       },
       "settings": {
@@ -168,21 +167,21 @@
       "revisionInterval": {
         "title": "Intervalo de revisión (obligatorio)",
         "steps": [
-          "Define el tiempo en minutos (5–60) entre cada comprobación de precios.",
+          "Define el tiempo en minutos (5\u201360) entre cada comprobación de precios.",
           "Ejemplo: Si el valor es 5, el sistema comprobará los precios de todos los activos cada 5 minutos."
         ]
       },
       "waitingTime": {
         "title": "Tiempo de espera entre alertas (obligatorio)",
         "steps": [
-          "Define el intervalo mínimo, en minutos (1–10080), antes de que se pueda enviar una nueva alerta para el mismo activo.",
+          "Define el intervalo mínimo, en minutos (1\u201310080), antes de que se pueda enviar una nueva alerta para el mismo activo.",
           "Ejemplo: Si lo estableces en 360 minutos (6 horas) y Apple genera una alerta, no se enviará otra hasta pasadas esas 6 horas, aunque el precio vuelva a cruzar el umbral."
         ]
       },
       "alertThreshold": {
         "title": "Umbral de alerta (obligatorio)",
         "steps": [
-          "Indica el cambio porcentual (0–100%) necesario para generar una alerta.",
+          "Indica el cambio porcentual (0\u2013100%) necesario para generar una alerta.",
           "Ejemplo: Si configuras 5%, se enviará una alerta cuando un activo suba o baje más del 5%."
         ]
       },
@@ -214,7 +213,7 @@
       },
       "thankYou": {
         "title": "¡Gracias por probar el software!",
-        "content": "Si tienes sugerencias o problemas, no dudes en contactarnos en Discord o GitHub."
+        "content": "Lo apreciamos mucho."
       }
     },
     "navigation": {
@@ -227,7 +226,6 @@
     },
     "contentPending": "Contenido pendiente (paso {{step}}/4). Usa ← → para cambiar secciones.",
     "defaultHelpMessage": "Contenido pendiente (paso {{step}}/4). Usa ← → para cambiar secciones.",
-    "discordLink": "Servidor de Discord",
     "resendLink": "aquí",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -241,8 +239,8 @@
         "title": "Überwachung starten",
         "steps": [
           "Drücken Sie die Schaltfläche {{startButton}}.",
-          "Sobald aktiv, überprüft die App die Preise in regelmäßigen Abständen entsprechend dem in Einstellungen → Prüfintervall konfigurierten Wert.",
-          "Wenn ein Asset mehr als der eingestellte Schwellenwert steigt oder fällt (standardmäßig ±5%), wird eine automatische Warnung ausgelöst."
+          "Sobald aktiv, überprüft die App die Preise in regelmäßigen Abständen entsprechend dem in Einstellungen \u2192 Prüfintervall konfigurierten Wert.",
+          "Wenn ein Asset mehr als der eingestellte Schwellenwert steigt oder fällt (standardmäßig \u00b15%), wird eine automatische Warnung ausgelöst."
         ]
       },
       "stopMonitoring": {
@@ -254,7 +252,7 @@
         "steps": [
           "Alle Alerts werden im Ordner /diary_logs gespeichert, nach Tagen in .txt-Dateien getrennt.",
           "Wenn Sie aktive Integrationen haben (z. B. Resend-E-Mail oder Discord), erhalten Sie dort ebenfalls Benachrichtigungen.",
-          "Tipp: Wir empfehlen, einen Discord-Server zu erstellen und Ihren Bot über die App zu verbinden. Unsere vollständige Anleitung finden Sie in unserem Server: [{{discordLink}}]."
+          "Tipp: Wir empfehlen, einen Discord-Server zu erstellen und Ihren Bot über die App zu verbinden."
         ]
       },
       "settings": {
@@ -284,21 +282,21 @@
       "revisionInterval": {
         "title": "Prüfintervall (erforderlich)",
         "steps": [
-          "Definieren Sie die Zeit in Minuten (5–60) zwischen den Preisprüfungen.",
+          "Definieren Sie die Zeit in Minuten (5\u201360) zwischen den Preisprüfungen.",
           "Beispiel: Wenn der Wert 5 ist, überprüft das System alle 5 Minuten die Preise aller Assets."
         ]
       },
       "waitingTime": {
         "title": "Wartezeit zwischen Alerts (erforderlich)",
         "steps": [
-          "Definieren Sie das Mindestintervall in Minuten (1–10080), bevor eine neue Warnung für dasselbe Asset gesendet werden kann.",
+          "Definieren Sie das Mindestintervall in Minuten (1\u201310080), bevor eine neue Warnung für dasselbe Asset gesendet werden kann.",
           "Beispiel: Wenn Sie es auf 360 Minuten (6 Stunden) einstellen und Apple eine Warnung auslöst, wird keine weitere gesendet, bis diese 6 Stunden vergangen sind, selbst wenn der Preis den Schwellenwert erneut überschreitet."
         ]
       },
       "alertThreshold": {
         "title": "Alarmgrenze (erforderlich)",
         "steps": [
-          "Geben Sie die prozentuale Änderung (0–100%) an, die erforderlich ist, um eine Warnung zu generieren.",
+          "Geben Sie die prozentuale Änderung (0\u2013100%) an, die erforderlich ist, um eine Warnung zu generieren.",
           "Beispiel: Wenn Sie 5% einstellen, wird eine Warnung gesendet, wenn ein Asset um mehr als 5% steigt oder fällt."
         ]
       },
@@ -330,7 +328,7 @@
       },
       "thankYou": {
         "title": "Danke, dass Sie die Software ausprobiert haben!",
-        "content": "Wenn Sie Vorschläge oder Probleme haben, kontaktieren Sie uns gerne auf Discord oder GitHub."
+        "content": "Wir wissen es sehr zu schätzen."
       }
     },
     "navigation": {
@@ -343,7 +341,6 @@
     },
     "contentPending": "Inhalt ausstehend (Schritt {{step}}/4). Verwenden Sie ← →, um Abschnitte zu wechseln.",
     "defaultHelpMessage": "Inhalt ausstehend (Schritt {{step}}/4). Verwenden Sie ← →, um Abschnitte zu wechseln.",
-    "discordLink": "Discord-Server",
     "resendLink": "hier",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -357,8 +354,8 @@
         "title": "Démarrer la surveillance",
         "steps": [
           "Appuyez sur le bouton {{startButton}}.",
-          "Une fois actif, l'application vérifiera les prix à intervalles réguliers, selon la valeur configurée dans Paramètres → Intervalle de vérification.",
-          "Si un actif augmente ou diminue de plus que le seuil défini (par défaut ±5%), une alerte automatique est générée."
+          "Une fois actif, l'application vérifiera les prix à intervalles réguliers, selon la valeur configurée dans Paramètres \u2192 Intervalle de vérification.",
+          "Si un actif augmente ou diminue de plus que le seuil défini (par défaut \u00b15%), une alerte automatique est générée."
         ]
       },
       "stopMonitoring": {
@@ -370,7 +367,7 @@
         "steps": [
           "Toutes les alertes sont stockées dans le dossier /diary_logs, séparées par jour dans des fichiers .txt.",
           "Si vous avez des intégrations actives (par ex. Resend email ou Discord), vous recevrez également des notifications là-bas.",
-          "Astuce : Nous recommandons de créer un serveur Discord et de connecter votre bot via l'application. Vous pouvez suivre notre guide complet sur notre propre serveur : [{{discordLink}}]."
+          "Astuce : Nous recommandons de créer un serveur Discord et de connecter votre bot via l'application."
         ]
       },
       "settings": {
@@ -400,21 +397,21 @@
       "revisionInterval": {
         "title": "Intervalle de vérification (obligatoire)",
         "steps": [
-          "Définissez le temps en minutes (5–60) entre chaque vérification des prix.",
+          "Définissez le temps en minutes (5\u201360) entre chaque vérification des prix.",
           "Exemple : si la valeur est 5, le système vérifiera les prix de tous les actifs toutes les 5 minutes."
         ]
       },
       "waitingTime": {
         "title": "Temps d'attente entre les alertes (obligatoire)",
         "steps": [
-          "Définissez l'intervalle minimum, en minutes (1–10080), avant qu'une nouvelle alerte pour le même actif puisse être envoyée.",
+          "Définissez l'intervalle minimum, en minutes (1\u201310080), avant qu'une nouvelle alerte pour le même actif puisse être envoyée.",
           "Exemple : si vous le réglez sur 360 minutes (6 heures) et qu'Apple déclenche une alerte, une autre ne sera pas envoyée avant ces 6 heures, même si le prix dépasse à nouveau le seuil."
         ]
       },
       "alertThreshold": {
         "title": "Seuil d'alerte (obligatoire)",
         "steps": [
-          "Indiquez le changement en pourcentage (0–100%) requis pour générer une alerte.",
+          "Indiquez le changement en pourcentage (0\u2013100%) requis pour générer une alerte.",
           "Exemple : si vous réglez 5%, une alerte sera envoyée lorsqu'un actif augmentera ou baissera de plus de 5%."
         ]
       },
@@ -446,7 +443,7 @@
       },
       "thankYou": {
         "title": "Merci d'avoir essayé le logiciel !",
-        "content": "Si vous avez des suggestions ou des problèmes, n'hésitez pas à nous contacter sur Discord ou GitHub."
+        "content": "Nous l'apprécions beaucoup."
       }
     },
     "navigation": {
@@ -459,7 +456,6 @@
     },
     "contentPending": "Contenu en attente (étape {{step}}/4). Utilisez ← → pour changer de section.",
     "defaultHelpMessage": "Contenu en attente (étape {{step}}/4). Utilisez ← → pour changer de section.",
-    "discordLink": "Serveur Discord",
     "resendLink": "ici",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -473,8 +469,8 @@
         "title": "Iniciar monitoramento",
         "steps": [
           "Pressione o botão {{startButton}}.",
-          "Uma vez ativo, o app verificará os preços em intervalos regulares, de acordo com o valor configurado em Configurações → Intervalo de verificação.",
-          "Se um ativo subir ou descer mais do que o limiar definido (por padrão, ±5%), é gerado um alerta automático."
+          "Uma vez ativo, o app verificará os preços em intervalos regulares, de acordo com o valor configurado em Configurações \u2192 Intervalo de verificação.",
+          "Se um ativo subir ou descer mais do que o limiar definido (por padrão, \u00b15%), é gerado um alerta automático."
         ]
       },
       "stopMonitoring": {
@@ -486,7 +482,7 @@
         "steps": [
           "Todos os alertas são armazenados na pasta /diary_logs, separados por dia em arquivos .txt.",
           "Se você tem integrações ativas (p.ex., email Resend ou Discord), também receberá notificações lá.",
-          "Dica: Recomendamos criar um servidor Discord e conectar seu bot através do app. Você pode seguir nosso guia completo em nosso próprio servidor: [{{discordLink}}]."
+          "Dica: Recomendamos criar um servidor Discord e conectar seu bot através do app."
         ]
       },
       "settings": {
@@ -516,21 +512,21 @@
       "revisionInterval": {
         "title": "Intervalo de verificação (obrigatório)",
         "steps": [
-          "Defina o tempo em minutos (5–60) entre cada verificação de preço.",
+          "Defina o tempo em minutos (5\u201360) entre cada verificação de preço.",
           "Exemplo: Se o valor for 5, o sistema verificará os preços de todos os ativos a cada 5 minutos."
         ]
       },
       "waitingTime": {
         "title": "Tempo de espera entre alertas (obrigatório)",
         "steps": [
-          "Defina o intervalo mínimo, em minutos (1–10080), antes que um novo alerta para o mesmo ativo possa ser enviado.",
+          "Defina o intervalo mínimo, em minutos (1\u201310080), antes que um novo alerta para o mesmo ativo possa ser enviado.",
           "Exemplo: Se você definir 360 minutos (6 horas) e Apple gerar um alerta, outro não será enviado até que essas 6 horas tenham passado, mesmo que o preço cruze o limite novamente."
         ]
       },
       "alertThreshold": {
         "title": "Limiar de alerta (obrigatório)",
         "steps": [
-          "Indique a variação percentual (0–100%) necessária para gerar um alerta.",
+          "Indique a variação percentual (0\u2013100%) necessária para gerar um alerta.",
           "Exemplo: Se definir 5%, um alerta será enviado quando um ativo subir ou descer mais de 5%."
         ]
       },
@@ -562,7 +558,7 @@
       },
       "thankYou": {
         "title": "Obrigado por testar o software!",
-        "content": "Se tiver sugestões ou problemas, entre em contato conosco no Discord ou no GitHub."
+        "content": "Agradecemos muito."
       }
     },
     "navigation": {
@@ -575,7 +571,6 @@
     },
     "contentPending": "Conteúdo pendente (passo {{step}}/4). Use ← → para trocar de seção.",
     "defaultHelpMessage": "Conteúdo pendente (passo {{step}}/4). Use ← → para trocar de seção.",
-    "discordLink": "Servidor Discord",
     "resendLink": "aqui",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -589,8 +584,8 @@
         "title": "Avvia monitoraggio",
         "steps": [
           "Premi il pulsante {{startButton}}.",
-          "Una volta attivo, l'app controllerà i prezzi a intervalli regolari, in base al valore configurato in Impostazioni → Intervallo di controllo.",
-          "Se un asset aumenta o diminuisce più della soglia impostata (per impostazione predefinita ±5%), viene generato un avviso automatico."
+          "Una volta attivo, l'app controllerà i prezzi a intervalli regolari, in base al valore configurato in Impostazioni \u2192 Intervallo di controllo.",
+          "Se un asset aumenta o diminuisce più della soglia impostata (per impostazione predefinita \u00b15%), viene generato un avviso automatico."
         ]
       },
       "stopMonitoring": {
@@ -602,7 +597,7 @@
         "steps": [
           "Tutti gli avvisi sono memorizzati nella cartella /diary_logs, separati per giorno in file .txt.",
           "Se hai integrazioni attive (es., email Resend o Discord), riceverai le notifiche anche lì.",
-          "Suggerimento: consigliamo di creare un server Discord e collegare il tuo bot tramite l'app. Puoi seguire la nostra guida completa sul nostro server: [{{discordLink}}]."
+          "Suggerimento: consigliamo di creare un server Discord e collegare il tuo bot tramite l'app."
         ]
       },
       "settings": {
@@ -632,21 +627,21 @@
       "revisionInterval": {
         "title": "Intervallo di controllo (obbligatorio)",
         "steps": [
-          "Definisci il tempo in minuti (5–60) tra ogni controllo dei prezzi.",
+          "Definisci il tempo in minuti (5\u201360) tra ogni controllo dei prezzi.",
           "Esempio: se il valore è 5, il sistema controllerà i prezzi di tutti gli asset ogni 5 minuti."
         ]
       },
       "waitingTime": {
         "title": "Tempo di attesa tra gli avvisi (obbligatorio)",
         "steps": [
-          "Definisci l'intervallo minimo, in minuti (1–10080), prima che possa essere inviato un nuovo avviso per lo stesso asset.",
+          "Definisci l'intervallo minimo, in minuti (1\u201310080), prima che possa essere inviato un nuovo avviso per lo stesso asset.",
           "Esempio: se lo imposti su 360 minuti (6 ore) e Apple genera un avviso, non ne verrà inviato un altro fino al termine delle 6 ore, anche se il prezzo supera nuovamente la soglia."
         ]
       },
       "alertThreshold": {
         "title": "Soglia di avviso (obbligatoria)",
         "steps": [
-          "Indica la variazione percentuale (0–100%) necessaria per generare un avviso.",
+          "Indica la variazione percentuale (0\u2013100%) necessaria per generare un avviso.",
           "Esempio: se imposti 5%, verrà inviato un avviso quando un asset sale o scende di oltre il 5%."
         ]
       },
@@ -678,7 +673,7 @@
       },
       "thankYou": {
         "title": "Grazie per aver provato il software!",
-        "content": "Se hai suggerimenti o problemi, contattaci liberamente su Discord o GitHub."
+        "content": "Lo apprezziamo molto."
       }
     },
     "navigation": {
@@ -691,7 +686,6 @@
     },
     "contentPending": "Contenuto in attesa (passo {{step}}/4). Usa ← → per cambiare sezione.",
     "defaultHelpMessage": "Contenuto in attesa (passo {{step}}/4). Usa ← → per cambiare sezione.",
-    "discordLink": "Server Discord",
     "resendLink": "qui",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -705,8 +699,8 @@
         "title": "Starta övervakning",
         "steps": [
           "Tryck på knappen {{startButton}}.",
-          "När den är aktiv kommer appen att kontrollera priser vid regelbundna intervall enligt värdet som är inställt i Inställningar → Kontrollintervall.",
-          "Om en tillgång stiger eller sjunker mer än den inställda tröskeln (standard ±5%) genereras en automatisk varning."
+          "När den är aktiv kommer appen att kontrollera priser vid regelbundna intervall enligt värdet som är inställt i Inställningar \u2192 Kontrollintervall.",
+          "Om en tillgång stiger eller sjunker mer än den inställda tröskeln (standard \u00b15%) genereras en automatisk varning."
         ]
       },
       "stopMonitoring": {
@@ -718,7 +712,7 @@
         "steps": [
           "Alla varningar sparas i mappen /diary_logs, uppdelade per dag i .txt-filer.",
           "Om du har aktiva integrationer (t.ex. Resend e-post eller Discord) får du också aviseringar där.",
-          "Tips: Vi rekommenderar att skapa en Discord-server och ansluta din bot via appen. Du kan följa vår kompletta guide på vår server: [{{discordLink}}]."
+          "Tips: Vi rekommenderar att skapa en Discord-server och ansluta din bot via appen."
         ]
       },
       "settings": {
@@ -748,21 +742,21 @@
       "revisionInterval": {
         "title": "Kontrollintervall (obligatoriskt)",
         "steps": [
-          "Definiera tiden i minuter (5–60) mellan varje pris kontroll.",
+          "Definiera tiden i minuter (5\u201360) mellan varje pris kontroll.",
           "Exempel: Om värdet är 5 kommer systemet att kontrollera priser för alla tillgångar var 5:e minut."
         ]
       },
       "waitingTime": {
         "title": "Väntetid mellan varningar (obligatoriskt)",
         "steps": [
-          "Definiera minsta intervallet, i minuter (1–10080), innan en ny varning för samma tillgång kan skickas.",
+          "Definiera minsta intervallet, i minuter (1\u201310080), innan en ny varning för samma tillgång kan skickas.",
           "Exempel: Om du ställer in 360 minuter (6 timmar) och Apple utlöser en varning, skickas ingen ny tills dessa 6 timmar har förflutit, även om priset korsar tröskeln igen."
         ]
       },
       "alertThreshold": {
         "title": "Larmtröskel (obligatoriskt)",
         "steps": [
-          "Ange procentförändringen (0–100%) som krävs för att generera en varning.",
+          "Ange procentförändringen (0\u2013100%) som krävs för att generera en varning.",
           "Exempel: Om du anger 5% skickas en varning när en tillgång stiger eller sjunker med mer än 5%."
         ]
       },
@@ -794,7 +788,7 @@
       },
       "thankYou": {
         "title": "Tack för att du provade mjukvaran!",
-        "content": "Om du har förslag eller problem, kontakta oss gärna på Discord eller GitHub."
+        "content": "Vi uppskattar det verkligen."
       }
     },
     "navigation": {
@@ -807,7 +801,6 @@
     },
     "contentPending": "Innehåll väntar (steg {{step}}/4). Använd ← → för att byta sektion.",
     "defaultHelpMessage": "Innehåll väntar (steg {{step}}/4). Använd ← → för att byta sektion.",
-    "discordLink": "Discord-server",
     "resendLink": "här",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -821,8 +814,8 @@
         "title": "Start bewaking",
         "steps": [
           "Druk op de knop {{startButton}}.",
-          "Zodra actief controleert de app prijzen op regelmatige intervallen, volgens de waarde ingesteld in Instellingen → Controle-interval.",
-          "Als een asset meer stijgt of daalt dan de ingestelde drempel (standaard ±5%), wordt er een automatische waarschuwing gegenereerd."
+          "Zodra actief controleert de app prijzen op regelmatige intervallen, volgens de waarde ingesteld in Instellingen \u2192 Controle-interval.",
+          "Als een asset meer stijgt of daalt dan de ingestelde drempel (standaard \u00b15%), wordt er een automatische waarschuwing gegenereerd."
         ]
       },
       "stopMonitoring": {
@@ -834,7 +827,7 @@
         "steps": [
           "Alle alerts worden opgeslagen in de map /diary_logs, per dag gescheiden in .txt-bestanden.",
           "Als je actieve integraties hebt (bijv. Resend e-mail of Discord), ontvang je daar ook meldingen.",
-          "Tip: We raden aan een Discord-server te maken en je bot via de app te verbinden. Volg onze volledige handleiding op onze server: [{{discordLink}}]."
+          "Tip: We raden aan een Discord-server te maken en je bot via de app te verbinden."
         ]
       },
       "settings": {
@@ -864,21 +857,21 @@
       "revisionInterval": {
         "title": "Controle-interval (vereist)",
         "steps": [
-          "Definieer de tijd in minuten (5–60) tussen elke prijscontrole.",
+          "Definieer de tijd in minuten (5\u201360) tussen elke prijscontrole.",
           "Voorbeeld: Als de waarde 5 is, controleert het systeem elke 5 minuten de prijzen van alle assets."
         ]
       },
       "waitingTime": {
         "title": "Wachttijd tussen alerts (vereist)",
         "steps": [
-          "Definieer het minimale interval, in minuten (1–10080), voordat een nieuwe waarschuwing voor hetzelfde asset kan worden verzonden.",
+          "Definieer het minimale interval, in minuten (1\u201310080), voordat een nieuwe waarschuwing voor hetzelfde asset kan worden verzonden.",
           "Voorbeeld: Als je het instelt op 360 minuten (6 uur) en Apple genereert een waarschuwing, wordt er geen nieuwe verzonden totdat die 6 uur zijn verstreken, zelfs als de prijs opnieuw de drempel overschrijdt."
         ]
       },
       "alertThreshold": {
         "title": "Waarschuwingdrempel (vereist)",
         "steps": [
-          "Geef de procentuele verandering (0–100%) op die nodig is om een waarschuwing te genereren.",
+          "Geef de procentuele verandering (0\u2013100%) op die nodig is om een waarschuwing te genereren.",
           "Voorbeeld: Als je 5% instelt, wordt een waarschuwing verzonden wanneer een asset meer dan 5% stijgt of daalt."
         ]
       },
@@ -910,7 +903,7 @@
       },
       "thankYou": {
         "title": "Dank je voor het uitproberen van de software!",
-        "content": "Als je suggesties of problemen hebt, neem gerust contact met ons op via Discord of GitHub."
+        "content": "We stellen het zeer op prijs."
       }
     },
     "navigation": {
@@ -923,7 +916,6 @@
     },
     "contentPending": "Inhoud in afwachting (stap {{step}}/4). Gebruik ← → om secties te wisselen.",
     "defaultHelpMessage": "Inhoud in afwachting (stap {{step}}/4). Gebruik ← → om secties te wisselen.",
-    "discordLink": "Discord-server",
     "resendLink": "hier",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -937,8 +929,8 @@
         "title": "Start overvåking",
         "steps": [
           "Trykk på knappen {{startButton}}.",
-          "Når aktiv, vil appen sjekke priser med jevne mellomrom, i henhold til verdien som er satt i Innstillinger → Sjekkintervall.",
-          "Hvis en eiendel stiger eller faller mer enn den angitte terskelen (standard ±5%), genereres et automatisk varsel."
+          "Når aktiv, vil appen sjekke priser med jevne mellomrom, i henhold til verdien som er satt i Innstillinger \u2192 Sjekkintervall.",
+          "Hvis en eiendel stiger eller faller mer enn den angitte terskelen (standard \u00b15%), genereres et automatisk varsel."
         ]
       },
       "stopMonitoring": {
@@ -950,7 +942,7 @@
         "steps": [
           "Alle varsler lagres i mappen /diary_logs, delt per dag i .txt-filer.",
           "Hvis du har aktive integrasjoner (f.eks. Resend e-post eller Discord), vil du også motta varsler der.",
-          "Tips: Vi anbefaler å opprette en Discord-server og koble boten din via appen. Du kan følge vår komplette guide på vår egen server: [{{discordLink}}]."
+          "Tips: Vi anbefaler å opprette en Discord-server og koble boten din via appen."
         ]
       },
       "settings": {
@@ -974,27 +966,27 @@
         "title": "Påkrevd konfigurasjon",
         "steps": [
           "Du kan få tilgang til alle alternativer fra (⚙️ Innstillinger)-ikonet.",
-          "Sørg for å fylle ut de påkrevde feltene for korrekt drift."
+          "Sør for å fylle ut de påkrevde feltene for korrekt drift."
         ]
       },
       "revisionInterval": {
         "title": "Sjekkintervall (påkrevd)",
         "steps": [
-          "Definer tiden i minutter (5–60) mellom hver prisjekk.",
+          "Definer tiden i minutter (5\u201360) mellom hver prisjekk.",
           "Eksempel: Hvis verdien er 5, vil systemet sjekke prisene for alle eiendeler hvert 5. minutt."
         ]
       },
       "waitingTime": {
         "title": "Ventetid mellom varsler (påkrevd)",
         "steps": [
-          "Definer minste intervallet, i minutter (1–10080), før et nytt varsel for samme eiendel kan sendes.",
+          "Definer minste intervallet, i minutter (1\u201310080), før et nytt varsel for samme eiendel kan sendes.",
           "Eksempel: Hvis du setter det til 360 minutter (6 timer) og Apple utløser et varsel, vil ikke et nytt bli sendt før de 6 timene har gått, selv om prisen krysser terskelen igjen."
         ]
       },
       "alertThreshold": {
         "title": "Varselterskel (påkrevd)",
         "steps": [
-          "Angi prosentvis endring (0–100%) som kreves for å generere et varsel.",
+          "Angi prosentvis endring (0\u2013100%) som kreves for å generere et varsel.",
           "Eksempel: Hvis du setter 5%, vil et varsel bli sendt når en eiendel stiger eller faller mer enn 5%."
         ]
       },
@@ -1026,7 +1018,7 @@
       },
       "thankYou": {
         "title": "Takk for at du prøvde programvaren!",
-        "content": "Hvis du har forslag eller problemer, ta gjerne kontakt med oss på Discord eller GitHub."
+        "content": "Vi setter stor pris på det."
       }
     },
     "navigation": {
@@ -1039,7 +1031,6 @@
     },
     "contentPending": "Innhold venter (trinn {{step}}/4). Bruk ← → for å bytte seksjon.",
     "defaultHelpMessage": "Innhold venter (trinn {{step}}/4). Bruk ← → for å bytte seksjon.",
-    "discordLink": "Discord-server",
     "resendLink": "her",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -1054,7 +1045,7 @@
         "steps": [
           "Paina {{startButton}}-painiketta.",
           "Kun toiminto on aktiivinen, sovellus tarkistaa hinnat säännöllisin välein asetuksissa määritetyn Tarkastusväli-arvon mukaisesti.",
-          "Jos omaisuuserä nousee tai laskee enemmän kuin asetettu kynnysarvo (oletus ±5%), luodaan automaattinen hälytys."
+          "Jos omaisuuserä nousee tai laskee enemmän kuin asetettu kynnysarvo (oletus \u00b15%), luodaan automaattinen hälytys."
         ]
       },
       "stopMonitoring": {
@@ -1066,7 +1057,7 @@
         "steps": [
           "Kaikki hälytykset tallennetaan /diary_logs-kansioon, päivittäin eroteltuina .txt-tiedostoihin.",
           "Jos sinulla on aktiivisia integraatioita (esim. Resend-sähköposti tai Discord), saat ilmoitukset myös sinne.",
-          "Vinkki: Suosittelemme luomaan Discord-palvelimen ja yhdistämään bottisi sovelluksen kautta. Voit seurata täydellistä opastustamme palvelimeltamme: [{{discordLink}}]."
+          "Vinkki: Suosittelemme luomaan Discord-palvelimen ja yhdistämään bottisi sovelluksen kautta."
         ]
       },
       "settings": {
@@ -1096,21 +1087,21 @@
       "revisionInterval": {
         "title": "Tarkastusväli (pakollinen)",
         "steps": [
-          "Määrittele minuuttimäärä (5–60) hintatarkistusten välille.",
+          "Määrittele minuuttimäärä (5\u201360) hintatarkistusten välille.",
           "Esimerkki: Jos arvo on 5, järjestelmä tarkistaa kaikkien omaisuuserien hinnat 5 minuutin välein."
         ]
       },
       "waitingTime": {
         "title": "Odotteluaika hälytysten välillä (pakollinen)",
         "steps": [
-          "Määrittele vähimmäisväli minuuteissa (1–10080), ennen kuin samaan omaisuuserään liittyvä uusi hälytys voidaan lähettää.",
+          "Määrittele vähimmäisväli minuuteissa (1\u201310080), ennen kuin samaan omaisuuserään liittyvä uusi hälytys voidaan lähettää.",
           "Esimerkki: Jos asetat 360 minuuttia (6 tuntia) ja Apple laukaisee hälytyksen, uutta ei lähetetä ennen kuin 6 tuntia on kulunut, vaikka hinta ylittäisikin kynnysarvon uudelleen."
         ]
       },
       "alertThreshold": {
         "title": "Hälytyskynnys (pakollinen)",
         "steps": [
-          "Ilmoita prosenttiosuusmuutos (0–100%), joka vaaditaan hälytyksen luomiseksi.",
+          "Ilmoita prosenttiosuusmuutos (0\u2013100%), joka vaaditaan hälytyksen luomiseksi.",
           "Esimerkki: Jos asetat 5 %, hälytys lähetetään, kun omaisuus nousee tai laskee yli 5 %."
         ]
       },
@@ -1142,7 +1133,7 @@
       },
       "thankYou": {
         "title": "Kiitos, että kokeilit ohjelmistoa!",
-        "content": "Jos sinulla on ehdotuksia tai ongelmia, ota yhteyttä Discordissa tai GitHubissa."
+        "content": "Arvostamme sitä todella paljon."
       }
     },
     "navigation": {
@@ -1155,7 +1146,6 @@
     },
     "contentPending": "Sisältö odottaa (vaihe {{step}}/4). Käytä ← → vaihtaaksesi osioita.",
     "defaultHelpMessage": "Sisältö odottaa (vaihe {{step}}/4). Käytä ← → vaihtaaksesi osioita.",
-    "discordLink": "Discord-palvelin",
     "resendLink": "tästä",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -1169,8 +1159,8 @@
         "title": "Rozpocznij monitorowanie",
         "steps": [
           "Naciśnij przycisk {{startButton}}.",
-          "Po aktywacji aplikacja będzie sprawdzać ceny w regularnych odstępach, zgodnie z wartością skonfigurowaną w Ustawienia → Interwał sprawdzania.",
-          "Jeśli aktywo wzrośnie lub spadnie więcej niż ustawiony próg (domyślnie ±5%), generowane jest automatyczne powiadomienie."
+          "Po aktywacji aplikacja będzie sprawdzać ceny w regularnych odstępach, zgodnie z wartością skonfigurowaną w Ustawienia \u2192 Interwał sprawdzania.",
+          "Jeśli aktywo wzrośnie lub spadnie więcej niż ustawiony próg (domyślnie \u00b15%), generowane jest automatyczne powiadomienie."
         ]
       },
       "stopMonitoring": {
@@ -1182,7 +1172,7 @@
         "steps": [
           "Wszystkie alerty są przechowywane w folderze /diary_logs, rozdzielone na dni w plikach .txt.",
           "Jeśli masz aktywne integracje (np. e-mail Resend lub Discord), otrzymasz tam również powiadomienia.",
-          "Wskazówka: Zalecamy utworzenie serwera Discord i połączenie bota przez aplikację. Pełny przewodnik znajdziesz na naszym serwerze: [{{discordLink}}]."
+          "Wskazówka: Zalecamy utworzenie serwera Discord i połączenie bota przez aplikację."
         ]
       },
       "settings": {
@@ -1212,21 +1202,21 @@
       "revisionInterval": {
         "title": "Interwał sprawdzania (wymagany)",
         "steps": [
-          "Zdefiniuj czas w minutach (5–60) między kolejnymi sprawdzeniami cen.",
+          "Zdefiniuj czas w minutach (5\u201360) między kolejnymi sprawdzeniami cen.",
           "Przykład: Jeśli wartość to 5, system będzie sprawdzać ceny wszystkich aktywów co 5 minut."
         ]
       },
       "waitingTime": {
         "title": "Czas oczekiwania między alertami (wymagany)",
         "steps": [
-          "Zdefiniuj minimalny interwał w minutach (1–10080), zanim można będzie wysłać nowe powiadomienie dla tego samego aktywa.",
+          "Zdefiniuj minimalny interwał w minutach (1\u201310080), zanim można będzie wysłać nowe powiadomienie dla tego samego aktywa.",
           "Przykład: Jeśli ustawisz 360 minut (6 godzin) i Apple wygeneruje alert, kolejny nie zostanie wysłany, dopóki nie upłynie 6 godzin, nawet jeśli cena ponownie przekroczy próg."
         ]
       },
       "alertThreshold": {
         "title": "Próg alertu (wymagany)",
         "steps": [
-          "Wskaż procentową zmianę (0–100%), wymaganą do wygenerowania alertu.",
+          "Wskaż procentową zmianę (0\u2013100%), wymaganą do wygenerowania alertu.",
           "Przykład: Jeśli ustawisz 5%, alert zostanie wysłany, gdy aktywo wzrośnie lub spadnie o więcej niż 5%."
         ]
       },
@@ -1258,7 +1248,7 @@
       },
       "thankYou": {
         "title": "Dziękujemy za wypróbowanie oprogramowania!",
-        "content": "Jeśli masz sugestie lub problemy, skontaktuj się z nami na Discord lub GitHub."
+        "content": "Bardzo to doceniamy."
       }
     },
     "navigation": {
@@ -1271,7 +1261,6 @@
     },
     "contentPending": "Treść w toku (krok {{step}}/4). Użyj ← → aby zmienić sekcje.",
     "defaultHelpMessage": "Treść w toku (krok {{step}}/4). Użyj ← → aby zmienić sekcje.",
-    "discordLink": "Serwer Discord",
     "resendLink": "tutaj",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -1285,8 +1274,8 @@
         "title": "İzlemeyi başlat",
         "steps": [
           "{{startButton}} düğmesine basın.",
-          "Etkinleştirildiğinde, uygulama Ayarlar → Kontrol aralığında yapılandırılan değere göre düzenli aralıklarla fiyatları kontrol eder.",
-          "Bir varlık belirlenen eşikten (varsayılan ±%5) daha fazla yükselir veya düşerse otomatik bir uyarı oluşturulur."
+          "Etkinleştirildiğinde, uygulama Ayarlar \u2192 Kontrol aralığında yapılandırılan değere göre düzenli aralıklarla fiyatları kontrol eder.",
+          "Bir varlık belirlenen eşikten (varsayılan \u00b15%) daha fazla yükselir veya düşerse otomatik bir uyarı oluşturulur."
         ]
       },
       "stopMonitoring": {
@@ -1298,7 +1287,7 @@
         "steps": [
           "Tüm uyarılar /diary_logs klasöründe günlük dosyaları halinde .txt dosyalarına ayrılarak saklanır.",
           "Etkin entegrasyonlarınız (ör. Resend e-posta veya Discord) varsa, bildirimleri orada da alırsınız.",
-          "İpucu: Bir Discord sunucusu oluşturmanızı ve botunuzu uygulama üzerinden bağlamanızı öneririz. Tam kılavuzumuza sunucumuzdan ulaşabilirsiniz: [{{discordLink}}]."
+          "İpucu: Bir Discord sunucusu oluşturmanızı ve botunuzu uygulama üzerinden bağlamanızı öneririz."
         ]
       },
       "settings": {
@@ -1328,21 +1317,21 @@
       "revisionInterval": {
         "title": "Kontrol aralığı (gerekli)",
         "steps": [
-          "Her fiyat kontrolü arasındaki süreyi dakika cinsinden (5–60) tanımlayın.",
+          "Her fiyat kontrolü arasındaki süreyi dakika cinsinden (5\u201360) tanımlayın.",
           "Örnek: Değer 5 ise, sistem tüm varlıkların fiyatlarını her 5 dakikada bir kontrol eder."
         ]
       },
       "waitingTime": {
         "title": "Uyarılar arasındaki bekleme süresi (gerekli)",
         "steps": [
-          "Aynı varlık için yeni bir uyarı gönderilebilmesi için dakika cinsinden (1–10080) minimum aralığı tanımlayın.",
+          "Aynı varlık için yeni bir uyarı gönderilebilmesi için dakika cinsinden (1\u201310080) minimum aralığı tanımlayın.",
           "Örnek: Bunu 360 dakika (6 saat) olarak ayarlarsanız ve Apple bir uyarı tetiklerse, fiyat tekrar eşik değeri geçse bile başka bir uyarı bu 6 saat dolana kadar gönderilmeyecektir."
         ]
       },
       "alertThreshold": {
         "title": "Uyarı eşiği (gerekli)",
         "steps": [
-          "Bir uyarı oluşturmak için gereken yüzdelik değişimi (0–100%) belirtin.",
+          "Bir uyarı oluşturmak için gereken yüzdelik değişimi (0\u2013100%) belirtin.",
           "Örnek: 5% ayarlarsanız, bir varlık %5'ten fazla yükselip düşerse uyarı gönderilecektir."
         ]
       },
@@ -1374,7 +1363,7 @@
       },
       "thankYou": {
         "title": "Yazılımı denediğiniz için teşekkürler!",
-        "content": "Herhangi bir öneriniz veya sorun varsa, bize Discord veya GitHub üzerinden ulaşabilirsiniz."
+        "content": "Bunu gerçekten takdir ediyoruz."
       }
     },
     "navigation": {
@@ -1387,7 +1376,6 @@
     },
     "contentPending": "İçerik beklemede (adım {{step}}/4). Bölümler arası geçiş için ← → kullanın.",
     "defaultHelpMessage": "İçerik beklemede (adım {{step}}/4). Bölümler arası geçiş için ← → kullanın.",
-    "discordLink": "Discord sunucusu",
     "resendLink": "buradan",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -1401,8 +1389,8 @@
         "title": "Запустить мониторинг",
         "steps": [
           "Нажмите кнопку {{startButton}}.",
-          "После активации приложение будет проверять цены через регулярные интервалы, в соответствии со значением, указанным в Настройки → Интервал проверки.",
-          "Если актив поднимется или упадет более чем на установленный порог (по умолчанию ±5%), генерируется автоматическое предупреждение."
+          "После активации приложение будет проверять цены через регулярные интервалы, в соответствии со значением, указанным в Настройки \u2192 Интервал проверки.",
+          "Если актив поднимется или упадет более чем на установленный порог (по умолчанию \u00b15%), генерируется автоматическое предупреждение."
         ]
       },
       "stopMonitoring": {
@@ -1414,7 +1402,7 @@
         "steps": [
           "Все оповещения хранятся в папке /diary_logs, разделённые по дням в .txt файлах.",
           "Если у вас есть активные интеграции (например, Resend email или Discord), вы также будете получать уведомления там.",
-          "Совет: Рекомендуем создать Discord-сервер и подключить вашего бота через приложение. Полное руководство доступно на нашем сервере: [{{discordLink}}]."
+          "Совет: Рекомендуем создать Discord-сервер и подключить вашего бота через приложение."
         ]
       },
       "settings": {
@@ -1444,21 +1432,21 @@
       "revisionInterval": {
         "title": "Интервал проверки (обязателен)",
         "steps": [
-          "Укажите время в минутах (5–60) между каждой проверкой цен.",
+          "Укажите время в минутах (5\u201360) между каждой проверкой цен.",
           "Пример: Если значение 5, система будет проверять цены всех активов каждые 5 минут."
         ]
       },
       "waitingTime": {
         "title": "Ожидание между оповещениями (обязательно)",
         "steps": [
-          "Укажите минимальный интервал в минутах (1–10080), прежде чем новое оповещение по тому же активу может быть отправлено.",
+          "Укажите минимальный интервал в минутах (1\u201310080), прежде чем новое оповещение по тому же активу может быть отправлено.",
           "Пример: Если установить 360 минут (6 часов) и Apple вызовет оповещение, новое не будет отправлено до истечения 6 часов, даже если цена снова пересечёт порог."
         ]
       },
       "alertThreshold": {
         "title": "Порог оповещения (обязательно)",
         "steps": [
-          "Укажите процентное изменение (0–100%), необходимое для генерации оповещения.",
+          "Укажите процентное изменение (0\u2013100%), необходимое для генерации оповещения.",
           "Пример: Если выставить 5%, оповещение будет отправлено, когда актив вырастет или упадёт более чем на 5%."
         ]
       },
@@ -1490,7 +1478,7 @@
       },
       "thankYou": {
         "title": "Спасибо, что опробовали программное обеспечение!",
-        "content": "Если у вас есть предложения или проблемы, свяжитесь с нами в Discord или на GitHub."
+        "content": "Мы очень это ценим."
       }
     },
     "navigation": {
@@ -1503,7 +1491,6 @@
     },
     "contentPending": "Содержание ожидает (шаг {{step}}/4). Используйте ← → для переключения разделов.",
     "defaultHelpMessage": "Содержание ожидает (шаг {{step}}/4). Используйте ← → для переключения разделов.",
-    "discordLink": "Discord сервер",
     "resendLink": "здесь",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -1517,8 +1504,8 @@
         "title": "監視を開始",
         "steps": [
           "{{startButton}} ボタンを押してください。",
-          "有効化されると、アプリは設定 → 確認間隔 に設定された値に従って定期的に価格を確認します。",
-          "資産が設定された閾値（デフォルト ±5%）を超えて上昇または下降した場合、自動アラートが生成されます。"
+          "有効化されると、アプリは設定 \u2192 確認間隔 に設定された値に従って定期的に価格を確認します。",
+          "資産が設定された閾値（デフォルト \u00b15%）を超えて上昇または下降した場合、自動アラートが生成されます。"
         ]
       },
       "stopMonitoring": {
@@ -1530,7 +1517,7 @@
         "steps": [
           "すべてのアラートは /diary_logs フォルダに日ごとに分けて .txt ファイルとして保存されます。",
           "Resend のメールや Discord など統合を有効にしている場合は、そちらでも通知を受け取ります。",
-          "ヒント：Discord サーバーを作成し、アプリからボットを接続することをお勧めします。ガイドは当プロジェクトのサーバーで確認できます: [{{discordLink}}]。"
+          "ヒント：Discord サーバーを作成し、アプリからボットを接続することをお勧めします。"
         ]
       },
       "settings": {
@@ -1606,7 +1593,7 @@
       },
       "thankYou": {
         "title": "ソフトをお試しいただきありがとうございます！",
-        "content": "ご提案や問題がございましたら、Discord または GitHub でお気軽にお問い合わせください。"
+        "content": "とても感謝しています。"
       }
     },
     "navigation": {
@@ -1619,124 +1606,7 @@
     },
     "contentPending": "コンテンツ保留中 (ステップ {{step}}/4)。 ← → でセクションを切り替えてください。",
     "defaultHelpMessage": "コンテンツ保留中 (ステップ {{step}}/4)。 ← → でセクションを切り替えてください。",
-    "discordLink": "Discord サーバー",
     "resendLink": "こちら",
-    "licenseLink": "Creative Commons BY-NC 4.0"
-  },
-  "ja-romaji": {
-    "sections": {
-      "autoMonitoring": {
-        "title": "Jidō kanshi",
-        "content": "Shisutemu wa kōsei sareta shisan o keizokuteki ni kanshi shi, kansuru kakaku hendō ga hakken sareta toki ni sugu ni an'nai shimasu."
-      },
-      "startMonitoring": {
-        "title": "Kanshi o kaishi",
-        "steps": [
-          "{{startButton}} botan o oshite kudasai.",
-          "Yūkō ni naru to, apuri wa Settei → Kakunin kankaku ni setto sareta atai ni shitagatte teikitekini kakaku o kakunin shimasu.",
-          "Shisan ga settei sareta ikichi (deforuto ±5%) ijō ni jōshō matawa geshō suru to, jidō arāto ga seisei saremasu."
-        ]
-      },
-      "stopMonitoring": {
-        "title": "Kanshi o teishi",
-        "content": "{{stopButton}} o oshite kanshi o kanzen ni ichiji teishi shite kudasai. Saikai suru to, apurikeishon wa risuto no saisho kara subete no shisan o futatabi bunseki shimasu."
-      },
-      "viewAlerts": {
-        "title": "Arāto no kansatsu basho",
-        "steps": [
-          "Subete no arāto wa /diary_logs fōruda ni hi-betsu ni bunrei sa rete .txt fairu to shite hozon saremasu.",
-          "Resend mēru ya Discord nado no tōgō ga kakudai sarete iru baai wa, soko demo tsūchi o ukemasu.",
-          "Chotto kādo: Discord sābā o sakusei shi, apuri kara botto o setsuzoku suru koto o osusume shimasu. Guido wa watashitachi no sābā de miru koto ga dekimasu: [{{discordLink}}]."
-        ]
-      },
-      "settings": {
-        "title": "Shisan no settei",
-        "steps": [
-          "Apuri niwa ikutsu ka no preconfigured na shisan ga fukuma rete imasu ga, kantan ni kāsutomaizu dekimasu:",
-          "Shisan o tsuika/ sakujo suru ni wa 'Shinboru o Tsuika' botan o oshite kudasai.",
-          "Henkō go, 'Hozon shite Tojiru' o sentaku shite tekiyō shite kudasai.",
-          "Reibun: AAPL, Apple, kabu / BTC-USD, Bitcoin, kuriputo",
-          "Chūi: Kanshi suru tame ni wa shisan ga Yahoo Finance ni sonzai suru hitsuyō ga arimasu."
-        ]
-      },
-      "importantNotes": {
-        "title": "Jūyōna chūi jikō",
-        "steps": [
-          "Kanshi ni wa akuteibu na intānetto setsuzoku ga hitsuyōdesu.",
-          "Apuri o tojiru to kanshi wa jidōteki ni teishi shimasu."
-        ]
-      },
-      "Config": {
-        "title": "Hitsuyōna settei",
-        "steps": [
-          "Subete no opushon ni wa (⚙️ Settei) aikon kara akusesu dekimasu.",
-          "Seikō ni dōsa suru tame ni hitsuyōna fīrudo o kanarazu nyūryoku shite kudasai."
-        ]
-      },
-      "revisionInterval": {
-        "title": "Kakunin kankaku (hitsuyō)",
-        "steps": [
-          "Kakaku kakunin no aida no jikan o fun de teigi shite kudasai (5–60).",
-          "Reibun: Moshi atai ga 5 nara, shisutemu wa subete no shisan no kakaku o 5-fun goto ni kakunin shimasu."
-        ]
-      },
-      "waitingTime": {
-        "title": "Arāto kan no taiki jikan (hitsuyō)",
-        "steps": [
-          "Onaji shisan ni taisuru atarashii arāto ga okurarenakute iinaru made no saishō no kankaku o fun de teigi shite kudasai (1–10080).",
-          "Reibun: Kore o 360-fun (6-jikan) ni setto shi, Apple ga arāto o torigashitara, sono 6-jikan ga sugiru made hoka no arāto wa okuraremasen."
-        ]
-      },
-      "alertThreshold": {
-        "title": "Arāto ikichi (hitsuyō)",
-        "steps": [
-          "Arāto o seisei suru tame ni hitsuyōna pāsentēji no henka (0–100%) o shimeshite kudasai.",
-          "Reibun: 5% ni setto suru to, shisan ga 5% ijō ugoku to arāto ga okuraremasu."
-        ]
-      },
-      "emailNotifications": {
-        "title": "Mēru tsūchi (sentaku)",
-        "steps": [
-          "Mēru arāto o yūkō ni suru ni wa, korera no fīrudo o nyūryoku shite kudasai:",
-          "Resend API Kī",
-          "Sōshin-moto mēru",
-          "Arāto mēru"
-        ]
-      },
-      "discordIntegration": {
-        "title": "Discord tōgō",
-        "steps": [
-          "Kore wa riaru-taimu de arāto o uketoru tame no osusume no opushon desu.",
-          "Sābā no channeru ni rinku sareta Discord botto no Webhook URL o nyūryoku shite kudasai."
-        ]
-      },
-      "license": {
-        "title": "Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)",
-        "steps": [
-          "Kono sofutōea wa kojin, kyōiku, kenkyū mokuteki de riyō, kopī, ka hen, kyōyū suru koto ga dekimasu.",
-          "Sofutōea o hanbai, saihanbai, shōgyō mokuteki de riyō suru koto wa dekimasen.",
-          "Sofutōea wa nanirai no hoshō naku \"sono mama\" de teikyō sa remasu.",
-          "Raisensu no shōsai: {{licenseLink}}"
-        ],
-        "copyright": "© 2025 3ColumnsCreations. CC BY-NC 4.0 License."
-      },
-      "thankYou": {
-        "title": "Sofutōea o tameshite kurete arigatō!",
-        "content": "Teian ya mondai ga aru baai wa, Discord matawa GitHub de go renraku kudasai."
-      }
-    },
-    "navigation": {
-      "tip": "Chūi: Nābigeishon ni wa yajirushi (← →) o tsukatte kudasai. Tojiru ni wa Esc.",
-      "previous": "Mae",
-      "next": "Tsugi",
-      "prevTitle": "Mae (←)",
-      "nextTitle": "Tsugi (→)",
-      "step": "Suteppu {{current}} / {{total}}"
-    },
-    "contentPending": "Kontentsu hōki-chū (suteppu {{step}}/4). ← → de sekushon o kirikaete kudasai.",
-    "defaultHelpMessage": "Kontentsu hōki-chū (suteppu {{step}}/4). ← → de sekushon o kirikaete kudasai.",
-    "discordLink": "Discord sābā",
-    "resendLink": "kochira",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
   "zh-CN": {
@@ -1749,8 +1619,8 @@
         "title": "开始监控",
         "steps": [
           "按下 {{startButton}} 按钮。",
-          "激活后，应用将按照 设置 → 检查间隔 中配置的值以固定间隔检查价格。",
-          "如果资产上涨或下跌超过设置的阈值（默认 ±5%），则会生成自动警报。"
+          "激活后，应用将按照 设置 \u2192 检查间隔 中配置的值以固定间隔检查价格。",
+          "如果资产上涨或下跌超过设置的阈值（默认 \u00b15%），则会生成自动警报。"
         ]
       },
       "stopMonitoring": {
@@ -1762,7 +1632,7 @@
         "steps": [
           "所有警报存储在 /diary_logs 文件夹中，以天为单位分割为 .txt 文件。",
           "如果您启用了集成（例如 Resend 邮件或 Discord），您也会在这些集成中收到通知。",
-          "提示：建议创建一个 Discord 服务器并通过应用连接您的机器人。您可以在我们的服务器上查看完整指南： [{{discordLink}}]。"
+          "提示：建议创建一个 Discord 服务器并通过应用连接您的机器人。"
         ]
       },
       "settings": {
@@ -1792,21 +1662,21 @@
       "revisionInterval": {
         "title": "检查间隔（必需）",
         "steps": [
-          "定义每次价格检查之间的时间（分钟，5–60）。",
+          "定义每次价格检查之间的时间（分钟，5\u201360）。",
           "示例：如果值为5，则系统将每5分钟检查所有资产的价格。"
         ]
       },
       "waitingTime": {
         "title": "警报间冷却时间（必需）",
         "steps": [
-          "定义对于同一资产可以发送新警报之前的最小间隔（分钟，1–10080）。",
+          "定义对于同一资产可以发送新警报之前的最小间隔（分钟，1\u201310080）。",
           "示例：如果您将其设置为360分钟（6小时），并且 Apple 触发了警报，即使价格再次越过阈值，也要等到这6小时过去才会再发送警报。"
         ]
       },
       "alertThreshold": {
         "title": "警报阈值（必需）",
         "steps": [
-          "指明生成警报所需的百分比变动（0–100%）。",
+          "指明生成警报所需的百分比变动（0\u2013100%）。",
           "示例：如果您设置为5%，当资产上涨或下跌超过5%时将发送警报。"
         ]
       },
@@ -1838,7 +1708,7 @@
       },
       "thankYou": {
         "title": "感谢您试用本软件！",
-        "content": "如有任何建议或问题，欢迎通过 Discord 或 GitHub 与我们联系。"
+        "content": "我们非常感激。"
       }
     },
     "navigation": {
@@ -1851,7 +1721,6 @@
     },
     "contentPending": "内容待定 (步骤 {{step}}/4)。使用 ← → 切换章节。",
     "defaultHelpMessage": "内容待定 (步骤 {{step}}/4)。使用 ← → 切换章节。",
-    "discordLink": "Discord 服务器",
     "resendLink": "这里",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -1865,8 +1734,8 @@
         "title": "開始監控",
         "steps": [
           "按下 {{startButton}} 按鈕。",
-          "啟動後，應用程式會根據 設定 → 檢查間隔 中的設定值，以固定間隔檢查價格。",
-          "如果資產上漲或下跌超過設定的閾值（預設 ±5%），系統將觸發自動警示。"
+          "啟動後，應用程式會根據 設定 \u2192 檢查間隔 中的設定值，以固定間隔檢查價格。",
+          "如果資產上漲或下跌超過設定的閾值（預設 \u00b15%），系統將觸發自動警示。"
         ]
       },
       "stopMonitoring": {
@@ -1878,7 +1747,7 @@
         "steps": [
           "所有警示均儲存在 /diary_logs 資料夾中，並依日期分為 .txt 檔案。",
           "若您啟用了整合（例如 Resend 郵件或 Discord），也會在那些整合中收到通知。",
-          "提示：建議建立一個 Discord 伺服器，並透過應用連接您的機器人。我們的完整指南可在我們的伺服器找到： [{{discordLink}}]。"
+          "提示：建議建立一個 Discord 伺服器，並透過應用連接您的機器人。"
         ]
       },
       "settings": {
@@ -1908,21 +1777,21 @@
       "revisionInterval": {
         "title": "檢查間隔（必填）",
         "steps": [
-          "定義每次價格檢查之間的時間（分鐘，5–60）。",
+          "定義每次價格檢查之間的時間（分鐘，5\u201360）。",
           "範例：若值為 5，系統將每 5 分鐘檢查所有資產的價格。"
         ]
       },
       "waitingTime": {
         "title": "警示間等待時間（必填）",
         "steps": [
-          "定義相同資產在可再度發送新警示之前的最小間隔（分鐘，1–10080）。",
+          "定義相同資產在可再度發送新警示之前的最小間隔（分鐘，1\u201310080）。",
           "範例：若設為 360 分鐘（6 小時），當 Apple 觸發警示後，即使價格再次越過閾值，也需等到 6 小時後才會再發送警示。"
         ]
       },
       "alertThreshold": {
         "title": "警示閾值（必填）",
         "steps": [
-          "指定產生警示所需的百分比變動（0–100%）。",
+          "指定產生警示所需的百分比變動（0\u2013100%）。",
           "範例：若設定為 5%，當資產上漲或下跌超過 5% 時將發送警示。"
         ]
       },
@@ -1954,7 +1823,7 @@
       },
       "thankYou": {
         "title": "感謝您試用本軟體！",
-        "content": "若您有任何建議或問題，歡迎透過 Discord 或 GitHub 與我們聯繫。"
+        "content": "我們非常感激。"
       }
     },
     "navigation": {
@@ -1967,7 +1836,6 @@
     },
     "contentPending": "內容待定 (步驟 {{step}}/4)。使用 ← → 切換章節。",
     "defaultHelpMessage": "內容待定 (步驟 {{step}}/4)。使用 ← → 切換章節。",
-    "discordLink": "Discord 伺服器",
     "resendLink": "這裡",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -1981,8 +1849,8 @@
         "title": "모니터링 시작",
         "steps": [
           "{{startButton}} 버튼을 누르세요.",
-          "활성화되면 앱은 설정 → 확인 간격에 구성된 값에 따라 정기적으로 가격을 확인합니다.",
-          "자산이 설정된 임계값(기본 ±5%)보다 더 오르거나 내리면 자동 경고가 생성됩니다."
+          "활성화되면 앱은 설정 \u2192 확인 간격에 구성된 값에 따라 정기적으로 가격을 확인합니다.",
+          "자산이 설정된 임계값(기본 \u00b15%)보다 더 오르거나 내리면 자동 경고가 생성됩니다."
         ]
       },
       "stopMonitoring": {
@@ -1994,7 +1862,7 @@
         "steps": [
           "모든 알림은 /diary_logs 폴더에 날짜별로 .txt 파일로 저장됩니다.",
           "Resend 이메일이나 Discord 같은 통합이 활성화되어 있으면 해당 통합에서도 알림을 받습니다.",
-          "팁: Discord 서버를 생성하고 앱을 통해 봇을 연결하는 것을 권장합니다. 전체 가이드는 우리 서버에서 확인할 수 있습니다: [{{discordLink}}]."
+          "팁: Discord 서버를 생성하고 앱을 통해 봇을 연결하는 것을 권장합니다."
         ]
       },
       "settings": {
@@ -2024,21 +1892,21 @@
       "revisionInterval": {
         "title": "확인 간격 (필수)",
         "steps": [
-          "각 가격 확인 사이의 시간을 분 단위로 정의하세요 (5–60).",
+          "각 가격 확인 사이의 시간을 분 단위로 정의하세요 (5\u201360).",
           "예: 값이 5이면 시스템은 모든 자산의 가격을 5분마다 확인합니다."
         ]
       },
       "waitingTime": {
         "title": "알림 간 대기 시간 (필수)",
         "steps": [
-          "동일한 자산에 대해 새 알림을 보낼 수 있기 전까지의 최소 간격을 분 단위로 정의하세요 (1–10080).",
+          "동일한 자산에 대해 새 알림을 보낼 수 있기 전까지의 최소 간격을 분 단위로 정의하세요 (1\u201310080).",
           "예: 360분(6시간)으로 설정하고 Apple이 알림을 생성하면, 가격이 다시 임계값을 넘더라도 6시간이 지나기 전에는 다른 알림이 전송되지 않습니다."
         ]
       },
       "alertThreshold": {
         "title": "알림 임계값 (필수)",
         "steps": [
-          "알림을 생성하는 데 필요한 백분율 변화(0–100%)를 지정하세요.",
+          "알림을 생성하는 데 필요한 백분율 변화(0\u2013100%)를 지정하세요.",
           "예: 5%로 설정하면 자산이 5% 이상 오르거나 내릴 때 알림이 전송됩니다."
         ]
       },
@@ -2070,7 +1938,7 @@
       },
       "thankYou": {
         "title": "소프트웨어를 사용해 주셔서 감사합니다!",
-        "content": "제안이나 문제가 있으면 Discord 또는 GitHub에서 자유롭게 문의하세요."
+        "content": "정말 감사드립니다."
       }
     },
     "navigation": {
@@ -2083,7 +1951,6 @@
     },
     "contentPending": "내용 대기 중 (단계 {{step}}/4). 섹션 전환은 ← → 를 사용하세요.",
     "defaultHelpMessage": "내용 대기 중 (단계 {{step}}/4). 섹션 전환은 ← → 를 사용하세요.",
-    "discordLink": "Discord 서버",
     "resendLink": "여기",
     "licenseLink": "Creative Commons BY-NC 4.0"
   },
@@ -2097,8 +1964,8 @@
         "title": "بدء المراقبة",
         "steps": [
           "اضغط على زر {{startButton}}.",
-          "بمجرد التفعيل، ستتحقق التطبيق من الأسعار على فترات منتظمة وفقًا للقيمة المهيأة في الإعدادات → فترة التحقق.",
-          "إذا ارتفع أو انخفض أحد الأصول بأكثر من العتبة المحددة (افتراضيًا ±5%)، يتم إنشاء تنبيه تلقائي."
+          "بمجرد التفعيل، ستتحقق التطبيق من الأسعار على فترات منتظمة وفقًا للقيمة المهيأة في الإعدادات \u2192 فترة التحقق.",
+          "إذا ارتفع أو انخفض أحد الأصول بأكثر من العتبة المحددة (افتراضيًا \u00b15%)، يتم إنشاء تنبيه تلقائي."
         ]
       },
       "stopMonitoring": {
@@ -2110,7 +1977,7 @@
         "steps": [
           "تُخزن جميع التنبيهات في مجلد /diary_logs، مفصولة حسب اليوم في ملفات .txt.",
           "إذا كانت لديك تكاملات نشطة (مثلاً: بريد Resend أو Discord)، فستتلقى الإشعارات هناك أيضًا.",
-          "تلميح: نوصي بإنشاء خادم Discord وربط بوتك عبر التطبيق. يمكنك متابعة دليلنا الكامل من خادمنا: [{{discordLink}}]."
+          "تلميح: نوصي بإنشاء خادم Discord وربط بوتك عبر التطبيق."
         ]
       },
       "settings": {
@@ -2140,21 +2007,21 @@
       "revisionInterval": {
         "title": "فترة التحقق (مطلوبة)",
         "steps": [
-          "حدد الوقت بالدقائق (5–60) بين كل فحص للأسعار.",
+          "حدد الوقت بالدقائق (5\u201360) بين كل فحص للأسعار.",
           "مثال: إذا كانت القيمة 5، سيتحقق النظام من أسعار جميع الأصول كل 5 دقائق."
         ]
       },
       "waitingTime": {
         "title": "فترة الانتظار بين التنبيهات (مطلوبة)",
         "steps": [
-          "حدد الحد الأدنى للفاصل الزمني بالدقائق (1–10080) قبل أن يتم إرسال تنبيه جديد لنفس الأصل.",
-          "مثال: إذا ضبطتها على 360 دقيقة (6 ساعات) وأصدر Apple تنبيهًا، فلن يتم إرسال تنبيه آخر حتى تمر تلك الساعات الست، حتى لو تجاوز السعر العتبة مرة أخرى."
+          "حدد الحد الأدنى للفاصل الزمني بالدقائق (1\u201310080) قبل أن يتم إرسال تنبيه جديد لنفس الأصل.",
+          "مثال: إذا ضبطتها على 360 دقيقة (6 ساعات) وأصدر Apple تنبيهًا، فلن يتم إرسال تنبيه آخر حتى تمر تلك الساعات الست."
         ]
       },
       "alertThreshold": {
         "title": "عتبة التنبيه (مطلوبة)",
         "steps": [
-          "حدد نسبة التغيير (0–100%) المطلوبة لتوليد تنبيه.",
+          "حدد نسبة التغيير (0\u2013100%) المطلوبة لتوليد تنبيه.",
           "مثال: إذا ضبطت 5%، سيتم إرسال تنبيه عندما يرتفع أو ينخفض أصل بأكثر من 5%."
         ]
       },
@@ -2186,7 +2053,7 @@
       },
       "thankYou": {
         "title": "شكرًا لتجربة البرنامج!",
-        "content": "إذا كانت لديك اقتراحات أو مشاكل، فلا تتردد في الاتصال بنا على Discord أو GitHub."
+        "content": "نقدّر ذلك كثيرًا."
       }
     },
     "navigation": {
@@ -2199,7 +2066,6 @@
     },
     "contentPending": "المحتوى معلق (الخطوة {{step}}/4). استخدم ← → لتبديل الأقسام.",
     "defaultHelpMessage": "المحتوى معلق (الخطوة {{step}}/4). استخدم ← → لتبديل الأقسام.",
-    "discordLink": "خادم Discord",
     "resendLink": "هنا",
     "licenseLink": "Creative Commons BY-NC 4.0"
   }
