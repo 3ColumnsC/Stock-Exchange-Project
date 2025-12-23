@@ -14,7 +14,7 @@
     "build:electron": "electron-builder",
     "preview": "vite preview"
   },
-  "author": "3ColumnsCreations",
+  "author": "3Columns Studio",
   "license": "Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)",
   "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
   "repository": {
